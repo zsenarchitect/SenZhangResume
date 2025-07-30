@@ -64,23 +64,16 @@
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 </head>
 <body>
-    <!-- Vertical Grid Lines -->
-    <div class="grid-lines">
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-    </div>
+
     
     <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <h1 class="main-title">Contact</h1>
-            <div class="header-info">
-                <div class="info-item">
-                    <span class="label">Back to:</span>
-                    <a href="index.html" class="link">Resume</a>
+    <header class="site-header">
+        <div class="site-header__content">
+            <h1 class="site-header__title">Contact</h1>
+            <div class="site-header__info">
+                <div class="site-header__info-item">
+                    <span class="site-header__label">Back to:</span>
+                    <a href="index.html" class="site-header__link">Resume</a>
                 </div>
             </div>
         </div>
@@ -88,121 +81,121 @@
     
     <!-- Main Content -->
     <main class="main-content">
-        <div class="container">
+        <div class="content-container">
             <!-- Contact Information Section -->
-            <div class="segment expanded" onclick="toggleSegment(this)">
-                <div class="segment-header">
-                    <span class="segment-title">Contact Information</span>
-                    <span class="expand-icon"></span>
+            <div class="segment segment--expanded" onclick="toggleSegment(this)">
+                <div class="segment__header">
+                    <span class="segment__title">Contact Information</span>
+                    <span class="segment__expand-icon"></span>
                 </div>
-                <div class="segment-content">
-                    <div class="content-text">
+                <div class="segment__content">
+                    <div class="segment__text">
                         <div class="contact-item">
-                            <h3>Email</h3>
-                            <div class="affiliation">zsenarchitect@gmail.com</div>
-                            <p>Primary method of communication for professional inquiries and project discussions.</p>
+                            <h3 class="contact-item__title">Email</h3>
+                            <div class="contact-item__meta">zsenarchitect@gmail.com</div>
+                            <p class="contact-item__description">Primary method of communication for professional inquiries and project discussions.</p>
                         </div>
 
                         <div class="contact-item">
-                            <h3>Phone</h3>
-                            <div class="affiliation">+1-518-618-6150</div>
-                            <p>Available for urgent matters and detailed project discussions.</p>
+                            <h3 class="contact-item__title">Phone</h3>
+                            <div class="contact-item__meta">+1-518-618-6150</div>
+                            <p class="contact-item__description">Available for urgent matters and detailed project discussions.</p>
                         </div>
 
                         <div class="contact-item">
-                            <h3>Location</h3>
-                            <div class="affiliation">New York, NY</div>
-                            <p>Based in New York City, available for local and remote collaboration.</p>
+                            <h3 class="contact-item__title">Location</h3>
+                            <div class="contact-item__meta">New York, NY</div>
+                            <p class="contact-item__description">Based in New York City, available for local and remote collaboration.</p>
                         </div>
 
                         <div class="contact-item">
-                            <h3>LinkedIn</h3>
-                            <div class="affiliation">
+                            <h3 class="contact-item__title">LinkedIn</h3>
+                            <div class="contact-item__meta">
                                 <a href="https://linkedin.com/in/senzhang" target="_blank" rel="noopener noreferrer">linkedin.com/in/senzhang</a>
                             </div>
-                            <p>Professional network and detailed work history.</p>
+                            <p class="contact-item__description">Professional network and detailed work history.</p>
                         </div>
 
                         <div class="contact-item">
-                            <h3>GitHub</h3>
-                            <div class="affiliation">
+                            <h3 class="contact-item__title">GitHub</h3>
+                            <div class="contact-item__meta">
                                 <a href="https://github.com/szhang" target="_blank" rel="noopener noreferrer">github.com/szhang</a>
                             </div>
-                            <p>Open source contributions and technical projects.</p>
+                            <p class="contact-item__description">Open source contributions and technical projects.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="divider"></div>
+            <div class="segment__divider"></div>
 
             <!-- Professional Services Section -->
-            <div class="segment collapsed" onclick="toggleSegment(this)">
-                <div class="segment-header">
-                    <span class="segment-title">Professional Services</span>
-                    <span class="expand-icon"></span>
+            <div class="segment segment--collapsed" onclick="toggleSegment(this)">
+                <div class="segment__header">
+                    <span class="segment__title">Professional Services</span>
+                    <span class="segment__expand-icon"></span>
                 </div>
-                <div class="segment-content">
-                    <div class="content-text">
-                        <div class="experience-item">
-                            <h3>BIM Consulting & Development</h3>
-                            <div class="affiliation">Custom Revit & Rhino Plugin Development</div>
-                            <p>Specialized in creating custom tools and workflows for architectural firms. 
+                <div class="segment__content">
+                    <div class="segment__text">
+                        <div class="content-item">
+                            <h3 class="content-item__title">BIM Consulting & Development</h3>
+                            <div class="content-item__meta">Custom Revit & Rhino Plugin Development</div>
+                            <p class="content-item__description">Specialized in creating custom tools and workflows for architectural firms. 
                             Development of in-house plugins to streamline modeling, documentation, and quality control processes.</p>
                         </div>
 
-                        <div class="experience-item">
-                            <h3>Computational Design</h3>
-                            <div class="affiliation">Parametric Design & Automation</div>
-                            <p>Advanced computational design solutions using Python, Revit API, and Rhino Commons API. 
+                        <div class="content-item">
+                            <h3 class="content-item__title">Computational Design</h3>
+                            <div class="content-item__meta">Parametric Design & Automation</div>
+                            <p class="content-item__description">Advanced computational design solutions using Python, Revit API, and Rhino Commons API. 
                             Integration of AI and machine learning for architectural applications.</p>
                         </div>
 
-                        <div class="experience-item">
-                            <h3>Project Management</h3>
-                            <div class="affiliation">Large-Scale Commercial & Healthcare Projects</div>
-                            <p>BIM management for complex commercial buildings and healthcare campuses. 
+                        <div class="content-item">
+                            <h3 class="content-item__title">Project Management</h3>
+                            <div class="content-item__meta">Large-Scale Commercial & Healthcare Projects</div>
+                            <p class="content-item__description">BIM management for complex commercial buildings and healthcare campuses. 
                             Experience with projects in Asia and Northeast US markets.</p>
                         </div>
 
-                        <div class="experience-item">
-                            <h3>Training & Mentoring</h3>
-                            <div class="affiliation">In-House Training & Knowledge Transfer</div>
-                            <p>Comprehensive training programs for architectural teams on BIM workflows, 
+                        <div class="content-item">
+                            <h3 class="content-item__title">Training & Mentoring</h3>
+                            <div class="content-item__meta">In-House Training & Knowledge Transfer</div>
+                            <p class="content-item__description">Comprehensive training programs for architectural teams on BIM workflows, 
                             computational design tools, and best practices for digital project delivery.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="divider"></div>
+            <div class="segment__divider"></div>
 
             <!-- Availability Section -->
-            <div class="segment collapsed" onclick="toggleSegment(this)">
-                <div class="segment-header">
-                    <span class="segment-title">Availability & Collaboration</span>
-                    <span class="expand-icon"></span>
+            <div class="segment segment--collapsed" onclick="toggleSegment(this)">
+                <div class="segment__header">
+                    <span class="segment__title">Availability & Collaboration</span>
+                    <span class="segment__expand-icon"></span>
                 </div>
-                <div class="segment-content">
-                    <div class="content-text">
-                        <div class="experience-item">
-                            <h3>Current Availability</h3>
-                            <div class="affiliation">Limited Availability for Select Projects</div>
-                            <p>Currently focused on full-time role at Ennead Architects LLP. 
+                <div class="segment__content">
+                    <div class="segment__text">
+                        <div class="content-item">
+                            <h3 class="content-item__title">Current Availability</h3>
+                            <div class="content-item__meta">Limited Availability for Select Projects</div>
+                            <p class="content-item__description">Currently focused on full-time role at Ennead Architects LLP. 
                             Available for consulting on specialized computational design projects and BIM development.</p>
                         </div>
 
-                        <div class="experience-item">
-                            <h3>Collaboration Types</h3>
-                            <div class="affiliation">Remote & On-Site Consulting</div>
-                            <p>Flexible collaboration models including remote consulting, on-site training, 
+                        <div class="content-item">
+                            <h3 class="content-item__title">Collaboration Types</h3>
+                            <div class="content-item__meta">Remote & On-Site Consulting</div>
+                            <p class="content-item__description">Flexible collaboration models including remote consulting, on-site training, 
                             and project-specific development work. Open to speaking engagements and educational opportunities.</p>
                         </div>
 
-                        <div class="experience-item">
-                            <h3>Response Time</h3>
-                            <div class="affiliation">24-48 Hours for Initial Response</div>
-                            <p>Typically respond to professional inquiries within 24-48 hours. 
+                        <div class="content-item">
+                            <h3 class="content-item__title">Response Time</h3>
+                            <div class="content-item__meta">24-48 Hours for Initial Response</div>
+                            <p class="content-item__description">Typically respond to professional inquiries within 24-48 hours. 
                             For urgent matters, please include "URGENT" in the subject line.</p>
                         </div>
                     </div>
@@ -212,12 +205,12 @@
     </main>
     
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="index.html" class="footer-link">Resume</a>
+    <footer class="site-footer">
+        <div class="site-footer__content">
+            <div class="site-footer__links">
+                <a href="index.html" class="site-footer__link">Resume</a>
             </div>
-            <div class="footer-copyright">
+            <div class="site-footer__copyright">
                 <p>&copy; 2025 Sen Zhang. All rights reserved.</p>
             </div>
         </div>
