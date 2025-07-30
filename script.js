@@ -27,83 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const eventOptions = passiveSupported ? { passive: true } : false;
     
-    // Play button interactions with better touch handling
-    const playButtons = document.querySelectorAll('.play-button');
-    
-    playButtons.forEach(button => {
-        // Add keyboard support
-        button.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                handlePlayButtonClick(this);
-            }
-        });
-        
-        // Touch and click handling
-        if (isMobile) {
-            // Mobile: Use touchstart for immediate response
-            button.addEventListener('touchstart', function(e) {
-                e.preventDefault();
-                handlePlayButtonClick(this);
-            }, eventOptions);
-        } else {
-            // Desktop: Use click
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                handlePlayButtonClick(this);
-            });
-        }
-        
-        // Hover effects (desktop only)
-        if (!isMobile) {
-            button.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.1)';
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
-            });
-        }
-    });
-    
-    function handlePlayButtonClick(button) {
-        // Add click animation
-        button.style.transform = 'scale(0.9)';
-        setTimeout(() => {
-            button.style.transform = 'scale(1)';
-        }, 150);
-        
-        // Add haptic feedback for mobile
-        if (isMobile && navigator.vibrate) {
-            navigator.vibrate(50);
-        }
-        
-        // You can add specific functionality for each play button here
-        console.log('Play button clicked');
-    }
-    
-    // Sidebar navigation interactions
-    const navItems = document.querySelectorAll('.nav-item');
-    
-    navItems.forEach((item, index) => {
-        const handleNavClick = () => {
-            // Scroll to corresponding section
-            const sections = document.querySelectorAll('.content-section');
-            if (sections[index]) {
-                sections[index].scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        };
-        
-        if (isMobile) {
-            item.addEventListener('touchstart', handleNavClick, eventOptions);
-        } else {
-            item.addEventListener('click', handleNavClick);
-        }
-    });
-    
     // Intersection Observer for animations with better performance
     const observerOptions = {
         threshold: 0.1,
@@ -120,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observe content sections
-    const contentSections = document.querySelectorAll('.content-section');
+    const contentSections = document.querySelectorAll('.segment');
     contentSections.forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(30px)';
@@ -164,20 +87,22 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', function(e) {
         if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
             e.preventDefault();
-            const currentSection = document.querySelector('.content-section[style*="opacity: 1"]');
-            const sections = Array.from(document.querySelectorAll('.content-section'));
+            const currentSegment = document.querySelector('.segment.expanded');
+            const segments = Array.from(document.querySelectorAll('.segment'));
             
-            if (currentSection) {
-                const currentIndex = sections.indexOf(currentSection);
+            if (currentSegment) {
+                const currentIndex = segments.indexOf(currentSegment);
                 let nextIndex;
                 
                 if (e.key === 'ArrowDown') {
-                    nextIndex = Math.min(currentIndex + 1, sections.length - 1);
+                    nextIndex = Math.min(currentIndex + 1, segments.length - 1);
                 } else {
                     nextIndex = Math.max(currentIndex - 1, 0);
                 }
                 
-                sections[nextIndex].scrollIntoView({
+                // Toggle to the next segment
+                toggleSegment(segments[nextIndex]);
+                segments[nextIndex].scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
@@ -210,22 +135,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const diff = touchStartY - touchEndY;
         
         if (Math.abs(diff) > swipeThreshold) {
-            const sections = Array.from(document.querySelectorAll('.content-section'));
-            const currentSection = document.querySelector('.content-section[style*="opacity: 1"]');
+            const segments = Array.from(document.querySelectorAll('.segment'));
+            const currentSegment = document.querySelector('.segment.expanded');
             
-            if (currentSection) {
-                const currentIndex = sections.indexOf(currentSection);
+            if (currentSegment) {
+                const currentIndex = segments.indexOf(currentSegment);
                 let nextIndex;
                 
                 if (diff > 0) {
                     // Swipe up
-                    nextIndex = Math.min(currentIndex + 1, sections.length - 1);
+                    nextIndex = Math.min(currentIndex + 1, segments.length - 1);
                 } else {
                     // Swipe down
                     nextIndex = Math.max(currentIndex - 1, 0);
                 }
                 
-                sections[nextIndex].scrollIntoView({
+                // Toggle to the next segment
+                toggleSegment(segments[nextIndex]);
+                segments[nextIndex].scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
@@ -263,32 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Social link interactions
-    const socialLinks = document.querySelectorAll('.social-link');
-    
-    socialLinks.forEach(link => {
-        const handleSocialClick = function(e) {
-            e.preventDefault();
-            // Add hover effect
-            this.style.transform = 'scale(1.2)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 200);
-            
-            // Add haptic feedback for mobile
-            if (isMobile && navigator.vibrate) {
-                navigator.vibrate(50);
-            }
-        };
-        
-        if (isMobile) {
-            link.addEventListener('touchstart', handleSocialClick, eventOptions);
-        } else {
-            link.addEventListener('click', handleSocialClick);
-        }
-    });
-    
-    // Initialize first section as visible
+    // Initialize first segment as visible and expanded
     if (contentSections.length > 0) {
         contentSections[0].style.opacity = '1';
         contentSections[0].style.transform = 'translateY(0)';
@@ -369,6 +271,11 @@ function toggleSegment(clickedSegment) {
     if (!isCurrentlyExpanded) {
         clickedSegment.classList.remove('collapsed');
         clickedSegment.classList.add('expanded');
+        
+        // Add haptic feedback for mobile
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && navigator.vibrate) {
+            navigator.vibrate(50);
+        }
     }
 }
 
