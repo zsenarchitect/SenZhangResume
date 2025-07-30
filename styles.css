@@ -223,7 +223,7 @@ body.loading {
     position: relative;
     width: 100%;
     padding: 40px;
-    padding-top: 120px;
+    padding-top: 140px;
     color: rgb(10, 10, 10);
     opacity: 0;
     transform: translateY(20px);
@@ -647,7 +647,7 @@ body.loading {
     
     .segment__content {
         padding: 30px 20px;
-        padding-top: 100px;
+        padding-top: 120px;
         min-height: auto;
         max-height: none;
         overflow: visible;
@@ -745,7 +745,7 @@ body.loading {
     
     .segment__content {
         padding: 20px 15px;
-        padding-top: 90px;
+        padding-top: 110px;
         min-height: auto;
         max-height: none;
         overflow: visible;
