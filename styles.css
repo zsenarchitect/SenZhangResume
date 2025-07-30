@@ -124,6 +124,20 @@ body {
     opacity: 0.5;
 }
 
+.personal-background {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.personal-background p {
+    font-size: 0.875rem;
+    font-weight: 400;
+    opacity: 0.8;
+    line-height: 1.4;
+    margin: 0;
+}
+
 /* Left Sidebar Navigation */
 .sidebar-nav {
     position: fixed;
@@ -354,6 +368,15 @@ body {
         font-size: 0.8rem;
     }
     
+    .personal-background {
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+    }
+    
+    .personal-background p {
+        font-size: 0.8rem;
+    }
+    
     .sidebar-nav {
         display: none;
     }
@@ -454,6 +477,10 @@ body {
     
     .info-item {
         font-size: 0.75rem;
+    }
+    
+    .personal-background p {
+        font-size: 0.7rem;
     }
     
     .footer-links {
@@ -628,6 +655,10 @@ body {
     .footer-link,
     .social-link {
         color: #ffffff;
+    }
+    
+    .personal-background {
+        border-top-color: rgba(255, 255, 255, 0.2);
     }
     
     .link:hover,
