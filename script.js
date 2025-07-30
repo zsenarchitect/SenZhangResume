@@ -34,14 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.documentElement.classList.remove('no-js');
     document.documentElement.classList.add('js');
     
-    // Initialize first segment as expanded
+    // Initialize all segments as collapsed (allow user to choose what to expand)
     if (allSegments.length > 0) {
         allSegments.forEach(segment => {
             segment.classList.add('segment--collapsed');
+            segment.classList.remove('segment--expanded');
+            segment.setAttribute('aria-expanded', 'false');
         });
-        allSegments[0].classList.add('segment--expanded');
-        allSegments[0].classList.remove('segment--collapsed');
-        allSegments[0].setAttribute('aria-expanded', 'true');
     }
     
     // Function to expand a specific segment
@@ -131,6 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
+        // If no segment is currently expanded, don't auto-expand anything
+        // Let users manually choose what to expand
+        if (currentIndex === -1) {
+            return;
+        }
+        
         // Expand the detected segment if it's different from current
         if (nextSegment && nextSegment !== currentExpanded) {
             expandSegment(nextSegment);
@@ -141,12 +146,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleSegment(clickedSegment) {
         const isCurrentlyExpanded = clickedSegment.classList.contains('segment--expanded');
         
-        // If clicking on an already expanded segment, keep it expanded
+        // If clicking on an already expanded segment, collapse it
         if (isCurrentlyExpanded) {
+            clickedSegment.classList.remove('segment--expanded');
+            clickedSegment.classList.add('segment--collapsed');
+            clickedSegment.setAttribute('aria-expanded', 'false');
+            
+            // Add haptic feedback for mobile
+            if (isMobile && navigator.vibrate) {
+                navigator.vibrate(50);
+            }
             return;
         }
         
-        // Otherwise, expand the clicked segment
+        // Otherwise, expand the clicked segment (collapse others first)
         expandSegment(clickedSegment);
         
         // Add haptic feedback for mobile
@@ -300,8 +313,16 @@ function toggleSegment(clickedSegment) {
     const allSegments = document.querySelectorAll('.segment');
     const isCurrentlyExpanded = clickedSegment.classList.contains('segment--expanded');
     
-    // If clicking on an already expanded segment, keep it expanded
+    // If clicking on an already expanded segment, collapse it
     if (isCurrentlyExpanded) {
+        clickedSegment.classList.remove('segment--expanded');
+        clickedSegment.classList.add('segment--collapsed');
+        clickedSegment.setAttribute('aria-expanded', 'false');
+        
+        // Add haptic feedback for mobile
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && navigator.vibrate) {
+            navigator.vibrate(50);
+        }
         return;
     }
     
