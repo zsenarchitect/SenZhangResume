@@ -290,28 +290,16 @@ body {
     opacity: 0.5;
 }
 
-.footer-social {
-    display: flex;
-    gap: 1rem;
+.footer-copyright {
+    text-align: right;
 }
 
-.social-link {
+.footer-copyright p {
     color: #000000;
-    font-size: 1.25rem;
-    transition: opacity 0.3s ease;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-    touch-action: manipulation;
-    padding: 0.5rem;
-    border-radius: 50%;
-}
-
-.social-link:hover {
-    opacity: 0.7;
-}
-
-.social-link:active {
-    opacity: 0.5;
-    background: rgba(0, 0, 0, 0.05);
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin: 0;
+    opacity: 0.8;
 }
 
 /* Responsive Design - Tablet */
@@ -406,6 +394,10 @@ body {
         padding: 0 1rem;
     }
     
+    .footer-copyright {
+        text-align: center;
+    }
+    
     .footer-links {
         gap: 1rem;
         flex-wrap: wrap;
@@ -417,9 +409,8 @@ body {
         padding: 0.5rem;
     }
     
-    .social-link {
-        font-size: 1.1rem;
-        padding: 0.75rem;
+    .footer-copyright p {
+        font-size: 0.7rem;
     }
     
     .grid-line:nth-child(1) { left: 5%; }
@@ -474,9 +465,8 @@ body {
         padding: 0.4rem;
     }
     
-    .social-link {
-        font-size: 1rem;
-        padding: 0.6rem;
+    .footer-copyright p {
+        font-size: 0.65rem;
     }
 }
 
