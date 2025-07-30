@@ -62,11 +62,26 @@ body.loading {
     padding: 0 40px;
 }
 
+.site-header__title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 .site-header__title {
     font-size: 2.5rem;
     font-weight: 300;
     margin: 0;
     letter-spacing: 1px;
+}
+
+.site-header__subtitle {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgb(100, 100, 100);
+    margin: 0;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
 }
 
 .site-header__info {
@@ -606,6 +621,10 @@ body.loading {
         font-size: 2rem;
     }
     
+    .site-header__subtitle {
+        font-size: 0.8rem;
+    }
+    
     .site-header__info {
         gap: 20px;
     }
@@ -706,6 +725,10 @@ body.loading {
 @media (max-width: 480px) {
     .site-header__title {
         font-size: 1.75rem;
+    }
+    
+    .site-header__subtitle {
+        font-size: 0.75rem;
     }
     
     .segment__header {
