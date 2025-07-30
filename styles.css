@@ -154,14 +154,13 @@ body {
     top: 80px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 200px);
+    min-height: calc(100vh - 200px);
     padding: 40px;
     color: #333333;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.4s ease;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: visible;
 }
 
 .segment--expanded .segment__content {
@@ -169,23 +168,7 @@ body {
     transform: translateY(0);
 }
 
-/* Custom scrollbar for better mobile experience */
-.segment__content::-webkit-scrollbar {
-    width: 6px;
-}
-
-.segment__content::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.segment__content::-webkit-scrollbar-thumb {
-    background: #c0c0c0;
-    border-radius: 3px;
-}
-
-.segment__content::-webkit-scrollbar-thumb:hover {
-    background: #a0a0a0;
-}
+/* Removed custom scrollbar - content now expands naturally */
 
 .segment__expand-icon {
     font-size: 24px;
@@ -565,12 +548,6 @@ body {
     
     .contact-item__meta {
         font-size: 0.9rem;
-    }
-    
-    /* Hide scrollbar on mobile for cleaner look */
-    .segment__content::-webkit-scrollbar {
-        width: 0;
-        background: transparent;
     }
 }
 
