@@ -27,26 +27,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const eventOptions = passiveSupported ? { passive: true } : false;
     
-    // Intersection Observer for auto-expanding segments
-    const segmentObserverOptions = {
-        threshold: 0.3, // Trigger when 30% of segment is visible
-        rootMargin: '-10% 0px -10% 0px' // Trigger slightly before segment is fully in view
-    };
-    
-    const segmentObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const segment = entry.target;
-                expandSegment(segment);
-            }
-        });
-    }, segmentObserverOptions);
-    
-    // Observe all segments for auto-expansion
+    // Get all segments
     const allSegments = document.querySelectorAll('.segment');
-    allSegments.forEach(segment => {
-        segmentObserver.observe(segment);
-    });
+    
+    // Remove no-js class for progressive enhancement
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+    
+    // Initialize first segment as expanded
+    if (allSegments.length > 0) {
+        allSegments.forEach(segment => {
+            segment.classList.add('segment--collapsed');
+        });
+        allSegments[0].classList.add('segment--expanded');
+        allSegments[0].classList.remove('segment--collapsed');
+        allSegments[0].setAttribute('aria-expanded', 'true');
+    }
     
     // Function to expand a specific segment
     function expandSegment(targetSegment) {
@@ -54,73 +50,22 @@ document.addEventListener('DOMContentLoaded', function() {
         allSegments.forEach(segment => {
             segment.classList.remove('segment--expanded');
             segment.classList.add('segment--collapsed');
+            segment.setAttribute('aria-expanded', 'false');
         });
         
         // Expand the target segment
         targetSegment.classList.remove('segment--collapsed');
         targetSegment.classList.add('segment--expanded');
+        targetSegment.setAttribute('aria-expanded', 'true');
         
-        // Smooth scroll to ensure the segment is fully visible
-        setTimeout(() => {
-            const rect = targetSegment.getBoundingClientRect();
-            const headerHeight = 80; // Approximate header height
-            
-            // If segment is not fully visible, scroll to it
-            if (rect.top < headerHeight || rect.bottom > window.innerHeight) {
-                targetSegment.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }, 100);
+        // Focus management for accessibility
+        targetSegment.focus();
     }
     
-    // Enhanced scroll handling for better segment visibility
-    let isScrolling = false;
-    let scrollTimeout;
-    
+    // Simple scroll handling without auto-expansion
     function handleScroll() {
-        if (isScrolling) return;
-        
-        isScrolling = true;
-        clearTimeout(scrollTimeout);
-        
-        scrollTimeout = setTimeout(() => {
-            const mostVisibleSegment = getMostVisibleSegment();
-            
-            if (mostVisibleSegment) {
-                expandSegment(mostVisibleSegment);
-            }
-            
-            isScrolling = false;
-        }, 150);
-    }
-    
-    // Function to find the most visible segment
-    function getMostVisibleSegment() {
-        const viewportHeight = window.innerHeight;
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        let maxVisibleArea = 0;
-        let mostVisibleSegment = null;
-        
-        allSegments.forEach(segment => {
-            const rect = segment.getBoundingClientRect();
-            const segmentTop = rect.top + scrollTop;
-            const segmentBottom = segmentTop + rect.height;
-            
-            // Calculate visible area of segment
-            const visibleTop = Math.max(segmentTop, scrollTop);
-            const visibleBottom = Math.min(segmentBottom, scrollTop + viewportHeight);
-            const visibleArea = Math.max(0, visibleBottom - visibleTop);
-            
-            if (visibleArea > maxVisibleArea) {
-                maxVisibleArea = visibleArea;
-                mostVisibleSegment = segment;
-            }
-        });
-        
-        return mostVisibleSegment;
+        // Just track scroll direction for potential future use
+        // No auto-expansion to prevent shaking
     }
     
     // Manual toggle function for clicking
@@ -141,14 +86,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Add click handlers to segments
+    // Add click and keyboard handlers to segments
     allSegments.forEach(segment => {
         segment.addEventListener('click', function() {
             toggleSegment(this);
         });
+        
+        // Add Enter and Space key support
+        segment.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleSegment(this);
+            }
+        });
     });
     
-    // Scroll direction detection for enhanced navigation
+    // Scroll direction detection (simplified)
     let lastScrollY = window.pageYOffset;
     let scrollDirection = 'down';
     
@@ -179,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Touch/swipe support for mobile
+    // Touch/swipe support for mobile (simplified)
     let touchStartY = 0;
     let touchEndY = 0;
     let touchStartTime = 0;
@@ -193,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
         touchEndY = e.changedTouches[0].screenY;
         const touchDuration = Date.now() - touchStartTime;
         
+        // Handle swipes for navigation
         if (touchDuration < 300) {
             handleSwipe();
         }
@@ -222,24 +176,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Initialize with first segment expanded
-    if (allSegments.length > 0) {
-        expandSegment(allSegments[0]);
-    }
-    
-    // Add scroll listeners
-    window.addEventListener('scroll', handleScroll, eventOptions);
+    // Add scroll listeners (simplified)
     window.addEventListener('scroll', handleScrollDirection, eventOptions);
     
-    // Handle orientation change for mobile
+    // Handle orientation change for mobile (simplified)
     if (isMobile) {
         window.addEventListener('orientationchange', function() {
-            setTimeout(() => {
-                const mostVisibleSegment = getMostVisibleSegment();
-                if (mostVisibleSegment) {
-                    expandSegment(mostVisibleSegment);
-                }
-            }, 100);
+            // Just handle viewport changes, no auto-expansion
         });
     }
     
@@ -293,24 +236,13 @@ function toggleSegment(clickedSegment) {
     allSegments.forEach(segment => {
         segment.classList.remove('segment--expanded');
         segment.classList.add('segment--collapsed');
+        segment.setAttribute('aria-expanded', 'false');
     });
     
     // Expand the clicked segment
     clickedSegment.classList.remove('segment--collapsed');
     clickedSegment.classList.add('segment--expanded');
-    
-    // Smooth scroll to ensure the segment is fully visible
-    setTimeout(() => {
-        const rect = clickedSegment.getBoundingClientRect();
-        const headerHeight = 80;
-        
-        if (rect.top < headerHeight || rect.bottom > window.innerHeight) {
-            clickedSegment.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    }, 100);
+    clickedSegment.setAttribute('aria-expanded', 'true');
     
     // Add haptic feedback for mobile
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && navigator.vibrate) {

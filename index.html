@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
@@ -127,10 +127,10 @@
     <main class="main-content">
         <div class="content-container">
             <!-- Experience Section -->
-            <div class="segment segment--collapsed" onclick="toggleSegment(this)">
+            <div class="segment segment--collapsed" onclick="toggleSegment(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="experience-content" aria-label="Experience section - click to expand">
                 <div class="segment__header">
                     <span class="segment__title">Experience</span>
-                    <span class="segment__expand-icon"></span>
+                    <span class="segment__expand-icon" aria-hidden="true"></span>
                 </div>
                 <div class="segment__content">
                     <div class="segment__text">
@@ -234,12 +234,12 @@
             <div class="segment__divider"></div>
 
             <!-- Education Section -->
-            <div class="segment segment--collapsed" onclick="toggleSegment(this)">
+            <div class="segment segment--collapsed" onclick="toggleSegment(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="education-content" aria-label="Education section - click to expand">
                 <div class="segment__header">
-                    <span class="segment__title">Education</span>
-                    <span class="segment__expand-icon"></span>
+                    <span class="segment__title" id="education-title">Education</span>
+                    <span class="segment__expand-icon" aria-hidden="true"></span>
                 </div>
-                <div class="segment__content">
+                <div class="segment__content" id="education-content" aria-labelledby="education-title">
                     <div class="segment__text">
                         <div class="content-item">
                             <h3 class="content-item__title">Master of Science in Advanced Architecture Design</h3>
@@ -262,12 +262,12 @@
             <div class="segment__divider"></div>
 
             <!-- EnneadTab Section -->
-            <div class="segment segment--collapsed" onclick="toggleSegment(this)">
+            <div class="segment segment--collapsed" onclick="toggleSegment(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="enneadtab-content" aria-label="EnneadTab section - click to expand">
                 <div class="segment__header">
-                    <span class="segment__title">EnneadTab / U.S. Copyright Office</span>
-                    <span class="segment__expand-icon"></span>
+                    <span class="segment__title" id="enneadtab-title">EnneadTab</span>
+                    <span class="segment__expand-icon" aria-hidden="true"></span>
                 </div>
-                <div class="segment__content">
+                <div class="segment__content" id="enneadtab-content" aria-labelledby="enneadtab-title">
                     <div class="segment__text">
                         <div class="segment__meta">New York, NY | 2024</div>
                         <ul class="enneadtab-list">
@@ -288,12 +288,12 @@
              <div class="segment__divider"></div>
 
              <!-- Publicity Section -->
-             <div class="segment segment--collapsed" onclick="toggleSegment(this)">
+             <div class="segment segment--collapsed" onclick="toggleSegment(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="publicity-content" aria-label="Publicity & Speaking section - click to expand">
                  <div class="segment__header">
-                     <span class="segment__title">Publicity & Speaking</span>
-                     <span class="segment__expand-icon"></span>
+                     <span class="segment__title" id="publicity-title">Publicity & Speaking</span>
+                     <span class="segment__expand-icon" aria-hidden="true"></span>
                  </div>
-                 <div class="segment__content">
+                 <div class="segment__content" id="publicity-content" aria-labelledby="publicity-title">
                      <div class="segment__text">
                          <div class="publicity-item">
                              <div class="publicity-item__content">
@@ -331,12 +331,12 @@
              <div class="segment__divider"></div>
 
              <!-- Awards Section -->
-             <div class="segment segment--collapsed" onclick="toggleSegment(this)">
+             <div class="segment segment--collapsed" onclick="toggleSegment(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="awards-content" aria-label="Awards & Recognition section - click to expand">
                  <div class="segment__header">
-                     <span class="segment__title">Awards & Recognition</span>
-                     <span class="segment__expand-icon"></span>
+                     <span class="segment__title" id="awards-title">Awards & Recognition</span>
+                     <span class="segment__expand-icon" aria-hidden="true"></span>
                  </div>
-                 <div class="segment__content">
+                 <div class="segment__content" id="awards-content" aria-labelledby="awards-title">
                      <div class="segment__text">
                          <div class="awards-list">
                              <div class="award-item">
@@ -387,12 +387,12 @@
             <div class="segment__divider"></div>
 
             <!-- Other Works Section -->
-            <div class="segment segment--collapsed" onclick="toggleSegment(this)">
+            <div class="segment segment--collapsed" onclick="toggleSegment(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="otherworks-content" aria-label="Other Works section - click to expand">
                   <div class="segment__header">
-                      <span class="segment__title">Other Works</span>
-                      <span class="segment__expand-icon"></span>
+                      <span class="segment__title" id="otherworks-title">Other Works</span>
+                      <span class="segment__expand-icon" aria-hidden="true"></span>
                   </div>
-                  <div class="segment__content">
+                  <div class="segment__content" id="otherworks-content" aria-labelledby="otherworks-title">
                       <div class="segment__text">
                           <div class="content-item">
                               <h3 class="content-item__title">LakeHouse Design</h3>
@@ -402,19 +402,19 @@
                                   </a>
                               </p>
                               <p class="content-item__description">
-                                  Professional design tools and resources for architectural workflows.
+                                  Professional design tools for architectural workflows as Rhino Package.
                               </p>
                           </div>
 
                           <div class="content-item">
-                              <h3 class="content-item__title">EnneadTab Documentation</h3>
+                              <h3 class="content-item__title">EnneadTab Wiki</h3>
                               <p class="content-item__description">
                                   <a href="https://ennead-architects-llp.github.io/EnneadTabWiki/index.html" target="_blank" rel="noopener noreferrer" class="project-link">
                                       <i class="fas fa-book"></i> EnneadTab Wiki
                                   </a>
                               </p>
                               <p class="content-item__description">
-                                  Comprehensive documentation for the EnneadTab plugin ecosystem.
+                                  Comprehensive documentation and guidance for the EnneadTab plugin ecosystem.
                               </p>
                           </div>
 
