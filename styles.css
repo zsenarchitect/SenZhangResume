@@ -300,28 +300,25 @@ body.loading {
 
 /* Experience and Education Items */
 .content-item {
-    margin-bottom: 2.5rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    border-left: 4px solid rgb(180, 180, 180);
-    transition: all 0.2s ease;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(180, 180, 180, 0.3);
+    transition: opacity 0.2s ease;
 }
 
 .content-item:hover {
-    background: rgba(255, 255, 255, 0.5);
-    border-left-color: rgb(100, 100, 100);
-    transform: translateX(4px);
+    opacity: 0.8;
 }
 
 .content-item:last-child {
     margin-bottom: 0;
+    border-bottom: none;
 }
 
 .content-item__title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
     color: rgb(10, 10, 10);
     line-height: 1.3;
 }
@@ -329,14 +326,13 @@ body.loading {
 .content-item__meta {
     font-size: 0.875rem;
     color: rgb(100, 100, 100);
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     font-style: italic;
-    font-weight: 500;
 }
 
 .content-item__description {
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-size: 0.9rem;
+    line-height: 1.6;
     color: rgb(30, 30, 30);
     margin: 0;
 }
@@ -418,26 +414,20 @@ body.loading {
 /* EnneadTab Section */
 .enneadtab-list {
     list-style: none;
-    margin: 1.5rem 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
-    padding: 1rem;
+    margin: 1rem 0;
+    padding: 0;
 }
 
 .enneadtab-list li {
-    margin-bottom: 1rem;
-    padding: 0.75rem;
-    padding-left: 2rem;
-    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    line-height: 1.6;
     position: relative;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
 .enneadtab-list li:hover {
-    background: rgba(255, 255, 255, 0.5);
-    transform: translateX(2px);
+    opacity: 0.8;
 }
 
 .enneadtab-list li:last-child {
@@ -445,13 +435,13 @@ body.loading {
 }
 
 .enneadtab-list li::before {
-    content: "▶";
+    content: "+";
     position: absolute;
-    left: 0.75rem;
-    top: 0.75rem;
+    left: 0;
+    top: 0;
     color: rgb(100, 100, 100);
     font-weight: 500;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
 }
 
 .enneadtab-duck {
