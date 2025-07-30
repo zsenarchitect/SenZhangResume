@@ -310,9 +310,17 @@ body {
 
 .enneadtab-list li {
     margin-bottom: 0.75rem;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
     position: relative;
     line-height: 1.6;
+}
+
+.enneadtab-list li::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    color: #666666;
+    font-weight: 500;
 }
 
 .enneadtab-duck {
