@@ -2,7 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Sen Zhang Portfolio">
+    <meta name="application-name" content="Sen Zhang Portfolio">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-config" content="none">
+    <meta name="theme-color" content="#000000">
+    <meta name="color-scheme" content="light dark">
+    
     <title>Sen Zhang - Registered Architect & BIM Specialist | New York | Portfolio</title>
     
     <!-- SEO Meta Tags -->
@@ -44,11 +55,21 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>SZ</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>SZ</text></svg>">
+    <link rel="mask-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>SZ</text></svg>" color="#000000">
     
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style">
+    
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -140,7 +161,7 @@
     <main class="main-content">
         <!-- Experience Section -->
         <section class="content-section">
-            <div class="play-button">
+            <div class="play-button" role="button" tabindex="0" aria-label="Play experience section">
                 <span>Play</span>
             </div>
             <div class="section-content">
@@ -153,7 +174,7 @@
         </section>
         
         <section class="content-section">
-            <div class="play-button">
+            <div class="play-button" role="button" tabindex="0" aria-label="Play experience section">
                 <span>Play</span>
             </div>
             <div class="section-content">
@@ -166,7 +187,7 @@
         </section>
         
         <section class="content-section">
-            <div class="play-button">
+            <div class="play-button" role="button" tabindex="0" aria-label="Play experience section">
                 <span>Play</span>
             </div>
             <div class="section-content">
@@ -180,7 +201,7 @@
         
         <!-- Education Section -->
         <section class="content-section">
-            <div class="play-button">
+            <div class="play-button" role="button" tabindex="0" aria-label="Play education section">
                 <span>Play</span>
             </div>
             <div class="section-content">
@@ -193,7 +214,7 @@
         </section>
         
         <section class="content-section">
-            <div class="play-button">
+            <div class="play-button" role="button" tabindex="0" aria-label="Play education section">
                 <span>Play</span>
             </div>
             <div class="section-content">
@@ -207,7 +228,7 @@
         
         <!-- Skills Section -->
         <section class="content-section">
-            <div class="play-button">
+            <div class="play-button" role="button" tabindex="0" aria-label="Play skills section">
                 <span>Play</span>
             </div>
             <div class="section-content">
@@ -221,7 +242,7 @@
         
         <!-- Publications Section -->
         <section class="content-section">
-            <div class="play-button">
+            <div class="play-button" role="button" tabindex="0" aria-label="Play publications section">
                 <span>Play</span>
             </div>
             <div class="section-content">
@@ -243,9 +264,9 @@
                 <a href="#" class="footer-link">Download CV</a>
             </div>
             <div class="footer-social">
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </footer>
