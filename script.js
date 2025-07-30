@@ -62,10 +62,64 @@ document.addEventListener('DOMContentLoaded', function() {
         targetSegment.focus();
     }
     
-    // Simple scroll handling without auto-expansion
+    // Improved scroll detection with different sensitivity for mobile/desktop
+    let lastScrollY = window.pageYOffset;
+    let scrollDirection = 'down';
+    let scrollThreshold = isMobile ? 30 : 50; // More sensitive on mobile
+    let scrollTimeout;
+    let isScrolling = false;
+    
     function handleScroll() {
-        // Just track scroll direction for potential future use
-        // No auto-expansion to prevent shaking
+        const currentScrollY = window.pageYOffset;
+        const scrollDelta = Math.abs(currentScrollY - lastScrollY);
+        
+        // Only process if scroll amount exceeds threshold
+        if (scrollDelta > scrollThreshold) {
+            scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
+            lastScrollY = currentScrollY;
+            
+            // Clear existing timeout
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            
+            // Set scrolling state
+            isScrolling = true;
+            
+            // Auto-expand based on scroll position (with delay to prevent rapid changes)
+            scrollTimeout = setTimeout(() => {
+                autoExpandOnScroll(currentScrollY);
+                isScrolling = false;
+            }, isMobile ? 100 : 150); // Faster response on mobile
+        }
+    }
+    
+    // Auto-expand segments based on scroll position
+    function autoExpandOnScroll(scrollY) {
+        const viewportHeight = window.innerHeight;
+        const scrollCenter = scrollY + (viewportHeight / 2);
+        
+        let bestSegment = null;
+        let bestDistance = Infinity;
+        
+        allSegments.forEach(segment => {
+            const rect = segment.getBoundingClientRect();
+            const segmentCenter = rect.top + (rect.height / 2) + scrollY;
+            const distance = Math.abs(scrollCenter - segmentCenter);
+            
+            if (distance < bestDistance) {
+                bestDistance = distance;
+                bestSegment = segment;
+            }
+        });
+        
+        // Only expand if the best segment is different from current and within reasonable distance
+        if (bestSegment && bestDistance < viewportHeight * 0.8) {
+            const currentExpanded = document.querySelector('.segment.segment--expanded');
+            if (currentExpanded !== bestSegment) {
+                expandSegment(bestSegment);
+            }
+        }
     }
     
     // Manual toggle function for clicking
@@ -101,16 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Scroll direction detection (simplified)
-    let lastScrollY = window.pageYOffset;
-    let scrollDirection = 'down';
-    
-    function handleScrollDirection() {
-        const currentScrollY = window.pageYOffset;
-        scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
-        lastScrollY = currentScrollY;
-    }
-    
     // Keyboard navigation
     document.addEventListener('keydown', function(e) {
         if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
@@ -132,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Touch/swipe support for mobile (simplified)
+    // Touch/swipe support for mobile (improved sensitivity)
     let touchStartY = 0;
     let touchEndY = 0;
     let touchStartTime = 0;
@@ -146,14 +190,14 @@ document.addEventListener('DOMContentLoaded', function() {
         touchEndY = e.changedTouches[0].screenY;
         const touchDuration = Date.now() - touchStartTime;
         
-        // Handle swipes for navigation
-        if (touchDuration < 300) {
+        // Handle swipes for navigation (more sensitive on mobile)
+        if (touchDuration < 400) { // Increased duration threshold
             handleSwipe();
         }
     }, eventOptions);
     
     function handleSwipe() {
-        const swipeThreshold = 50;
+        const swipeThreshold = isMobile ? 30 : 50; // More sensitive on mobile
         const diff = touchStartY - touchEndY;
         
         if (Math.abs(diff) > swipeThreshold) {
@@ -176,13 +220,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Add scroll listeners (simplified)
-    window.addEventListener('scroll', handleScrollDirection, eventOptions);
+    // Add scroll listeners with throttling
+    let ticking = false;
+    function updateOnScroll() {
+        handleScroll();
+        ticking = false;
+    }
     
-    // Handle orientation change for mobile (simplified)
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateOnScroll);
+            ticking = true;
+        }
+    }, eventOptions);
+    
+    // Handle orientation change for mobile
     if (isMobile) {
         window.addEventListener('orientationchange', function() {
-            // Just handle viewport changes, no auto-expansion
+            // Adjust scroll threshold for new orientation
+            setTimeout(() => {
+                scrollThreshold = isMobile ? 30 : 50;
+            }, 100);
         });
     }
     
