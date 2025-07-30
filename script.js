@@ -351,3 +351,108 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 }); 
+
+let isScrolling = false;
+let scrollTimeout;
+
+function toggleSegment(clickedSegment) {
+    const allSegments = document.querySelectorAll('.segment');
+    const isCurrentlyExpanded = clickedSegment.classList.contains('expanded');
+    
+    // First, collapse all segments
+    allSegments.forEach(segment => {
+        segment.classList.remove('expanded');
+        segment.classList.add('collapsed');
+    });
+    
+    // If the clicked segment wasn't expanded, expand it
+    if (!isCurrentlyExpanded) {
+        clickedSegment.classList.remove('collapsed');
+        clickedSegment.classList.add('expanded');
+    }
+}
+
+function getSegmentInView() {
+    const segments = document.querySelectorAll('.segment');
+    const viewportHeight = window.innerHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    let maxVisibleArea = 0;
+    let mostVisibleSegment = null;
+    
+    segments.forEach((segment, index) => {
+        const rect = segment.getBoundingClientRect();
+        const segmentTop = rect.top + scrollTop;
+        const segmentBottom = segmentTop + rect.height;
+        
+        // Calculate visible area of segment
+        const visibleTop = Math.max(segmentTop, scrollTop);
+        const visibleBottom = Math.min(segmentBottom, scrollTop + viewportHeight);
+        const visibleArea = Math.max(0, visibleBottom - visibleTop);
+        
+        if (visibleArea > maxVisibleArea) {
+            maxVisibleArea = visibleArea;
+            mostVisibleSegment = segment;
+        }
+    });
+    
+    return mostVisibleSegment;
+}
+
+function handleScroll() {
+    if (isScrolling) return;
+    
+    isScrolling = true;
+    
+    // Clear existing timeout
+    clearTimeout(scrollTimeout);
+    
+    // Set timeout to handle scroll end
+    scrollTimeout = setTimeout(() => {
+        const targetSegment = getSegmentInView();
+        
+        if (targetSegment) {
+            const allSegments = document.querySelectorAll('.segment');
+            
+            // Collapse all segments
+            allSegments.forEach(segment => {
+                segment.classList.remove('expanded');
+                segment.classList.add('collapsed');
+            });
+            
+            // Expand the target segment
+            targetSegment.classList.remove('collapsed');
+            targetSegment.classList.add('expanded');
+        }
+        
+        isScrolling = false;
+    }, 150);
+}
+
+// Initialize with first segment expanded
+document.addEventListener('DOMContentLoaded', function() {
+    const allSegments = document.querySelectorAll('.segment');
+    allSegments.forEach((segment, index) => {
+        if (index === 0) {
+            segment.classList.add('expanded');
+        } else {
+            segment.classList.add('collapsed');
+        }
+    });
+    
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initial check
+    setTimeout(() => {
+        const targetSegment = getSegmentInView();
+        if (targetSegment && !targetSegment.classList.contains('expanded')) {
+            allSegments.forEach(segment => {
+                segment.classList.remove('expanded');
+                segment.classList.add('collapsed');
+            });
+            targetSegment.classList.remove('collapsed');
+            targetSegment.classList.add('expanded');
+        }
+    }, 100);
+}); 
