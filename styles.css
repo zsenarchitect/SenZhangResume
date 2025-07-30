@@ -833,6 +833,80 @@ body.loading {
 }
 
 /* ==========================================================================
+   SPECIAL INTERACTIVE ELEMENTS
+   ========================================================================== */
+
+/* Color showcase functionality */
+.color-showcase {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+.color-showcase:hover {
+    font-weight: 500;
+}
+
+/* Desktop hover effect - changes entire page background */
+@media (hover: hover) and (pointer: fine) {
+    .color-showcase:hover ~ *, 
+    .color-showcase:hover ~ * * {
+        transition: background-color 0.5s ease, color 0.5s ease;
+    }
+    
+    body:has(.color-showcase:hover) {
+        background-color: #4b5e35 !important;
+        transition: background-color 0.5s ease;
+    }
+    
+    body:has(.color-showcase:hover) .site-header,
+    body:has(.color-showcase:hover) .site-footer {
+        background-color: #4b5e35 !important;
+        border-color: #5a6c42 !important;
+    }
+    
+    body:has(.color-showcase:hover) .segment--expanded {
+        background-color: #5a6c42 !important;
+    }
+    
+    body:has(.color-showcase:hover) .segment--expanded .segment__header {
+        background-color: #5a6c42 !important;
+        border-color: #6b7d52 !important;
+    }
+    
+    body:has(.color-showcase:hover) .site-header__title,
+    body:has(.color-showcase:hover) .segment__title,
+    body:has(.color-showcase:hover) .segment__text,
+    body:has(.color-showcase:hover) .contact-item__title,
+    body:has(.color-showcase:hover) .content-item__title {
+        color: #ffffff !important;
+    }
+    
+    body:has(.color-showcase:hover) .segment__meta,
+    body:has(.color-showcase:hover) .contact-item__meta,
+    body:has(.color-showcase:hover) .content-item__meta,
+    body:has(.color-showcase:hover) .contact-item__description,
+    body:has(.color-showcase:hover) .content-item__description {
+        color: #e8f0e8 !important;
+    }
+}
+
+/* Mobile display - show hex and RGB values */
+.color-values {
+    display: none;
+    font-size: 0.8em;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .color-values {
+        display: inline;
+    }
+}
+
+/* ==========================================================================
    DARK MODE SUPPORT
    ========================================================================== */
 
