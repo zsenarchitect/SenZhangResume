@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Auto-expand segments based on scroll position
     function autoExpandOnScroll(scrollY) {
         const viewportHeight = window.innerHeight;
-        const triggerThreshold = viewportHeight * 0.1; // 10% of screen height
+        const triggerThreshold = isMobile ? viewportHeight * 0.25 : viewportHeight * 0.1; // 25% on mobile, 10% on desktop
         
         let nextSegment = null;
         let currentExpanded = document.querySelector('.segment.segment--expanded');
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const nextSegmentElement = allSegments[currentIndex + 1];
             const nextSegmentRect = nextSegmentElement.getBoundingClientRect();
             
-            // Only expand when the next segment's header has passed 10% of screen height
+            // Only expand when the next segment's header has passed the threshold
             // Add a small buffer to ensure user has finished reading current content
             if (nextSegmentRect.top <= triggerThreshold && scrollDirection === 'down') {
                 nextSegment = nextSegmentElement;
