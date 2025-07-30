@@ -298,30 +298,26 @@ body {
    ========================================================================== */
 
 .project-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
     color: #000000;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.75rem 1rem;
-    background: #f8f9fa;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
+    text-decoration: underline;
+    text-decoration-color: #666666;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
     transition: all 0.3s ease;
     font-size: 0.875rem;
+    font-weight: 400;
 }
 
 .project-link:hover {
-    background: #e9ecef;
-    border-color: #ced4da;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333333;
+    text-decoration-color: #000000;
+    text-decoration-thickness: 2px;
 }
 
 .project-link i {
     font-size: 0.75rem;
     color: #666666;
+    margin-right: 0.25rem;
 }
 
 .contact-item__description {
@@ -756,12 +752,11 @@ body {
 
 .project-link {
     color: #ffffff;
-    background: #2d3748;
-    border-color: #4a5568;
+    text-decoration-color: #a0aec0;
 }
 
 .project-link:hover {
-    background: #4a5568;
-    border-color: #718096;
+    color: #f7fafc;
+    text-decoration-color: #ffffff;
 }
 } 
