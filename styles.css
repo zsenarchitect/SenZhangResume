@@ -135,7 +135,7 @@ body {
 .sidebar-nav {
     position: fixed;
     left: 2rem;
-    top: 50%;
+    top: 70%;
     transform: translateY(-50%);
     z-index: 50;
     display: flex;
