@@ -250,6 +250,99 @@ body {
     margin-bottom: 0.5rem;
 }
 
+/* EnneadTab Section */
+.ennetab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.ennetab-location {
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0.7;
+    flex-shrink: 0;
+    margin-left: 2rem;
+}
+
+.ennetab-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.ennetab-list {
+    flex: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ennetab-list li {
+    font-size: 1rem;
+    line-height: 1.8;
+    opacity: 0.8;
+    margin-bottom: 0.75rem;
+    padding-left: 0;
+}
+
+.ennetab-list li:last-child {
+    margin-bottom: 0;
+}
+
+.ennetab-duck {
+    flex-shrink: 0;
+    text-align: center;
+    margin-left: 2rem;
+}
+
+.duck-art {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.duck-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+/* Merit & Award Section */
+.awards-list {
+    margin-top: 1rem;
+}
+
+.award-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.award-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.award-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.award-year {
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+
 /* Publicity Items */
 .publicity-item {
     display: flex;
@@ -487,6 +580,40 @@ body {
     .publicity-details {
         text-align: left;
         margin-left: 0;
+    }
+    
+    .ennetab-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .ennetab-location {
+        margin-left: 0;
+        text-align: left;
+    }
+    
+    .ennetab-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .ennetab-duck {
+        margin-left: 0;
+        align-self: center;
+    }
+    
+    .duck-art {
+        font-size: 2.5rem;
+    }
+    
+    .award-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .award-year {
+        align-self: flex-end;
     }
     
     .footer-content {
@@ -738,6 +865,10 @@ body {
     
     .personal-background {
         border-top-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .award-item {
+        border-bottom-color: rgba(255, 255, 255, 0.1);
     }
     
     .link:hover,
