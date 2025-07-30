@@ -115,38 +115,31 @@
     </script>
 </head>
 <body>
-    <!-- Vertical Grid Lines -->
-    <div class="grid-lines">
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-    </div>
+
     
     <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <h1 class="main-title">Sen Zhang</h1>
+    <header class="site-header">
+        <div class="site-header__content">
+            <h1 class="site-header__title">Sen Zhang</h1>
         </div>
     </header>
     
     <!-- Main Content -->
     <main class="main-content">
-        <div class="container">
+        <div class="content-container">
             <!-- Experience Section -->
-            <div class="segment collapsed" onclick="toggleSegment(this)">
-                <div class="segment-header">
-                    <span class="segment-title">Experience</span>
-                    <span class="expand-icon"></span>
+            <div class="segment segment--collapsed" onclick="toggleSegment(this)">
+                <div class="segment__header">
+                    <span class="segment__title">Experience</span>
+                    <span class="segment__expand-icon"></span>
                 </div>
-                <div class="segment-content">
-                    <div class="content-text">
+                <div class="segment__content">
+                    <div class="segment__text">
                         <!-- Current Position -->
-                        <div class="experience-item">
-                            <h3>Computational BIM Developer</h3>
-                            <div class="affiliation">Ennead Architects LLP, New York City, NY | 2022 - Current</div>
-                            <p>In-house Plugins Development for Revit and Rhino. Workflow optimization on modeling and documentation. 
+                        <div class="content-item">
+                            <h3 class="content-item__title">Computational BIM Developer</h3>
+                            <div class="content-item__meta">Ennead Architects LLP, New York City, NY | 2022 - Current</div>
+                            <p class="content-item__description">In-house Plugins Development for Revit and Rhino. Workflow optimization on modeling and documentation. 
                             Reduce dependency to Grasshopper/Dynamo. Office standard and QAQC integration. 
                             Customization functions for specific projects and users. BIM data metric visualization. 
                             Fluid in Cpython/Ironpython, Revit API, Rhino Commons API, LLM model integration.
@@ -154,28 +147,28 @@
                         </div>
 
                         <!-- BIM Manager Role -->
-                        <div class="experience-item">
-                            <h3>BIM Manager</h3>
-                            <div class="affiliation">Ennead Architects LLP, New York City, NY | 2022 - Current</div>
-                            <p>Manage large commercial building/campus projects on Asian market. 
+                        <div class="content-item">
+                            <h3 class="content-item__title">BIM Manager</h3>
+                            <div class="content-item__meta">Ennead Architects LLP, New York City, NY | 2022 - Current</div>
+                            <p class="content-item__description">Manage large commercial building/campus projects on Asian market. 
                             Manage large healthcare building/campus projects on Northeast US market (NYU, Northwell). 
                             Solution architect to large BIM data management, complex family and other unusual BIM challenges. 
                             In-house training and mentoring.</p>
                         </div>
 
                         <!-- Rhino Doctor Role -->
-                        <div class="experience-item">
-                            <h3>Rhino Doctor</h3>
-                            <div class="affiliation">Ennead Architects LLP, New York City, NY | 2022 - Current</div>
-                            <p>Solution architect to complex geometric challenges (Industrial Design Standard). 
+                        <div class="content-item">
+                            <h3 class="content-item__title">Rhino Doctor</h3>
+                            <div class="content-item__meta">Ennead Architects LLP, New York City, NY | 2022 - Current</div>
+                            <p class="content-item__description">Solution architect to complex geometric challenges (Industrial Design Standard). 
                             Interoperability of Rhino2Revit with zero-learning-curve plugin solution developed internally.</p>
                         </div>
 
                         <!-- Previous Position -->
-                        <div class="experience-item">
-                            <h3>Architectural Designer, BIM Specialist</h3>
-                            <div class="affiliation">Ennead Architects LLP, New York City, NY | 2020 - 2022</div>
-                            <p>FTZ FreeTradeZone, plot 09, 15, 17. Shanghai / Office<br>
+                        <div class="content-item">
+                            <h3 class="content-item__title">Architectural Designer, BIM Specialist</h3>
+                            <div class="content-item__meta">Ennead Architects LLP, New York City, NY | 2020 - 2022</div>
+                            <p class="content-item__description">FTZ FreeTradeZone, plot 09, 15, 17. Shanghai / Office<br>
                             Taopu plot 603, 606 SmartCity. Shanghai / Mix-use<br>
                             ByteDance HQ, Shenzhen / Office HQ<br>
                             Bilibili HQ, Shanghai / Office HQ Campus<br>
@@ -185,10 +178,10 @@
                         </div>
 
                         <!-- Arquitectonica Experience -->
-                        <div class="experience-item">
-                            <h3>Designer, BIM Specialist, CG Visualization</h3>
-                            <div class="affiliation">Arquitectonica, New York City, NY | 2017 - 2020</div>
-                            <p>40 Hudson Yard, New York / Office Tower<br>
+                        <div class="content-item">
+                            <h3 class="content-item__title">Designer, BIM Specialist, CG Visualization</h3>
+                            <div class="content-item__meta">Arquitectonica, New York City, NY | 2017 - 2020</div>
+                            <p class="content-item__description">40 Hudson Yard, New York / Office Tower<br>
                             Curtis Block mid-rise, Calgary, Canada / Residential Complex<br>
                             Amazon HQ2 master planning, Chicago / Office Complex<br>
                             31 Parliament mid-rise residential tower, Toronto SmartCity, Canada / Residential Tower<br>
@@ -201,44 +194,44 @@
                 </div>
             </div>
 
-            <div class="divider"></div>
+            <div class="segment__divider"></div>
 
             <!-- Education Section -->
-            <div class="segment collapsed" onclick="toggleSegment(this)">
-                <div class="segment-header">
-                    <span class="segment-title">Education</span>
-                    <span class="expand-icon"></span>
+            <div class="segment segment--collapsed" onclick="toggleSegment(this)">
+                <div class="segment__header">
+                    <span class="segment__title">Education</span>
+                    <span class="segment__expand-icon"></span>
                 </div>
-                <div class="segment-content">
-                    <div class="content-text">
-                        <div class="education-item">
-                            <h3>Master of Science in Advanced Architecture Design</h3>
-                            <div class="affiliation">Columbia University, New York City, NY | 2016 - 2017</div>
-                            <p>Advanced studies in computational design, digital fabrication, and architectural innovation. 
+                <div class="segment__content">
+                    <div class="segment__text">
+                        <div class="content-item">
+                            <h3 class="content-item__title">Master of Science in Advanced Architecture Design</h3>
+                            <div class="content-item__meta">Columbia University, New York City, NY | 2016 - 2017</div>
+                            <p class="content-item__description">Advanced studies in computational design, digital fabrication, and architectural innovation. 
                             Focus on parametric design methodologies and sustainable urban development.</p>
                         </div>
 
-                        <div class="education-item">
-                            <h3>Bachelor of Architecture</h3>
-                            <div class="affiliation">Rensselaer Polytechnic Institute, Troy, NY | 2012 - 2016</div>
-                            <p>Comprehensive foundation in architectural principles, design theory, and technical skills. 
+                        <div class="content-item">
+                            <h3 class="content-item__title">Bachelor of Architecture</h3>
+                            <div class="content-item__meta">Rensselaer Polytechnic Institute, Troy, NY | 2012 - 2016</div>
+                            <p class="content-item__description">Comprehensive foundation in architectural principles, design theory, and technical skills. 
                             Graduated with Magna Cum Laude Honors and Dean's List recognition.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="divider"></div>
+            <div class="segment__divider"></div>
 
             <!-- EnneadTab Section -->
-            <div class="segment collapsed" onclick="toggleSegment(this)">
-                <div class="segment-header">
-                    <span class="segment-title">EnneadTab / U.S. Copyright Office</span>
-                    <span class="expand-icon"></span>
+            <div class="segment segment--collapsed" onclick="toggleSegment(this)">
+                <div class="segment__header">
+                    <span class="segment__title">EnneadTab / U.S. Copyright Office</span>
+                    <span class="segment__expand-icon"></span>
                 </div>
-                <div class="segment-content">
-                    <div class="content-text">
-                        <div class="affiliation">New York, NY | 2024</div>
+                <div class="segment__content">
+                    <div class="segment__text">
+                        <div class="segment__meta">New York, NY | 2024</div>
                         <ul class="enneadtab-list">
                             <li>+ Three software applications for Ennead Architect submitted for patent protection, authorship credited to SenZhang</li>
                             <li>+ Cross application architectural plugin Eco-system spanning Rhino, Revit, CAD, Autodesk Desktop Connector, Enscape, InDesign, Photoshop, Excel, Email, Notification, AI, Computer Resource Monitoring, TextToSpeech, and Sound Effect</li>
@@ -250,8 +243,8 @@
                             <li>+ Engaging and light-hearted community of support</li>
                         </ul>
                         <div class="enneadtab-duck">
-                            <div class="duck-art">🦆</div>
-                            <div class="duck-label">EnneaDuck</div>
+                            <div class="enneadtab-duck__art">🦆</div>
+                            <div class="enneadtab-duck__label">EnneaDuck</div>
                         </div>
                         <div class="enneadtab-wiki">
                             <a href="https://ennead-architects-llp.github.io/EnneadTabWiki/index.html" target="_blank" rel="noopener noreferrer">EnneadTab Wiki</a>
@@ -260,99 +253,99 @@
                 </div>
             </div>
 
-            <div class="divider"></div>
+            <div class="segment__divider"></div>
 
             <!-- Awards Section -->
-            <div class="segment collapsed" onclick="toggleSegment(this)">
-                <div class="segment-header">
-                    <span class="segment-title">Awards & Recognition</span>
-                    <span class="expand-icon"></span>
+            <div class="segment segment--collapsed" onclick="toggleSegment(this)">
+                <div class="segment__header">
+                    <span class="segment__title">Awards & Recognition</span>
+                    <span class="segment__expand-icon"></span>
                 </div>
-                <div class="segment-content">
-                    <div class="content-text">
+                <div class="segment__content">
+                    <div class="segment__text">
                         <div class="awards-list">
                             <div class="award-item">
-                                <span class="award-text">AIA Henry Adams Award</span>
-                                <span class="award-year">2016</span>
+                                <span class="award-item__text">AIA Henry Adams Award</span>
+                                <span class="award-item__year">2016</span>
                             </div>
                             <div class="award-item">
-                                <span class="award-text">George T. Droste Scholarship for structural engineering study</span>
-                                <span class="award-year">2015</span>
+                                <span class="award-item__text">George T. Droste Scholarship for structural engineering study</span>
+                                <span class="award-item__year">2015</span>
                             </div>
                             <div class="award-item">
-                                <span class="award-text">Faculty Selection Award, General Academic Proficiency and Promise of Excellence in Architecture</span>
-                                <span class="award-year">2013-2016</span>
+                                <span class="award-item__text">Faculty Selection Award, General Academic Proficiency and Promise of Excellence in Architecture</span>
+                                <span class="award-item__year">2013-2016</span>
                             </div>
                             <div class="award-item">
-                                <span class="award-text">Hyperloop Campus, Las Vegas, Honorable Mention</span>
-                                <span class="award-year">2020</span>
+                                <span class="award-item__text">Hyperloop Campus, Las Vegas, Honorable Mention</span>
+                                <span class="award-item__year">2020</span>
                             </div>
                             <div class="award-item">
-                                <span class="award-text">Greenway to Ideal City, Parcel 2, Chengdu, China, 2nd Place</span>
-                                <span class="award-year">2019</span>
+                                <span class="award-item__text">Greenway to Ideal City, Parcel 2, Chengdu, China, 2nd Place</span>
+                                <span class="award-item__year">2019</span>
                             </div>
                             <div class="award-item">
-                                <span class="award-text">Non Architecture: Dance, A Measurement of Isolation, Finalist</span>
-                                <span class="award-year">2018</span>
+                                <span class="award-item__text">Non Architecture: Dance, A Measurement of Isolation, Finalist</span>
+                                <span class="award-item__year">2018</span>
                             </div>
                             <div class="award-item">
-                                <span class="award-text">Tokyo Anti-Library, Tokyo, Honorable Mention</span>
-                                <span class="award-year">2018</span>
+                                <span class="award-item__text">Tokyo Anti-Library, Tokyo, Honorable Mention</span>
+                                <span class="award-item__year">2018</span>
                             </div>
                             <div class="award-item">
-                                <span class="award-text">Archasm Int'l Competition: Liberty Museum, New York, Freedom To The People, Top 50</span>
-                                <span class="award-year">2016</span>
+                                <span class="award-item__text">Archasm Int'l Competition: Liberty Museum, New York, Freedom To The People, Top 50</span>
+                                <span class="award-item__year">2016</span>
                             </div>
                             <div class="award-item">
-                                <span class="award-text">Int'l Contemporary Furniture Fair at NYCxDesign week, Lounging in mycelium chairs with TerreformONE</span>
-                                <span class="award-year">2016</span>
+                                <span class="award-item__text">Int'l Contemporary Furniture Fair at NYCxDesign week, Lounging in mycelium chairs with TerreformONE</span>
+                                <span class="award-item__year">2016</span>
                             </div>
                             <div class="award-item">
-                                <span class="award-text">Magna Cum Laude Honors, Dean's List</span>
-                                <span class="award-year">2012-2016</span>
+                                <span class="award-item__text">Magna Cum Laude Honors, Dean's List</span>
+                                <span class="award-item__year">2012-2016</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="divider"></div>
+            <div class="segment__divider"></div>
 
             <!-- Publicity Section -->
-            <div class="segment collapsed" onclick="toggleSegment(this)">
-                <div class="segment-header">
-                    <span class="segment-title">Publicity & Speaking</span>
-                    <span class="expand-icon"></span>
+            <div class="segment segment--collapsed" onclick="toggleSegment(this)">
+                <div class="segment__header">
+                    <span class="segment__title">Publicity & Speaking</span>
+                    <span class="segment__expand-icon"></span>
                 </div>
-                <div class="segment-content">
-                    <div class="content-text">
+                <div class="segment__content">
+                    <div class="segment__text">
                         <div class="publicity-item">
-                            <div class="publicity-content">
-                                <h3 class="publicity-title">Digital Built Week Americas / Panel Speaker</h3>
-                                <p class="publicity-description">+ Shared experiences with fellow AEC programmers on promoting computational design to non-programmers. The talk encompasses three main topics: finding office workflow bottlenecks, deploying user-experience-oriented solutions, and gamifying work to keep people engaged with the service.</p>
+                            <div class="publicity-item__content">
+                                <h3 class="publicity-item__title">Digital Built Week Americas / Panel Speaker</h3>
+                                <p class="publicity-item__description">+ Shared experiences with fellow AEC programmers on promoting computational design to non-programmers. The talk encompasses three main topics: finding office workflow bottlenecks, deploying user-experience-oriented solutions, and gamifying work to keep people engaged with the service.</p>
                             </div>
-                            <div class="publicity-details">
-                                <div class="publicity-location">Dallas, TX | 2023</div>
+                            <div class="publicity-item__details">
+                                <div class="publicity-item__location">Dallas, TX | 2023</div>
                             </div>
                         </div>
                         
                         <div class="publicity-item">
-                            <div class="publicity-content">
-                                <h3 class="publicity-title">Autodesk University / Session Speaker, Revit As A Game Engine</h3>
-                                <p class="publicity-description">+ Delivered a presentation showcasing two personal digital projects developed in the architectural field, incorporating strategies from game design theory to enhance user guidance and support.</p>
+                            <div class="publicity-item__content">
+                                <h3 class="publicity-item__title">Autodesk University / Session Speaker, Revit As A Game Engine</h3>
+                                <p class="publicity-item__description">+ Delivered a presentation showcasing two personal digital projects developed in the architectural field, incorporating strategies from game design theory to enhance user guidance and support.</p>
                             </div>
-                            <div class="publicity-details">
-                                <div class="publicity-location">San Diego, CA | 2024</div>
+                            <div class="publicity-item__details">
+                                <div class="publicity-item__location">San Diego, CA | 2024</div>
                             </div>
                         </div>
                         
                         <div class="publicity-item">
-                            <div class="publicity-content">
-                                <h3 class="publicity-title">AEC Hackathon / Team Honorable Mention</h3>
-                                <p class="publicity-description">+ Competed in a national event that encourages teams to innovate for the built environment. Our team's concept was an educational tool designed to connect junior and senior students, enabling the free exchange of skills, knowledge, and resources.</p>
+                            <div class="publicity-item__content">
+                                <h3 class="publicity-item__title">AEC Hackathon / Team Honorable Mention</h3>
+                                <p class="publicity-item__description">+ Competed in a national event that encourages teams to innovate for the built environment. Our team's concept was an educational tool designed to connect junior and senior students, enabling the free exchange of skills, knowledge, and resources.</p>
                             </div>
-                            <div class="publicity-details">
-                                <div class="publicity-location">New York, NY | 2023</div>
+                            <div class="publicity-item__details">
+                                <div class="publicity-item__location">New York, NY | 2023</div>
                             </div>
                         </div>
                     </div>
@@ -362,12 +355,12 @@
     </main>
     
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="contact.html" class="footer-link">Contact</a>
+    <footer class="site-footer">
+        <div class="site-footer__content">
+            <div class="site-footer__links">
+                <a href="contact.html" class="site-footer__link">Contact</a>
             </div>
-            <div class="footer-copyright">
+            <div class="site-footer__copyright">
                 <p>&copy; 2025 Sen Zhang. All rights reserved.</p>
             </div>
         </div>

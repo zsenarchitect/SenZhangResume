@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', function(e) {
         if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
             e.preventDefault();
-            const currentSegment = document.querySelector('.segment.expanded');
+            const currentSegment = document.querySelector('.segment.segment--expanded');
             const segments = Array.from(document.querySelectorAll('.segment'));
             
             if (currentSegment) {
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (Math.abs(diff) > swipeThreshold) {
             const segments = Array.from(document.querySelectorAll('.segment'));
-            const currentSegment = document.querySelector('.segment.expanded');
+            const currentSegment = document.querySelector('.segment.segment--expanded');
             
             if (currentSegment) {
                 const currentIndex = segments.indexOf(currentSegment);
@@ -259,18 +259,18 @@ let scrollTimeout;
 
 function toggleSegment(clickedSegment) {
     const allSegments = document.querySelectorAll('.segment');
-    const isCurrentlyExpanded = clickedSegment.classList.contains('expanded');
+    const isCurrentlyExpanded = clickedSegment.classList.contains('segment--expanded');
     
     // First, collapse all segments
     allSegments.forEach(segment => {
-        segment.classList.remove('expanded');
-        segment.classList.add('collapsed');
+        segment.classList.remove('segment--expanded');
+        segment.classList.add('segment--collapsed');
     });
     
     // If the clicked segment wasn't expanded, expand it
     if (!isCurrentlyExpanded) {
-        clickedSegment.classList.remove('collapsed');
-        clickedSegment.classList.add('expanded');
+        clickedSegment.classList.remove('segment--collapsed');
+        clickedSegment.classList.add('segment--expanded');
         
         // Add haptic feedback for mobile
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && navigator.vibrate) {
@@ -323,29 +323,29 @@ function handleScroll() {
             
             // Collapse all segments
             allSegments.forEach(segment => {
-                segment.classList.remove('expanded');
-                segment.classList.add('collapsed');
+                segment.classList.remove('segment--expanded');
+                segment.classList.add('segment--collapsed');
             });
             
             // Expand the target segment
-            targetSegment.classList.remove('collapsed');
-            targetSegment.classList.add('expanded');
+            targetSegment.classList.remove('segment--collapsed');
+            targetSegment.classList.add('segment--expanded');
         }
         
         isScrolling = false;
     }, 150);
 }
 
-// Initialize with first segment expanded
-document.addEventListener('DOMContentLoaded', function() {
-    const allSegments = document.querySelectorAll('.segment');
-    allSegments.forEach((segment, index) => {
-        if (index === 0) {
-            segment.classList.add('expanded');
-        } else {
-            segment.classList.add('collapsed');
-        }
-    });
+    // Initialize with first segment expanded
+    document.addEventListener('DOMContentLoaded', function() {
+        const allSegments = document.querySelectorAll('.segment');
+        allSegments.forEach((segment, index) => {
+            if (index === 0) {
+                segment.classList.add('segment--expanded');
+            } else {
+                segment.classList.add('segment--collapsed');
+            }
+        });
     
     // Add scroll listener
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -353,13 +353,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial check
     setTimeout(() => {
         const targetSegment = getSegmentInView();
-        if (targetSegment && !targetSegment.classList.contains('expanded')) {
+        if (targetSegment && !targetSegment.classList.contains('segment--expanded')) {
             allSegments.forEach(segment => {
-                segment.classList.remove('expanded');
-                segment.classList.add('collapsed');
+                segment.classList.remove('segment--expanded');
+                segment.classList.add('segment--collapsed');
             });
-            targetSegment.classList.remove('collapsed');
-            targetSegment.classList.add('expanded');
+            targetSegment.classList.remove('segment--collapsed');
+            targetSegment.classList.add('segment--expanded');
         }
     }, 100);
 }); 
