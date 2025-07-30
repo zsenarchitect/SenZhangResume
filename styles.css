@@ -251,14 +251,14 @@ body {
 }
 
 /* EnneadTab Section */
-.ennetab-header {
+.enneadtab-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 2rem;
 }
 
-.ennetab-location {
+.enneadtab-location {
     font-size: 0.875rem;
     font-weight: 500;
     opacity: 0.7;
@@ -266,21 +266,21 @@ body {
     margin-left: 2rem;
 }
 
-.ennetab-content {
+.enneadtab-content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 2rem;
 }
 
-.ennetab-list {
+.enneadtab-list {
     flex: 1;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.ennetab-list li {
+.enneadtab-list li {
     font-size: 1rem;
     line-height: 1.8;
     opacity: 0.8;
@@ -288,11 +288,11 @@ body {
     padding-left: 0;
 }
 
-.ennetab-list li:last-child {
+.enneadtab-list li:last-child {
     margin-bottom: 0;
 }
 
-.ennetab-duck {
+.enneadtab-duck {
     flex-shrink: 0;
     text-align: center;
     margin-left: 2rem;
@@ -307,6 +307,24 @@ body {
     font-size: 0.875rem;
     font-weight: 500;
     opacity: 0.7;
+}
+
+.enneadtab-wiki {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.enneadtab-wiki a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.enneadtab-wiki a:hover {
+    opacity: 1;
 }
 
 /* Merit & Award Section */
@@ -390,18 +408,7 @@ body {
     opacity: 0.7;
 }
 
-.publicity-qr {
-    font-size: 0.75rem;
-    color: #666666;
-    margin-bottom: 0.25rem;
-    font-style: italic;
-}
 
-.publicity-profile {
-    font-size: 0.75rem;
-    color: #666666;
-    font-style: italic;
-}
 
 /* Footer */
 .footer {
@@ -582,28 +589,36 @@ body {
         margin-left: 0;
     }
     
-    .ennetab-header {
+    .enneadtab-header {
         flex-direction: column;
         gap: 0.5rem;
     }
     
-    .ennetab-location {
+    .enneadtab-location {
         margin-left: 0;
         text-align: left;
     }
     
-    .ennetab-content {
+    .enneadtab-content {
         flex-direction: column;
         gap: 1.5rem;
     }
     
-    .ennetab-duck {
+    .enneadtab-duck {
         margin-left: 0;
         align-self: center;
     }
     
     .duck-art {
         font-size: 2.5rem;
+    }
+    
+    .enneadtab-wiki {
+        margin-top: 0.75rem;
+    }
+    
+    .enneadtab-wiki a {
+        font-size: 0.8rem;
     }
     
     .award-item {
@@ -875,6 +890,10 @@ body {
     .footer-link:hover,
     .social-link:hover {
         opacity: 0.8;
+    }
+    
+    .enneadtab-wiki a {
+        color: #ffffff;
     }
 }
 
