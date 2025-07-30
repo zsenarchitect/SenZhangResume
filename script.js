@@ -90,35 +90,50 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollTimeout = setTimeout(() => {
                 autoExpandOnScroll(currentScrollY);
                 isScrolling = false;
-            }, isMobile ? 100 : 150); // Faster response on mobile
+            }, isMobile ? 200 : 300); // Longer delay to allow reading time
         }
     }
     
     // Auto-expand segments based on scroll position
     function autoExpandOnScroll(scrollY) {
         const viewportHeight = window.innerHeight;
-        const scrollCenter = scrollY + (viewportHeight / 2);
+        const triggerThreshold = viewportHeight * 0.1; // 10% of screen height
         
-        let bestSegment = null;
-        let bestDistance = Infinity;
+        let nextSegment = null;
+        let currentExpanded = document.querySelector('.segment.segment--expanded');
+        let currentIndex = -1;
         
-        allSegments.forEach(segment => {
-            const rect = segment.getBoundingClientRect();
-            const segmentCenter = rect.top + (rect.height / 2) + scrollY;
-            const distance = Math.abs(scrollCenter - segmentCenter);
+        // Find current expanded segment index
+        if (currentExpanded) {
+            currentIndex = Array.from(allSegments).indexOf(currentExpanded);
+        }
+        
+        // Check if we should expand the next segment
+        if (currentIndex >= 0 && currentIndex < allSegments.length - 1) {
+            const nextSegmentElement = allSegments[currentIndex + 1];
+            const nextSegmentRect = nextSegmentElement.getBoundingClientRect();
             
-            if (distance < bestDistance) {
-                bestDistance = distance;
-                bestSegment = segment;
+            // Only expand when the next segment's header has passed 10% of screen height
+            // Add a small buffer to ensure user has finished reading current content
+            if (nextSegmentRect.top <= triggerThreshold && scrollDirection === 'down') {
+                nextSegment = nextSegmentElement;
             }
-        });
+        }
         
-        // Only expand if the best segment is different from current and within reasonable distance
-        if (bestSegment && bestDistance < viewportHeight * 0.8) {
-            const currentExpanded = document.querySelector('.segment.segment--expanded');
-            if (currentExpanded !== bestSegment) {
-                expandSegment(bestSegment);
+        // Check if we should expand the previous segment (when scrolling up)
+        if (currentIndex > 0 && !nextSegment) {
+            const prevSegmentElement = allSegments[currentIndex - 1];
+            const prevSegmentRect = prevSegmentElement.getBoundingClientRect();
+            
+            // Expand previous segment when scrolling up and it's near the top
+            if (prevSegmentRect.bottom >= viewportHeight - triggerThreshold) {
+                nextSegment = prevSegmentElement;
             }
+        }
+        
+        // Expand the detected segment if it's different from current
+        if (nextSegment && nextSegment !== currentExpanded) {
+            expandSegment(nextSegment);
         }
     }
     
