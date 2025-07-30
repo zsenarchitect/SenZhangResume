@@ -291,6 +291,37 @@ body {
     opacity: 0.7;
 }
 
+/* ==========================================================================
+   PROJECT LINK STYLING
+   ========================================================================== */
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-size: 0.875rem;
+}
+
+.project-link:hover {
+    background: #e9ecef;
+    border-color: #ced4da;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-link i {
+    font-size: 0.75rem;
+    color: #666666;
+}
+
 .contact-item__description {
     font-size: 0.95rem;
     line-height: 1.6;
@@ -506,7 +537,7 @@ body {
     
     .segment__content {
         padding: 30px 20px;
-        height: calc(100vh - 160px);
+        min-height: calc(100vh - 160px);
     }
     
     .segment__title {
@@ -571,6 +602,7 @@ body {
     
     .segment__content {
         padding: 20px 15px;
+        min-height: calc(100vh - 200px);
     }
     
     .segment__text {
@@ -712,6 +744,17 @@ body {
     }
     
     .contact-item__meta a {
-        color: #ffffff;
-    }
+    color: #ffffff;
+}
+
+.project-link {
+    color: #ffffff;
+    background: #2d3748;
+    border-color: #4a5568;
+}
+
+.project-link:hover {
+    background: #4a5568;
+    border-color: #718096;
+}
 } 
