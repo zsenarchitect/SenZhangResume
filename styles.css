@@ -49,7 +49,7 @@ body {
     background: #ffffff;
     border-bottom: 1px solid #e0e0e0;
     z-index: 100;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 .header-content {
@@ -61,7 +61,7 @@ body {
 .main-title {
     font-size: 2.5rem;
     font-weight: 300;
-    margin-bottom: 10px;
+    margin: 0;
     letter-spacing: 1px;
 }
 
@@ -134,7 +134,7 @@ body {
 
 /* Main Content */
 .main-content {
-    margin-top: 120px;
+    margin-top: 80px;
     margin-left: 200px;
     margin-right: 40px;
     margin-bottom: 40px;
@@ -265,6 +265,39 @@ body {
 
 .segment.expanded:hover .segment-header {
     background: #f8f8f8;
+}
+
+/* Experience and Education Item Styles */
+.experience-item, .education-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.experience-item:last-child, .education-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.experience-item h3, .education-item h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333333;
+}
+
+.experience-item .affiliation, .education-item .affiliation {
+    font-size: 0.875rem;
+    color: #666666;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.experience-item p, .education-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555555;
+    margin: 0;
 }
 
 /* EnneadTab Section Styles */
@@ -494,6 +527,19 @@ body {
     .award-year {
         margin-left: 0;
     }
+    
+    .experience-item, .education-item {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+    
+    .experience-item h3, .education-item h3 {
+        font-size: 1.1rem;
+    }
+    
+    .experience-item p, .education-item p {
+        font-size: 0.9rem;
+    }
 }
 
 /* Dark Mode Support */
@@ -596,5 +642,17 @@ body {
     
     .publicity-item {
         border-bottom-color: #333333;
+    }
+    
+    .experience-item, .education-item {
+        border-bottom-color: #333333;
+    }
+    
+    .experience-item h3, .education-item h3 {
+        color: #cccccc;
+    }
+    
+    .experience-item p, .education-item p {
+        color: #999999;
     }
 } 
