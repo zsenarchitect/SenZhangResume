@@ -27,90 +27,159 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const eventOptions = passiveSupported ? { passive: true } : false;
     
-    // Intersection Observer for animations with better performance
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+    // Intersection Observer for auto-expanding segments
+    const segmentObserverOptions = {
+        threshold: 0.3, // Trigger when 30% of segment is visible
+        rootMargin: '-10% 0px -10% 0px' // Trigger slightly before segment is fully in view
     };
     
-    const observer = new IntersectionObserver((entries) => {
+    const segmentObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                const segment = entry.target;
+                expandSegment(segment);
             }
         });
-    }, observerOptions);
+    }, segmentObserverOptions);
     
-    // Observe content sections
-    const contentSections = document.querySelectorAll('.segment');
-    contentSections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(section);
+    // Observe all segments for auto-expansion
+    const allSegments = document.querySelectorAll('.segment');
+    allSegments.forEach(segment => {
+        segmentObserver.observe(segment);
     });
     
-    // Header scroll effect with throttling
-    let lastScrollTop = 0;
-    let ticking = false;
-    const header = document.querySelector('.header');
-    
-    function updateHeader() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    // Function to expand a specific segment
+    function expandSegment(targetSegment) {
+        // Collapse all segments first
+        allSegments.forEach(segment => {
+            segment.classList.remove('segment--expanded');
+            segment.classList.add('segment--collapsed');
+        });
         
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            // Scrolling up
-            header.style.transform = 'translateY(0)';
-        }
+        // Expand the target segment
+        targetSegment.classList.remove('segment--collapsed');
+        targetSegment.classList.add('segment--expanded');
         
-        lastScrollTop = scrollTop;
-        ticking = false;
-    }
-    
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(updateHeader);
-            ticking = true;
-        }
-    }
-    
-    window.addEventListener('scroll', requestTick, eventOptions);
-    
-    // Add smooth transition to header
-    header.style.transition = 'transform 0.3s ease';
-    
-    // Keyboard navigation with better accessibility
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-            e.preventDefault();
-            const currentSegment = document.querySelector('.segment.segment--expanded');
-            const segments = Array.from(document.querySelectorAll('.segment'));
+        // Smooth scroll to ensure the segment is fully visible
+        setTimeout(() => {
+            const rect = targetSegment.getBoundingClientRect();
+            const headerHeight = 80; // Approximate header height
             
-            if (currentSegment) {
-                const currentIndex = segments.indexOf(currentSegment);
-                let nextIndex;
-                
-                if (e.key === 'ArrowDown') {
-                    nextIndex = Math.min(currentIndex + 1, segments.length - 1);
-                } else {
-                    nextIndex = Math.max(currentIndex - 1, 0);
-                }
-                
-                // Toggle to the next segment
-                toggleSegment(segments[nextIndex]);
-                segments[nextIndex].scrollIntoView({
+            // If segment is not fully visible, scroll to it
+            if (rect.top < headerHeight || rect.bottom > window.innerHeight) {
+                targetSegment.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
             }
+        }, 100);
+    }
+    
+    // Enhanced scroll handling for better segment visibility
+    let isScrolling = false;
+    let scrollTimeout;
+    
+    function handleScroll() {
+        if (isScrolling) return;
+        
+        isScrolling = true;
+        clearTimeout(scrollTimeout);
+        
+        scrollTimeout = setTimeout(() => {
+            const mostVisibleSegment = getMostVisibleSegment();
+            
+            if (mostVisibleSegment) {
+                expandSegment(mostVisibleSegment);
+            }
+            
+            isScrolling = false;
+        }, 150);
+    }
+    
+    // Function to find the most visible segment
+    function getMostVisibleSegment() {
+        const viewportHeight = window.innerHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        let maxVisibleArea = 0;
+        let mostVisibleSegment = null;
+        
+        allSegments.forEach(segment => {
+            const rect = segment.getBoundingClientRect();
+            const segmentTop = rect.top + scrollTop;
+            const segmentBottom = segmentTop + rect.height;
+            
+            // Calculate visible area of segment
+            const visibleTop = Math.max(segmentTop, scrollTop);
+            const visibleBottom = Math.min(segmentBottom, scrollTop + viewportHeight);
+            const visibleArea = Math.max(0, visibleBottom - visibleTop);
+            
+            if (visibleArea > maxVisibleArea) {
+                maxVisibleArea = visibleArea;
+                mostVisibleSegment = segment;
+            }
+        });
+        
+        return mostVisibleSegment;
+    }
+    
+    // Manual toggle function for clicking
+    function toggleSegment(clickedSegment) {
+        const isCurrentlyExpanded = clickedSegment.classList.contains('segment--expanded');
+        
+        // If clicking on an already expanded segment, keep it expanded
+        if (isCurrentlyExpanded) {
+            return;
+        }
+        
+        // Otherwise, expand the clicked segment
+        expandSegment(clickedSegment);
+        
+        // Add haptic feedback for mobile
+        if (isMobile && navigator.vibrate) {
+            navigator.vibrate(50);
+        }
+    }
+    
+    // Add click handlers to segments
+    allSegments.forEach(segment => {
+        segment.addEventListener('click', function() {
+            toggleSegment(this);
+        });
+    });
+    
+    // Scroll direction detection for enhanced navigation
+    let lastScrollY = window.pageYOffset;
+    let scrollDirection = 'down';
+    
+    function handleScrollDirection() {
+        const currentScrollY = window.pageYOffset;
+        scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
+        lastScrollY = currentScrollY;
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            const currentSegment = document.querySelector('.segment.segment--expanded');
+            
+            if (currentSegment) {
+                const currentIndex = Array.from(allSegments).indexOf(currentSegment);
+                let nextIndex;
+                
+                if (e.key === 'ArrowDown') {
+                    nextIndex = Math.min(currentIndex + 1, allSegments.length - 1);
+                } else {
+                    nextIndex = Math.max(currentIndex - 1, 0);
+                }
+                
+                expandSegment(allSegments[nextIndex]);
+            }
         }
     });
     
-    // Enhanced touch support for mobile
+    // Touch/swipe support for mobile
     let touchStartY = 0;
     let touchEndY = 0;
     let touchStartTime = 0;
@@ -124,7 +193,6 @@ document.addEventListener('DOMContentLoaded', function() {
         touchEndY = e.changedTouches[0].screenY;
         const touchDuration = Date.now() - touchStartTime;
         
-        // Only handle swipes that are quick and have sufficient distance
         if (touchDuration < 300) {
             handleSwipe();
         }
@@ -135,85 +203,42 @@ document.addEventListener('DOMContentLoaded', function() {
         const diff = touchStartY - touchEndY;
         
         if (Math.abs(diff) > swipeThreshold) {
-            const segments = Array.from(document.querySelectorAll('.segment'));
             const currentSegment = document.querySelector('.segment.segment--expanded');
             
             if (currentSegment) {
-                const currentIndex = segments.indexOf(currentSegment);
+                const currentIndex = Array.from(allSegments).indexOf(currentSegment);
                 let nextIndex;
                 
                 if (diff > 0) {
                     // Swipe up
-                    nextIndex = Math.min(currentIndex + 1, segments.length - 1);
+                    nextIndex = Math.min(currentIndex + 1, allSegments.length - 1);
                 } else {
                     // Swipe down
                     nextIndex = Math.max(currentIndex - 1, 0);
                 }
                 
-                // Toggle to the next segment
-                toggleSegment(segments[nextIndex]);
-                segments[nextIndex].scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                expandSegment(allSegments[nextIndex]);
             }
         }
     }
     
-    // Footer link interactions with better mobile support
-    const footerLinks = document.querySelectorAll('.footer-link');
-    
-    footerLinks.forEach(link => {
-        const handleFooterClick = function(e) {
-            if (this.getAttribute('href') === '#') {
-                e.preventDefault();
-                // Add download functionality for CV
-                if (this.textContent === 'Download CV') {
-                    // Create a temporary link to download the resume
-                    const downloadLink = document.createElement('a');
-                    downloadLink.href = 'Resume.pdf';
-                    downloadLink.download = 'Sen_Zhang_Resume.pdf';
-                    downloadLink.click();
-                    
-                    // Add haptic feedback for mobile
-                    if (isMobile && navigator.vibrate) {
-                        navigator.vibrate(100);
-                    }
-                }
-            }
-        };
-        
-        if (isMobile) {
-            link.addEventListener('touchstart', handleFooterClick, eventOptions);
-        } else {
-            link.addEventListener('click', handleFooterClick);
-        }
-    });
-    
-    // Initialize first segment as visible and expanded
-    if (contentSections.length > 0) {
-        contentSections[0].style.opacity = '1';
-        contentSections[0].style.transform = 'translateY(0)';
+    // Initialize with first segment expanded
+    if (allSegments.length > 0) {
+        expandSegment(allSegments[0]);
     }
     
-    // Add loading animation with better performance
-    window.addEventListener('load', function() {
-        document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.5s ease';
-        
-        // Use requestAnimationFrame for smoother animation
-        requestAnimationFrame(() => {
-            document.body.style.opacity = '1';
-        });
-    });
+    // Add scroll listeners
+    window.addEventListener('scroll', handleScroll, eventOptions);
+    window.addEventListener('scroll', handleScrollDirection, eventOptions);
     
     // Handle orientation change for mobile
     if (isMobile) {
         window.addEventListener('orientationchange', function() {
-            // Small delay to let the orientation change complete
             setTimeout(() => {
-                // Recalculate any layout-dependent measurements
-                window.scrollTo(0, window.pageYOffset);
+                const mostVisibleSegment = getMostVisibleSegment();
+                if (mostVisibleSegment) {
+                    expandSegment(mostVisibleSegment);
+                }
             }, 100);
         });
     }
@@ -252,150 +277,43 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 0);
         });
     }
-}); 
+});
 
-let isScrolling = false;
-let scrollTimeout;
-
+// Make toggleSegment function globally available
 function toggleSegment(clickedSegment) {
     const allSegments = document.querySelectorAll('.segment');
     const isCurrentlyExpanded = clickedSegment.classList.contains('segment--expanded');
     
-    // First, collapse all segments
+    // If clicking on an already expanded segment, keep it expanded
+    if (isCurrentlyExpanded) {
+        return;
+    }
+    
+    // Collapse all segments first
     allSegments.forEach(segment => {
         segment.classList.remove('segment--expanded');
         segment.classList.add('segment--collapsed');
     });
     
-    // If the clicked segment wasn't expanded, expand it
-    if (!isCurrentlyExpanded) {
-        clickedSegment.classList.remove('segment--collapsed');
-        clickedSegment.classList.add('segment--expanded');
-        
-        // Add haptic feedback for mobile
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && navigator.vibrate) {
-            navigator.vibrate(50);
-        }
-    }
-}
-
-function getSegmentInView() {
-    const segments = document.querySelectorAll('.segment');
-    const viewportHeight = window.innerHeight;
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    // Expand the clicked segment
+    clickedSegment.classList.remove('segment--collapsed');
+    clickedSegment.classList.add('segment--expanded');
     
-    let maxVisibleArea = 0;
-    let mostVisibleSegment = null;
-    
-    segments.forEach((segment, index) => {
-        const rect = segment.getBoundingClientRect();
-        const segmentTop = rect.top + scrollTop;
-        const segmentBottom = segmentTop + rect.height;
-        
-        // Calculate visible area of segment
-        const visibleTop = Math.max(segmentTop, scrollTop);
-        const visibleBottom = Math.min(segmentBottom, scrollTop + viewportHeight);
-        const visibleArea = Math.max(0, visibleBottom - visibleTop);
-        
-        if (visibleArea > maxVisibleArea) {
-            maxVisibleArea = visibleArea;
-            mostVisibleSegment = segment;
-        }
-    });
-    
-    return mostVisibleSegment;
-}
-
-function handleScroll() {
-    if (isScrolling) return;
-    
-    isScrolling = true;
-    
-    // Clear existing timeout
-    clearTimeout(scrollTimeout);
-    
-    // Set timeout to handle scroll end
-    scrollTimeout = setTimeout(() => {
-        const targetSegment = getSegmentInView();
-        
-        if (targetSegment) {
-            const allSegments = document.querySelectorAll('.segment');
-            
-            // Collapse all segments
-            allSegments.forEach(segment => {
-                segment.classList.remove('segment--expanded');
-                segment.classList.add('segment--collapsed');
-            });
-            
-            // Expand the target segment
-            targetSegment.classList.remove('segment--collapsed');
-            targetSegment.classList.add('segment--expanded');
-        }
-        
-        isScrolling = false;
-    }, 100); // Reduced timeout for more responsive behavior
-}
-
-// Enhanced scroll direction detection
-let lastScrollY = window.pageYOffset;
-let scrollDirection = 'down';
-
-function handleScrollDirection() {
-    const currentScrollY = window.pageYOffset;
-    scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
-    lastScrollY = currentScrollY;
-    
-    // Auto-collapse/expand based on scroll direction
-    const segments = Array.from(document.querySelectorAll('.segment'));
-    const currentExpanded = document.querySelector('.segment.segment--expanded');
-    
-    if (currentExpanded) {
-        const currentIndex = segments.indexOf(currentExpanded);
-        const rect = currentExpanded.getBoundingClientRect();
-        const segmentHeight = rect.height;
-        const segmentTop = rect.top;
-        
-        // If scrolling down and near the end of current segment
-        if (scrollDirection === 'down' && segmentTop < -segmentHeight * 0.3) {
-            const nextIndex = Math.min(currentIndex + 1, segments.length - 1);
-            if (nextIndex !== currentIndex) {
-                toggleSegment(segments[nextIndex]);
-                segments[nextIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-        // If scrolling up and near the top of current segment
-        else if (scrollDirection === 'up' && segmentTop > segmentHeight * 0.3) {
-            const prevIndex = Math.max(currentIndex - 1, 0);
-            if (prevIndex !== currentIndex) {
-                toggleSegment(segments[prevIndex]);
-                segments[prevIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-    }
-}
-
-    // Initialize with all segments expanded
-    document.addEventListener('DOMContentLoaded', function() {
-        const allSegments = document.querySelectorAll('.segment');
-        allSegments.forEach((segment) => {
-            segment.classList.add('segment--expanded');
-            segment.classList.remove('segment--collapsed');
-        });
-    
-    // Add scroll listeners
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('scroll', handleScrollDirection, { passive: true });
-    
-    // Initial check
+    // Smooth scroll to ensure the segment is fully visible
     setTimeout(() => {
-        const targetSegment = getSegmentInView();
-        if (targetSegment && !targetSegment.classList.contains('segment--expanded')) {
-            allSegments.forEach(segment => {
-                segment.classList.remove('segment--expanded');
-                segment.classList.add('segment--collapsed');
+        const rect = clickedSegment.getBoundingClientRect();
+        const headerHeight = 80;
+        
+        if (rect.top < headerHeight || rect.bottom > window.innerHeight) {
+            clickedSegment.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
-            targetSegment.classList.remove('segment--collapsed');
-            targetSegment.classList.add('segment--expanded');
         }
     }, 100);
-}); 
+    
+    // Add haptic feedback for mobile
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && navigator.vibrate) {
+        navigator.vibrate(50);
+    }
+} 

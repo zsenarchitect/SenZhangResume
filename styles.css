@@ -89,6 +89,7 @@ body {
     min-height: calc(100vh - 160px);
     max-width: 1200px;
     margin: 0 auto;
+    overflow: visible;
 }
 
 /* ==========================================================================
@@ -99,7 +100,7 @@ body {
 .segment {
     position: relative;
     min-height: 80px;
-    overflow: hidden;
+    overflow: visible;
     transition: all 0.4s ease;
     cursor: pointer;
     border-bottom: 1px solid #e0e0e0;
@@ -161,6 +162,7 @@ body {
     transform: translateY(20px);
     transition: all 0.4s ease;
     overflow: visible;
+    max-height: none;
 }
 
 .segment--expanded .segment__content {
@@ -529,6 +531,7 @@ body {
         margin-left: 20px;
         margin-right: 20px;
         width: calc(100% - 40px);
+        overflow: visible;
     }
     
     .segment__header {
@@ -537,7 +540,9 @@ body {
     
     .segment__content {
         padding: 30px 20px;
-        min-height: calc(100vh - 160px);
+        min-height: auto;
+        max-height: none;
+        overflow: visible;
     }
     
     .segment__title {
@@ -602,7 +607,9 @@ body {
     
     .segment__content {
         padding: 20px 15px;
-        min-height: calc(100vh - 200px);
+        min-height: auto;
+        max-height: none;
+        overflow: visible;
     }
     
     .segment__text {
