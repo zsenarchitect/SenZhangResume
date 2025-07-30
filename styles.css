@@ -220,11 +220,8 @@ body.loading {
 }
 
 .segment__content {
-    position: absolute;
-    top: 80px;
-    left: 0;
+    position: relative;
     width: 100%;
-    min-height: calc(100vh - 200px);
     padding: 40px;
     color: rgb(10, 10, 10);
     opacity: 0;
@@ -652,7 +649,6 @@ body.loading {
         min-height: auto;
         max-height: none;
         overflow: visible;
-        top: 60px;
     }
     
     .segment__title {
