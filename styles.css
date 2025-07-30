@@ -702,6 +702,21 @@ body.loading {
         font-size: 0.9rem;
     }
     
+    .content-item__meta {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .content-item__meta .company {
+        font-weight: 500;
+    }
+    
+    .content-item__meta .location-dates {
+        font-size: 0.85rem;
+        color: rgb(120, 120, 120);
+    }
+    
     .segment__expand-icon {
         font-size: 20px;
         width: 44px; /* Larger touch target */
@@ -750,6 +765,21 @@ body.loading {
     
     .contact-item__meta {
         font-size: 0.85rem;
+    }
+    
+    .content-item__meta {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .content-item__meta .company {
+        font-weight: 500;
+    }
+    
+    .content-item__meta .location-dates {
+        font-size: 0.8rem;
+        color: rgb(120, 120, 120);
     }
 }
 
