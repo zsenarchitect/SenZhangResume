@@ -6,13 +6,12 @@
     --color-black: rgb(0, 0, 0);
     --color-dark-gray: rgb(10, 10, 10);
     --color-light-gray: rgb(220, 220, 220);
-    --color-medium-gray: rgb(180, 180, 180);
     
     /* Accent Color */
     --color-accent: rgb(0, 200, 200);
     
-    /* Updated border color (as per previous request) */
-    --color-border: rgb(200, 200, 200);
+    /* Border color using accent color */
+    --color-border: var(--color-accent);
 }
 
 /* ==========================================================================
