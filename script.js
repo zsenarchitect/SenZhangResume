@@ -152,10 +152,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Manual toggle function for clicking
     function toggleSegment(clickedSegment) {
+        console.log('toggleSegment called with:', clickedSegment);
         const isCurrentlyExpanded = clickedSegment.classList.contains('segment--expanded');
+        console.log('Is currently expanded:', isCurrentlyExpanded);
         
         // If clicking on an already expanded segment, collapse it
         if (isCurrentlyExpanded) {
+            console.log('Collapsing segment');
             clickedSegment.classList.remove('segment--expanded');
             clickedSegment.classList.add('segment--collapsed');
             clickedSegment.setAttribute('aria-expanded', 'false');
@@ -168,6 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Otherwise, expand the clicked segment
+        console.log('Expanding segment');
         expandSegment(clickedSegment);
         
         // Add haptic feedback for mobile
@@ -178,7 +182,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add click and keyboard handlers to segments
     allSegments.forEach(segment => {
-        segment.addEventListener('click', function() {
+        segment.addEventListener('click', function(e) {
+            console.log('Segment clicked:', this);
+            e.preventDefault();
+            e.stopPropagation();
             toggleSegment(this);
         });
         
@@ -345,11 +352,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Make toggleSegment function globally available
 function toggleSegment(clickedSegment) {
+    console.log('Global toggleSegment called with:', clickedSegment);
     const allSegments = document.querySelectorAll('.segment');
     const isCurrentlyExpanded = clickedSegment.classList.contains('segment--expanded');
+    console.log('Global - Is currently expanded:', isCurrentlyExpanded);
     
     // If clicking on an already expanded segment, collapse it
     if (isCurrentlyExpanded) {
+        console.log('Global - Collapsing segment');
         clickedSegment.classList.remove('segment--expanded');
         clickedSegment.classList.add('segment--collapsed');
         clickedSegment.setAttribute('aria-expanded', 'false');
@@ -361,6 +371,7 @@ function toggleSegment(clickedSegment) {
         return;
     }
     
+    console.log('Global - Expanding segment');
     // Collapse all segments first
     allSegments.forEach(segment => {
         segment.classList.remove('segment--expanded');
