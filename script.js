@@ -58,10 +58,23 @@ document.addEventListener('DOMContentLoaded', function() {
         targetSegment.classList.add('segment--expanded');
         targetSegment.setAttribute('aria-expanded', 'true');
         
-        // Scroll to align segment top with screen top
+        // Scroll to ensure segment top is visible
         const headerHeight = 160; // Height of the fixed header
         const segmentTop = targetSegment.offsetTop;
-        const scrollPosition = segmentTop - headerHeight;
+        const viewportHeight = window.innerHeight;
+        
+        // Calculate the ideal scroll position to show segment top below header
+        let scrollPosition = segmentTop - headerHeight;
+        
+        // If the segment is very long, ensure we can see the top part
+        const segmentHeight = targetSegment.scrollHeight;
+        const maxScrollPosition = segmentTop + segmentHeight - viewportHeight;
+        
+        // If the segment is longer than viewport, prioritize showing the top
+        if (segmentHeight > viewportHeight - headerHeight) {
+            // Show the top of the segment with some padding
+            scrollPosition = Math.max(0, segmentTop - 20); // 20px padding from top
+        }
         
         // Smooth scroll to position
         window.scrollTo({
@@ -181,13 +194,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Add click and keyboard handlers to segments
+    let touchTimeout;
     allSegments.forEach(segment => {
+        // Click handler for desktop
         segment.addEventListener('click', function(e) {
             console.log('Segment clicked:', this);
             e.preventDefault();
             e.stopPropagation();
             toggleSegment(this);
         });
+        
+        // Touch handler for mobile
+        segment.addEventListener('touchstart', function(e) {
+            console.log('Segment touched:', this);
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Clear any existing timeout
+            if (touchTimeout) {
+                clearTimeout(touchTimeout);
+            }
+            
+            // Add a small delay to prevent double-tap zoom
+            touchTimeout = setTimeout(() => {
+                toggleSegment(this);
+            }, 50);
+        }, { passive: false });
         
         // Add Enter and Space key support
         segment.addEventListener('keydown', function(e) {
@@ -223,19 +255,31 @@ document.addEventListener('DOMContentLoaded', function() {
     let touchStartY = 0;
     let touchEndY = 0;
     let touchStartTime = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
     
     document.addEventListener('touchstart', function(e) {
-        touchStartY = e.changedTouches[0].screenY;
-        touchStartTime = Date.now();
+        // Only handle swipes if not clicking on a segment
+        const target = e.target.closest('.segment');
+        if (!target) {
+            touchStartY = e.changedTouches[0].screenY;
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartTime = Date.now();
+        }
     }, eventOptions);
     
     document.addEventListener('touchend', function(e) {
-        touchEndY = e.changedTouches[0].screenY;
-        const touchDuration = Date.now() - touchStartTime;
-        
-        // Handle swipes for navigation (more sensitive on mobile)
-        if (touchDuration < 400) { // Increased duration threshold
-            handleSwipe();
+        // Only handle swipes if not clicking on a segment
+        const target = e.target.closest('.segment');
+        if (!target) {
+            touchEndY = e.changedTouches[0].screenY;
+            touchEndX = e.changedTouches[0].screenX;
+            const touchDuration = Date.now() - touchStartTime;
+            
+            // Handle swipes for navigation (more sensitive on mobile)
+            if (touchDuration < 400) { // Increased duration threshold
+                handleSwipe();
+            }
         }
     }, eventOptions);
     
@@ -384,10 +428,23 @@ function toggleSegment(clickedSegment) {
     clickedSegment.classList.add('segment--expanded');
     clickedSegment.setAttribute('aria-expanded', 'true');
     
-    // Scroll to align segment top with screen top
+    // Scroll to ensure segment top is visible
     const headerHeight = 160; // Height of the fixed header
     const segmentTop = clickedSegment.offsetTop;
-    const scrollPosition = segmentTop - headerHeight;
+    const viewportHeight = window.innerHeight;
+    
+    // Calculate the ideal scroll position to show segment top below header
+    let scrollPosition = segmentTop - headerHeight;
+    
+    // If the segment is very long, ensure we can see the top part
+    const segmentHeight = clickedSegment.scrollHeight;
+    const maxScrollPosition = segmentTop + segmentHeight - viewportHeight;
+    
+    // If the segment is longer than viewport, prioritize showing the top
+    if (segmentHeight > viewportHeight - headerHeight) {
+        // Show the top of the segment with some padding
+        scrollPosition = Math.max(0, segmentTop - 20); // 20px padding from top
+    }
     
     // Smooth scroll to position
     window.scrollTo({
