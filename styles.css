@@ -1,4 +1,20 @@
 /* ==========================================================================
+   COLOR DEFINITIONS
+   ========================================================================== */
+:root {
+    /* Primary Colors */
+    --color-black: rgb(0, 0, 0);
+    --color-dark-gray: rgb(10, 10, 10);
+    --color-light-gray: rgb(220, 220, 220);
+    
+    /* Accent Color */
+    --color-accent: rgb(0, 200, 200);
+    
+    /* Border color using accent color */
+    --color-border: var(--color-accent);
+}
+
+/* ==========================================================================
    RESET & BASE STYLES
    ========================================================================== */
 * {
@@ -11,8 +27,8 @@ body {
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
-    background: rgb(220, 220, 220);
-    color: rgb(10, 10, 10);
+    background: var(--color-light-gray);
+    color: var(--color-dark-gray);
     font-weight: 400;
     line-height: 1.6;
 }
@@ -50,12 +66,15 @@ body.loading {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgb(220, 220, 220);
-    border-bottom: 1px solid rgb(180, 180, 180);
+    background: var(--color-light-gray);
+    border-bottom: 1px solid var(--color-border);
     z-index: 100;
     padding: 15px 0;
     transition: opacity 0.3s ease;
     opacity: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: opacity;
 }
 
 .site-header__content {
@@ -143,7 +162,7 @@ body.loading {
     overflow: visible;
     transition: all 0.2s ease;
     cursor: pointer;
-    border-bottom: 1px solid rgb(180, 180, 180);
+    border-bottom: 1px solid var(--color-border);
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
 }
@@ -183,16 +202,17 @@ body.loading {
     padding: 0 40px;
     font-size: 18px;
     font-weight: 400;
-    color: rgb(10, 10, 10);
+    color: var(--color-dark-gray);
     z-index: 2;
     transition: all 0.2s ease;
     letter-spacing: 0.5px;
+    cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
 }
 
 .segment__header:hover {
-    color: rgb(0, 0, 0);
+    color: var(--color-black);
 }
 
 .segment__header::before {
@@ -218,7 +238,7 @@ body.loading {
 
 .segment--expanded .segment__header {
     background: rgb(240, 240, 240);
-    border-bottom: 1px solid rgb(180, 180, 180);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .segment__title {
@@ -232,7 +252,7 @@ body.loading {
     width: 100%;
     padding: 40px;
     padding-top: 140px;
-    color: rgb(10, 10, 10);
+    color: var(--color-dark-gray);
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.2s ease;
@@ -279,7 +299,7 @@ body.loading {
 .segment__text {
     font-size: 16px;
     line-height: 1.8;
-    color: rgb(10, 10, 10);
+    color: var(--color-dark-gray);
     max-width: 100%;
     font-weight: 400;
 }
@@ -313,7 +333,7 @@ body.loading {
 .content-item {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(180, 180, 180, 0.3);
+    border-bottom: 1px solid rgba(200, 200, 200, 0.3);
     transition: opacity 0.2s ease;
 }
 
@@ -330,7 +350,7 @@ body.loading {
     font-size: 1.125rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
-    color: rgb(10, 10, 10);
+    color: var(--color-dark-gray);
     line-height: 1.3;
 }
 
@@ -389,7 +409,7 @@ body.loading {
    ========================================================================== */
 
 .project-link {
-    color: rgb(10, 10, 10);
+    color: var(--color-dark-gray);
     text-decoration: underline;
     text-decoration-color: rgb(100, 100, 100);
     text-decoration-thickness: 1px;
@@ -400,8 +420,8 @@ body.loading {
 }
 
 .project-link:hover {
-    color: rgb(5, 5, 5);
-    text-decoration-color: rgb(10, 10, 10);
+    color: var(--color-black);
+    text-decoration-color: var(--color-dark-gray);
     text-decoration-thickness: 2px;
 }
 
@@ -422,7 +442,7 @@ body.loading {
 .trivia-item {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(180, 180, 180, 0.3);
+    border-bottom: 1px solid rgba(200, 200, 200, 0.3);
     transition: opacity 0.2s ease;
 }
 
@@ -439,7 +459,7 @@ body.loading {
     font-size: 1.125rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
-    color: rgb(10, 10, 10);
+    color: var(--color-dark-gray);
     line-height: 1.3;
 }
 
@@ -605,8 +625,8 @@ body.loading {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgb(220, 220, 220);
-    border-top: 1px solid rgb(180, 180, 180);
+    background: var(--color-light-gray);
+    border-top: 1px solid var(--color-border);
     padding: 20px 0;
     z-index: 100;
 }
@@ -626,7 +646,7 @@ body.loading {
 }
 
 .site-footer__link {
-    color: rgb(10, 10, 10);
+    color: var(--color-dark-gray);
     text-decoration: none;
     font-size: 0.875rem;
     transition: opacity 0.3s ease;
@@ -646,6 +666,13 @@ body.loading {
    ========================================================================== */
 
 @media (max-width: 768px) {
+    .site-header {
+        transition: opacity 0.2s ease;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        will-change: opacity;
+    }
+    
     .site-header__content {
         padding: 0 20px;
     }
@@ -856,6 +883,15 @@ body.loading {
 
 /* Desktop hover effect - changes entire page background */
 @media (hover: hover) and (pointer: fine) {
+    /* Desktop cursor styles */
+    .segment {
+        cursor: crosshair;
+    }
+    
+    .segment__header {
+        cursor: crosshair;
+    }
+    
     .color-showcase:hover ~ *, 
     .color-showcase:hover ~ * * {
         transition: background-color 0.5s ease, color 0.5s ease;

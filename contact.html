@@ -55,6 +55,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <style>
+        /* Contact page specific mobile touch improvements */
+        .segment {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        .segment__header {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        @media (max-width: 768px) {
+            .segment__expand-icon {
+                width: 44px;
+                height: 44px;
+                margin: -12px;
+            }
+        }
+    </style>
+    
     <!-- Preload critical resources -->
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style">
@@ -83,7 +104,7 @@
     <main class="main-content">
         <div class="content-container">
             <!-- Primary Contact Methods Section -->
-            <div class="segment segment--expanded" onclick="toggleSegment(this)">
+            <div class="segment segment--expanded">
                 <div class="segment__header">
                     <span class="segment__title">Get In Touch</span>
                     <span class="segment__expand-icon"></span>
@@ -118,7 +139,7 @@
             <div class="segment__divider"></div>
 
             <!-- Trivia Section -->
-            <div class="segment segment--collapsed" onclick="toggleSegment(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="trivia-content" aria-label="Trivia about me section - click to expand">
+            <div class="segment segment--collapsed" role="button" tabindex="0" aria-expanded="false" aria-controls="trivia-content" aria-label="Trivia about me section - click to expand">
                 <div class="segment__header">
                     <span class="segment__title" id="trivia-title">Trivia about me</span>
                     <span class="segment__expand-icon" aria-hidden="true"></span>

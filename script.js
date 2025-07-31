@@ -58,23 +58,23 @@ document.addEventListener('DOMContentLoaded', function() {
         targetSegment.classList.add('segment--expanded');
         targetSegment.setAttribute('aria-expanded', 'true');
         
-        // Scroll to ensure segment top is visible
+        // Scroll to ensure segment top is visible with proper header offset
         const headerHeight = 160; // Height of the fixed header
         const segmentTop = targetSegment.offsetTop;
         const viewportHeight = window.innerHeight;
+        const segmentHeight = targetSegment.scrollHeight;
         
         // Calculate the ideal scroll position to show segment top below header
         let scrollPosition = segmentTop - headerHeight;
         
-        // If the segment is very long, ensure we can see the top part
-        const segmentHeight = targetSegment.scrollHeight;
-        const maxScrollPosition = segmentTop + segmentHeight - viewportHeight;
-        
-        // If the segment is longer than viewport, prioritize showing the top
+        // If the segment is longer than viewport, prioritize showing the top part
         if (segmentHeight > viewportHeight - headerHeight) {
-            // Show the top of the segment with some padding
-            scrollPosition = Math.max(0, segmentTop - 20); // 20px padding from top
+            // Show the top of the segment with header offset
+            scrollPosition = segmentTop - headerHeight;
         }
+        
+        // Ensure we don't scroll to negative positions
+        scrollPosition = Math.max(0, scrollPosition);
         
         // Smooth scroll to position
         window.scrollTo({
@@ -359,9 +359,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Header fade effect on scroll
     function handleHeaderFade() {
         const header = document.querySelector('.site-header');
+        if (!header) return;
+        
         const scrollY = window.pageYOffset;
-        const fadeStart = 50; // Start fading after 50px scroll
-        const fadeEnd = 200; // Completely faded at 200px scroll
+        const fadeStart = isMobile ? 30 : 50; // More sensitive on mobile
+        const fadeEnd = isMobile ? 150 : 200; // Shorter fade distance on mobile
         
         if (scrollY <= fadeStart) {
             // At the top - fully visible
@@ -377,8 +379,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Add scroll listener for header fade
-    window.addEventListener('scroll', handleHeaderFade, eventOptions);
+    // Add scroll listener for header fade with mobile-specific handling
+    let headerFadeTicking = false;
+    function updateHeaderFade() {
+        handleHeaderFade();
+        headerFadeTicking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        if (!headerFadeTicking) {
+            requestAnimationFrame(updateHeaderFade);
+            headerFadeTicking = true;
+        }
+    }, { passive: true });
     
     // Initialize header fade on page load
     handleHeaderFade();
@@ -428,23 +441,23 @@ function toggleSegment(clickedSegment) {
     clickedSegment.classList.add('segment--expanded');
     clickedSegment.setAttribute('aria-expanded', 'true');
     
-    // Scroll to ensure segment top is visible
+    // Scroll to ensure segment top is visible with proper header offset
     const headerHeight = 160; // Height of the fixed header
     const segmentTop = clickedSegment.offsetTop;
     const viewportHeight = window.innerHeight;
+    const segmentHeight = clickedSegment.scrollHeight;
     
     // Calculate the ideal scroll position to show segment top below header
     let scrollPosition = segmentTop - headerHeight;
     
-    // If the segment is very long, ensure we can see the top part
-    const segmentHeight = clickedSegment.scrollHeight;
-    const maxScrollPosition = segmentTop + segmentHeight - viewportHeight;
-    
-    // If the segment is longer than viewport, prioritize showing the top
+    // If the segment is longer than viewport, prioritize showing the top part
     if (segmentHeight > viewportHeight - headerHeight) {
-        // Show the top of the segment with some padding
-        scrollPosition = Math.max(0, segmentTop - 20); // 20px padding from top
+        // Show the top of the segment with header offset
+        scrollPosition = segmentTop - headerHeight;
     }
+    
+    // Ensure we don't scroll to negative positions
+    scrollPosition = Math.max(0, scrollPosition);
     
     // Smooth scroll to position
     window.scrollTo({
