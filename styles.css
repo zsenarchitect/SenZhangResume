@@ -174,7 +174,7 @@ body.loading {
     min-height: 80px;
     overflow: visible;
     transition: all 0.2s ease;
-    cursor: pointer;
+    cursor: default;
     border-bottom: 1px solid var(--color-border);
     -webkit-tap-highlight-color: transparent;
     touch-action: auto;
@@ -220,8 +220,8 @@ body.loading {
     transition: all 0.2s ease;
     letter-spacing: 0.5px;
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: auto;
+    -webkit-tap-highlight-color: rgba(0, 200, 200, 0.2);
+    touch-action: manipulation;
 }
 
 .segment__header:hover {
@@ -896,13 +896,13 @@ body.loading {
 
 /* Desktop hover effect - changes entire page background */
 @media (hover: hover) and (pointer: fine) {
-    /* Desktop cursor styles */
-    .segment {
+    /* Desktop cursor styles - only for headers */
+    .segment__header {
         cursor: crosshair;
     }
     
-    .segment__header {
-        cursor: crosshair;
+    .segment {
+        cursor: default;
     }
     
     /* Removed color showcase hover effects to prevent orange border */

@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Auto-expand segments based on scroll position
     function autoExpandOnScroll(scrollY) {
         const viewportHeight = window.innerHeight;
-        const baseThreshold = isMobile ? viewportHeight * 0.25 : viewportHeight * 0.1; // 25% on mobile, 10% on desktop
+        const baseThreshold = isMobile ? viewportHeight * 0.25 : viewportHeight * 0.05; // 25% on mobile, 5% on desktop (less sensitive)
         
         let nextSegment = null;
         let currentExpanded = document.querySelector('.segment.segment--expanded');
@@ -193,20 +193,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Add click and keyboard handlers to segments
+    // Add click and keyboard handlers to segment headers only
     let touchTimeout;
     allSegments.forEach(segment => {
-        // Click handler for desktop
-        segment.addEventListener('click', function(e) {
-            console.log('Segment clicked:', this);
+        const segmentHeader = segment.querySelector('.segment__header');
+        if (!segmentHeader) return;
+        
+        // Click handler for desktop - only on header
+        segmentHeader.addEventListener('click', function(e) {
+            console.log('Segment header clicked:', segment);
             e.preventDefault();
             e.stopPropagation();
-            toggleSegment(this);
+            toggleSegment(segment);
         });
         
-        // Touch handler for mobile
-        segment.addEventListener('touchstart', function(e) {
-            console.log('Segment touched:', this);
+        // Touch handler for mobile - only on header
+        segmentHeader.addEventListener('touchstart', function(e) {
+            console.log('Segment header touched:', segment);
             e.preventDefault();
             e.stopPropagation();
             
@@ -217,11 +220,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add a small delay to prevent double-tap zoom
             touchTimeout = setTimeout(() => {
-                toggleSegment(this);
+                toggleSegment(segment);
             }, 50);
         }, { passive: false });
         
-        // Add Enter and Space key support
+        // Add Enter and Space key support - on segment for accessibility
         segment.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
