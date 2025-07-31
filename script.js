@@ -58,6 +58,17 @@ document.addEventListener('DOMContentLoaded', function() {
         targetSegment.classList.add('segment--expanded');
         targetSegment.setAttribute('aria-expanded', 'true');
         
+        // Scroll to align segment top with screen top
+        const headerHeight = 160; // Height of the fixed header
+        const segmentTop = targetSegment.offsetTop;
+        const scrollPosition = segmentTop - headerHeight;
+        
+        // Smooth scroll to position
+        window.scrollTo({
+            top: scrollPosition,
+            behavior: 'smooth'
+        });
+        
         // Focus management for accessibility
         targetSegment.focus();
     }
@@ -294,6 +305,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add CSS custom property for viewport height
     document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
     
+    // Header fade effect on scroll
+    function handleHeaderFade() {
+        const header = document.querySelector('.site-header');
+        const scrollY = window.pageYOffset;
+        const fadeStart = 50; // Start fading after 50px scroll
+        const fadeEnd = 200; // Completely faded at 200px scroll
+        
+        if (scrollY <= fadeStart) {
+            // At the top - fully visible
+            header.style.opacity = '1';
+        } else if (scrollY >= fadeEnd) {
+            // Past fade end - completely transparent
+            header.style.opacity = '0';
+        } else {
+            // During fade transition - calculate opacity
+            const fadeProgress = (scrollY - fadeStart) / (fadeEnd - fadeStart);
+            const opacity = 1 - fadeProgress;
+            header.style.opacity = opacity.toString();
+        }
+    }
+    
+    // Add scroll listener for header fade
+    window.addEventListener('scroll', handleHeaderFade, eventOptions);
+    
+    // Initialize header fade on page load
+    handleHeaderFade();
+    
     // Performance monitoring (optional)
     if ('performance' in window) {
         window.addEventListener('load', function() {
@@ -334,6 +372,17 @@ function toggleSegment(clickedSegment) {
     clickedSegment.classList.remove('segment--collapsed');
     clickedSegment.classList.add('segment--expanded');
     clickedSegment.setAttribute('aria-expanded', 'true');
+    
+    // Scroll to align segment top with screen top
+    const headerHeight = 160; // Height of the fixed header
+    const segmentTop = clickedSegment.offsetTop;
+    const scrollPosition = segmentTop - headerHeight;
+    
+    // Smooth scroll to position
+    window.scrollTo({
+        top: scrollPosition,
+        behavior: 'smooth'
+    });
     
     // Add haptic feedback for mobile
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && navigator.vibrate) {
