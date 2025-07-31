@@ -143,8 +143,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleSegment(clickedSegment) {
         const isCurrentlyExpanded = clickedSegment.classList.contains('segment--expanded');
         
-        // If clicking on an already expanded segment, keep it expanded
+        // If clicking on an already expanded segment, collapse it
         if (isCurrentlyExpanded) {
+            clickedSegment.classList.remove('segment--expanded');
+            clickedSegment.classList.add('segment--collapsed');
+            clickedSegment.setAttribute('aria-expanded', 'false');
+            
+            // Add haptic feedback for mobile
+            if (isMobile && navigator.vibrate) {
+                navigator.vibrate(50);
+            }
             return;
         }
         
@@ -302,8 +310,16 @@ function toggleSegment(clickedSegment) {
     const allSegments = document.querySelectorAll('.segment');
     const isCurrentlyExpanded = clickedSegment.classList.contains('segment--expanded');
     
-    // If clicking on an already expanded segment, keep it expanded
+    // If clicking on an already expanded segment, collapse it
     if (isCurrentlyExpanded) {
+        clickedSegment.classList.remove('segment--expanded');
+        clickedSegment.classList.add('segment--collapsed');
+        clickedSegment.setAttribute('aria-expanded', 'false');
+        
+        // Add haptic feedback for mobile
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && navigator.vibrate) {
+            navigator.vibrate(50);
+        }
         return;
     }
     
