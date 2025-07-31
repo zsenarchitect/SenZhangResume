@@ -51,11 +51,14 @@ body.loading {
     left: 0;
     width: 100%;
     background: rgb(220, 220, 220);
-    border-bottom: 1px solid rgb(180, 180, 180);
+    border-bottom: 1px solid rgb(200, 200, 200);
     z-index: 100;
     padding: 15px 0;
     transition: opacity 0.3s ease;
     opacity: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: opacity;
 }
 
 .site-header__content {
@@ -143,7 +146,7 @@ body.loading {
     overflow: visible;
     transition: all 0.2s ease;
     cursor: pointer;
-    border-bottom: 1px solid rgb(180, 180, 180);
+    border-bottom: 1px solid rgb(200, 200, 200);
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
 }
@@ -187,6 +190,7 @@ body.loading {
     z-index: 2;
     transition: all 0.2s ease;
     letter-spacing: 0.5px;
+    cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
 }
@@ -218,7 +222,7 @@ body.loading {
 
 .segment--expanded .segment__header {
     background: rgb(240, 240, 240);
-    border-bottom: 1px solid rgb(180, 180, 180);
+    border-bottom: 1px solid rgb(200, 200, 200);
 }
 
 .segment__title {
@@ -313,7 +317,7 @@ body.loading {
 .content-item {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(180, 180, 180, 0.3);
+    border-bottom: 1px solid rgba(200, 200, 200, 0.3);
     transition: opacity 0.2s ease;
 }
 
@@ -422,7 +426,7 @@ body.loading {
 .trivia-item {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(180, 180, 180, 0.3);
+    border-bottom: 1px solid rgba(200, 200, 200, 0.3);
     transition: opacity 0.2s ease;
 }
 
@@ -606,7 +610,7 @@ body.loading {
     left: 0;
     width: 100%;
     background: rgb(220, 220, 220);
-    border-top: 1px solid rgb(180, 180, 180);
+    border-top: 1px solid rgb(200, 200, 200);
     padding: 20px 0;
     z-index: 100;
 }
@@ -646,6 +650,13 @@ body.loading {
    ========================================================================== */
 
 @media (max-width: 768px) {
+    .site-header {
+        transition: opacity 0.2s ease;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        will-change: opacity;
+    }
+    
     .site-header__content {
         padding: 0 20px;
     }
@@ -856,6 +867,15 @@ body.loading {
 
 /* Desktop hover effect - changes entire page background */
 @media (hover: hover) and (pointer: fine) {
+    /* Desktop cursor styles */
+    .segment {
+        cursor: crosshair;
+    }
+    
+    .segment__header {
+        cursor: crosshair;
+    }
+    
     .color-showcase:hover ~ *, 
     .color-showcase:hover ~ * * {
         transition: background-color 0.5s ease, color 0.5s ease;
