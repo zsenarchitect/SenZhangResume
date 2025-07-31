@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Auto-expand segments based on scroll position
     function autoExpandOnScroll(scrollY) {
         const viewportHeight = window.innerHeight;
-        const triggerThreshold = isMobile ? viewportHeight * 0.25 : viewportHeight * 0.1; // 25% on mobile, 10% on desktop
+        const baseThreshold = isMobile ? viewportHeight * 0.25 : viewportHeight * 0.1; // 25% on mobile, 10% on desktop
         
         let nextSegment = null;
         let currentExpanded = document.querySelector('.segment.segment--expanded');
@@ -108,14 +108,16 @@ document.addEventListener('DOMContentLoaded', function() {
             currentIndex = Array.from(allSegments).indexOf(currentExpanded);
         }
         
-        // Check if we should expand the next segment
+        // Check if we should expand the next segment (scrolling down)
         if (currentIndex >= 0 && currentIndex < allSegments.length - 1) {
             const nextSegmentElement = allSegments[currentIndex + 1];
             const nextSegmentRect = nextSegmentElement.getBoundingClientRect();
             
-            // Only expand when the next segment's header has passed the threshold
-            // Add a small buffer to ensure user has finished reading current content
-            if (nextSegmentRect.top <= triggerThreshold && scrollDirection === 'down') {
+            // For scrolling down: use lower half detection (100% - baseThreshold)
+            const downThreshold = viewportHeight - baseThreshold;
+            
+            // Only expand when the next segment's header has passed the lower threshold
+            if (nextSegmentRect.top <= downThreshold && scrollDirection === 'down') {
                 nextSegment = nextSegmentElement;
             }
         }
@@ -125,8 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const prevSegmentElement = allSegments[currentIndex - 1];
             const prevSegmentRect = prevSegmentElement.getBoundingClientRect();
             
-            // Expand previous segment when scrolling up and it's near the top
-            if (prevSegmentRect.bottom >= viewportHeight - triggerThreshold) {
+            // For scrolling up: use current setting (baseThreshold from top)
+            if (prevSegmentRect.bottom >= viewportHeight - baseThreshold) {
                 nextSegment = prevSegmentElement;
             }
         }
