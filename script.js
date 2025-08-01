@@ -399,12 +399,200 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize header fade on page load
     handleHeaderFade();
     
+    // ==========================================================================
+    // CROSS-PLATFORM IMAGE LOADING AND ERROR HANDLING
+    // ==========================================================================
+    
+    // Enhanced image loading with cross-platform support
+    function initializeImageLoading() {
+        const images = document.querySelectorAll('.work-image');
+        
+        images.forEach(img => {
+            // Add loading state
+            img.classList.add('image-loading');
+            
+            // Create intersection observer for lazy loading
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            loadImage(img);
+                            observer.unobserve(img);
+                        }
+                    });
+                }, {
+                    rootMargin: '50px 0px',
+                    threshold: 0.1
+                });
+                
+                imageObserver.observe(img);
+            } else {
+                // Fallback for older browsers
+                loadImage(img);
+            }
+        });
+    }
+    
+    // Enhanced image loading function
+    function loadImage(img) {
+        const src = img.getAttribute('src');
+        if (!src) return;
+        
+        // Create a new image object to test loading
+        const testImg = new Image();
+        
+        testImg.onload = function() {
+            img.classList.remove('image-loading');
+            img.classList.add('image-loaded');
+            
+            // Trigger custom event for analytics
+            img.dispatchEvent(new CustomEvent('imageLoaded', {
+                detail: { src: src, naturalWidth: testImg.naturalWidth, naturalHeight: testImg.naturalHeight }
+            }));
+        };
+        
+        testImg.onerror = function() {
+            handleImageError(img);
+        };
+        
+        // Set timeout for slow connections
+        const timeout = setTimeout(() => {
+            if (!img.classList.contains('image-loaded')) {
+                handleImageError(img);
+            }
+        }, 10000); // 10 second timeout
+        
+        testImg.onload = function() {
+            clearTimeout(timeout);
+            img.classList.remove('image-loading');
+            img.classList.add('image-loaded');
+            
+            // Trigger custom event for analytics
+            img.dispatchEvent(new CustomEvent('imageLoaded', {
+                detail: { src: src, naturalWidth: testImg.naturalWidth, naturalHeight: testImg.naturalHeight }
+            }));
+        };
+        
+        testImg.src = src;
+    }
+    
+    // Enhanced error handling
+    function handleImageError(img) {
+        img.classList.remove('image-loading');
+        img.classList.add('image-error');
+        
+        // Hide the image and show placeholder
+        img.style.display = 'none';
+        const placeholder = img.nextElementSibling;
+        if (placeholder && placeholder.classList.contains('work-image-placeholder')) {
+            placeholder.style.display = 'flex';
+        }
+        
+        // Log error for debugging
+        console.warn('Image failed to load:', img.src);
+        
+        // Trigger custom event for analytics
+        img.dispatchEvent(new CustomEvent('imageError', {
+            detail: { src: img.src }
+        }));
+    }
+    
+    // Retry mechanism for failed images
+    function retryImageLoad(img, maxRetries = 3) {
+        let retryCount = 0;
+        
+        function attemptRetry() {
+            if (retryCount >= maxRetries) {
+                handleImageError(img);
+                return;
+            }
+            
+            retryCount++;
+            console.log(`Retrying image load (attempt ${retryCount}):`, img.src);
+            
+            // Add a small delay before retry
+            setTimeout(() => {
+                loadImage(img);
+            }, 1000 * retryCount); // Exponential backoff
+        }
+        
+        return attemptRetry;
+    }
+    
+    // Handle network status changes
+    function handleNetworkChange() {
+        if (navigator.onLine) {
+            // Retry failed images when back online
+            const failedImages = document.querySelectorAll('.image-error');
+            failedImages.forEach(img => {
+                img.classList.remove('image-error');
+                img.classList.add('image-loading');
+                img.style.display = 'block';
+                const placeholder = img.nextElementSibling;
+                if (placeholder && placeholder.classList.contains('work-image-placeholder')) {
+                    placeholder.style.display = 'none';
+                }
+                loadImage(img);
+            });
+        }
+    }
+    
+    // Add network event listeners
+    window.addEventListener('online', handleNetworkChange);
+    window.addEventListener('offline', () => {
+        console.log('Network connection lost');
+    });
+    
+    // Initialize image loading
+    initializeImageLoading();
+    
+    // ==========================================================================
+    // INTERNAL LINK HANDLING
+    // ==========================================================================
+    
+    // Handle internal links to sections
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('internal-link')) {
+            e.preventDefault();
+            
+            const targetId = e.target.getAttribute('href').substring(1); // Remove the #
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // Find the parent segment
+                const parentSegment = targetElement.closest('.segment');
+                
+                if (parentSegment) {
+                    // Expand the target segment
+                    expandSegment(parentSegment);
+                    
+                    // Add haptic feedback for mobile
+                    if (isMobile && navigator.vibrate) {
+                        navigator.vibrate(50);
+                    }
+                }
+            }
+        }
+    });
+    
     // Performance monitoring (optional)
     if ('performance' in window) {
         window.addEventListener('load', function() {
             setTimeout(() => {
                 const perfData = performance.getEntriesByType('navigation')[0];
                 console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+                
+                // Monitor image loading performance
+                const imageLoadTimes = performance.getEntriesByType('resource')
+                    .filter(entry => entry.initiatorType === 'img')
+                    .map(entry => ({
+                        name: entry.name,
+                        duration: entry.duration,
+                        transferSize: entry.transferSize
+                    }));
+                
+                console.log('Image loading performance:', imageLoadTimes);
             }, 0);
         });
     }
