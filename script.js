@@ -489,8 +489,7 @@ document.addEventListener('DOMContentLoaded', function() {
             placeholder.style.display = 'flex';
         }
         
-        // Log error for debugging
-        console.warn('Image failed to load:', img.src);
+
         
         // Trigger custom event for analytics
         img.dispatchEvent(new CustomEvent('imageError', {
@@ -509,7 +508,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             retryCount++;
-            console.log(`Retrying image load (attempt ${retryCount}):`, img.src);
             
             // Add a small delay before retry
             setTimeout(() => {
@@ -598,66 +596,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Make toggleSegment function globally available
-function toggleSegment(clickedSegment) {
-    console.log('Global toggleSegment called with:', clickedSegment);
-    const allSegments = document.querySelectorAll('.segment');
-    const isCurrentlyExpanded = clickedSegment.classList.contains('segment--expanded');
-    console.log('Global - Is currently expanded:', isCurrentlyExpanded);
-    
-    // If clicking on an already expanded segment, collapse it
-    if (isCurrentlyExpanded) {
-        console.log('Global - Collapsing segment');
-        clickedSegment.classList.remove('segment--expanded');
-        clickedSegment.classList.add('segment--collapsed');
-        clickedSegment.setAttribute('aria-expanded', 'false');
-        
-        // Add haptic feedback for mobile
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && navigator.vibrate) {
-            navigator.vibrate(50);
-        }
-        return;
-    }
-    
-    console.log('Global - Expanding segment');
-    // Collapse all segments first
-    allSegments.forEach(segment => {
-        segment.classList.remove('segment--expanded');
-        segment.classList.add('segment--collapsed');
-        segment.setAttribute('aria-expanded', 'false');
-    });
-    
-    // Expand the clicked segment
-    clickedSegment.classList.remove('segment--collapsed');
-    clickedSegment.classList.add('segment--expanded');
-    clickedSegment.setAttribute('aria-expanded', 'true');
-    
-    // Scroll to ensure segment top is visible with proper header offset
-    const headerHeight = 160; // Height of the fixed header
-    const segmentTop = clickedSegment.offsetTop;
-    const viewportHeight = window.innerHeight;
-    const segmentHeight = clickedSegment.scrollHeight;
-    
-    // Calculate the ideal scroll position to show segment top below header
-    let scrollPosition = segmentTop - headerHeight;
-    
-    // If the segment is longer than viewport, prioritize showing the top part
-    if (segmentHeight > viewportHeight - headerHeight) {
-        // Show the top of the segment with header offset
-        scrollPosition = segmentTop - headerHeight;
-    }
-    
-    // Ensure we don't scroll to negative positions
-    scrollPosition = Math.max(0, scrollPosition);
-    
-    // Smooth scroll to position
-    window.scrollTo({
-        top: scrollPosition,
-        behavior: 'smooth'
-    });
-    
-    // Add haptic feedback for mobile
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && navigator.vibrate) {
-        navigator.vibrate(50);
-    }
-} 
+ 
