@@ -1,0 +1,25 @@
+[1mdiff --git a/contact.html b/contact.html[m
+[1mindex 6f9febc..726d680 100644[m
+[1m--- a/contact.html[m
+[1m+++ b/contact.html[m
+[36m@@ -216,16 +216,16 @@[m
+                             <h3 class="trivia-item__title">Favorite Subjects to Read</h3>[m
+                             <p class="trivia-item__description">Math, music, physics, cosmos, poetry, psychology, memes, and social science.</p>[m
+                         </div>[m
+[32m+[m[32m                        <div class="trivia-item">[m
+[32m+[m[32m                            <h3 class="trivia-item__title">MBTI</h3>[m
+[32m+[m[32m                            <p class="trivia-item__description">ENFP - The Campaigner</p>[m
+[32m+[m[32m                        </div>[m
+ [m
+                         <div class="trivia-item">[m
+                             <h3 class="trivia-item__title">Name in Chinese</h3>[m
+                             <p class="trivia-item__description">张森, meaning "forest".</p>[m
+                         </div>[m
+ [m
+[31m-                        <div class="trivia-item">[m
+[31m-                            <h3 class="trivia-item__title">MBTI</h3>[m
+[31m-                            <p class="trivia-item__description">ENFP - The Campaigner</p>[m
+[31m-                        </div>[m
+                     </div>[m
+                 </div>[m
+             </div>[m
