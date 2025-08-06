@@ -890,22 +890,67 @@ body.loading {
     text-decoration-style: dotted;
 }
 
-.color-showcase:hover {
-    font-weight: 500;
-}
+
 
 /* Desktop hover effect - changes entire page background */
 @media (hover: hover) and (pointer: fine) {
-    /* Desktop cursor styles - only for headers */
+    /* Desktop cursor styles - improved for better UX */
     .segment__header {
-        cursor: crosshair;
+        cursor: pointer;
     }
     
     .segment {
         cursor: default;
     }
     
-    /* Removed color showcase hover effects to prevent orange border */
+    /* Color showcase hover effects for desktop */
+    .color-showcase {
+        cursor: pointer;
+    }
+    
+    .color-showcase:hover {
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    /* Color showcase hover effect - background will be handled by JavaScript */
+    .color-showcase:hover {
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    /* CSS class for when color showcase is hovered */
+    .website-background-green {
+        background-color: #4b5e35 !important;
+        transition: background-color 0.3s ease;
+    }
+    
+    .website-background-green .site-header,
+    .website-background-green .site-footer {
+        background-color: #4b5e35 !important;
+        transition: background-color 0.3s ease;
+    }
+    
+    /* Interactive elements cursor improvements */
+    .project-link {
+        cursor: pointer;
+    }
+    
+    .internal-link {
+        cursor: pointer;
+    }
+    
+    .work-link {
+        cursor: pointer;
+    }
+    
+    .site-header__link {
+        cursor: pointer;
+    }
+    
+    .site-footer__link {
+        cursor: pointer;
+    }
 }
 
 /* Mobile display - show hex and RGB values */
@@ -914,11 +959,20 @@ body.loading {
     font-size: 0.8em;
     font-weight: 400;
     opacity: 0.8;
+    color: #666666;
 }
 
+/* Show color values on mobile/touch devices */
 @media (hover: none) and (pointer: coarse) {
     .color-values {
         display: inline;
+    }
+    
+    /* Disable hover effects on mobile */
+    .color-showcase:hover {
+        font-weight: normal;
+        transform: none;
+        box-shadow: none;
     }
 }
 
