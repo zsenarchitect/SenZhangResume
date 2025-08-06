@@ -574,6 +574,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // ==========================================================================
+    // COLOR SHOWCASE HOVER EFFECT
+    // ==========================================================================
+    
+    // Handle color showcase hover effect
+    function initializeColorShowcase() {
+        const colorShowcases = document.querySelectorAll('.color-showcase');
+        
+        // Only add hover effects on desktop devices with hover capability
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            colorShowcases.forEach(element => {
+                // Mouse enter - change entire website background
+                element.addEventListener('mouseenter', function() {
+                    document.body.classList.add('website-background-green');
+                    document.documentElement.classList.add('website-background-green');
+                });
+                
+                // Mouse leave - restore original background
+                element.addEventListener('mouseleave', function() {
+                    document.body.classList.remove('website-background-green');
+                    document.documentElement.classList.remove('website-background-green');
+                });
+            });
+        }
+    }
+    
+    // Initialize color showcase functionality
+    initializeColorShowcase();
+    
     // Performance monitoring (optional)
     if ('performance' in window) {
         window.addEventListener('load', function() {
