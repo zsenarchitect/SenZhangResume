@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Improved scroll detection with different sensitivity for mobile/desktop
     let lastScrollY = window.pageYOffset;
     let scrollDirection = 'down';
-    let scrollThreshold = isMobile ? 30 : 50; // More sensitive on mobile
+    let scrollThreshold = isMobile ? 80 : 120; // Much less sensitive - increased thresholds
     let scrollTimeout;
     let isScrolling = false;
     
@@ -110,11 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // Set scrolling state
             isScrolling = true;
             
-            // Auto-expand based on scroll position (with delay to prevent rapid changes)
+            // Auto-expand based on scroll position (with longer delay to prevent rapid changes)
             scrollTimeout = setTimeout(() => {
                 autoExpandOnScroll(currentScrollY);
                 isScrolling = false;
-            }, isMobile ? 200 : 300); // Longer delay to allow reading time
+            }, isMobile ? 500 : 800); // Much longer delay to allow reading time
         }
     }
     
