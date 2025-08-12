@@ -719,6 +719,8 @@ body.loading {
     
     .content-container {
         margin-left: 240px; /* Safe distance from left side navigation */
+        margin-right: 0; /* Remove auto margin to prevent centering offset */
+        max-width: calc(100% - 240px); /* Adjust max-width to account for sidebar */
     }
     
     /* Hide mobile navigation elements on desktop */
