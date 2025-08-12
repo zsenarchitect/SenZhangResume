@@ -151,6 +151,16 @@ body.loading {
     width: calc(100% - 80px);
     border: none !important;
     outline: none !important;
+    /* Cross-browser compatibility */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Ensure consistent width calculations */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0);
+    /* Prevent layout shifts in different browsers */
+    position: relative;
 }
 
 .content-container {
@@ -162,6 +172,18 @@ body.loading {
     overflow: visible;
     border: none !important;
     outline: none !important;
+    /* Cross-browser compatibility */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Ensure consistent flex behavior */
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    /* Prevent layout shifts */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 /* ==========================================================================
@@ -721,6 +743,21 @@ body.loading {
         margin-left: 240px; /* Safe distance from left side navigation */
         margin-right: 0; /* Remove auto margin to prevent centering offset */
         max-width: calc(100% - 240px); /* Adjust max-width to account for sidebar */
+        /* Cross-browser compatibility */
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        /* Ensure consistent positioning across browsers */
+        position: relative;
+        left: 0;
+        right: auto;
+        /* Fallback for older browsers */
+        width: calc(100% - 240px);
+        /* Safari and Edge specific fixes */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        /* Firefox specific */
+        -moz-transform: translateZ(0);
     }
     
     /* Hide mobile navigation elements on desktop */
