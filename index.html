@@ -139,8 +139,81 @@
                 <h1 class="site-header__title">Sen Zhang</h1>
                 <p class="site-header__subtitle">Registered Architect.<br>Specialized in Rhino/Revit workflow plugin development, and computational design.</p>
             </div>
+            <!-- Mobile Navigation Toggle -->
+            <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
     </header>
+    
+    <!-- Side Navigation Minimap (Desktop Only) -->
+    <nav class="side-navigation" id="sideNavigation">
+        <div class="side-navigation__panel">
+            <h3 class="side-navigation__title">Minimap</h3>
+            <ul class="side-navigation__list">
+                <li class="side-navigation__item" data-section="publicity">
+                    <a href="#publicity-content" class="side-navigation__link">Publicity</a>
+                </li>
+                <li class="side-navigation__item" data-section="works">
+                    <a href="#works-content" class="side-navigation__link">Works</a>
+                </li>
+                <li class="side-navigation__item" data-section="enneadtab">
+                    <a href="#enneadtab-content" class="side-navigation__link">EnneadTab</a>
+                </li>
+                <li class="side-navigation__item" data-section="experience">
+                    <a href="#experience-content" class="side-navigation__link">Experience</a>
+                </li>
+                <li class="side-navigation__item" data-section="education">
+                    <a href="#education-content" class="side-navigation__link">Education</a>
+                </li>
+                <li class="side-navigation__item" data-section="awards">
+                    <a href="#awards-content" class="side-navigation__link">Awards</a>
+                </li>
+                <li class="side-navigation__item" data-section="contact">
+                    <a href="#contact-content" class="side-navigation__link">Get In Touch</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Mobile Navigation Overlay -->
+    <nav class="mobile-navigation" id="mobileNavigation">
+        <div class="mobile-navigation__overlay">
+            <div class="mobile-navigation__panel">
+                <div class="mobile-navigation__header">
+                    <h3 class="mobile-navigation__title">Minimap</h3>
+                    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation menu">
+                        <span class="close-icon">×</span>
+                    </button>
+                </div>
+                <ul class="mobile-navigation__list">
+                    <li class="mobile-navigation__item" data-section="publicity">
+                        <a href="#publicity-content" class="mobile-navigation__link">Publicity</a>
+                    </li>
+                    <li class="mobile-navigation__item" data-section="works">
+                        <a href="#works-content" class="mobile-navigation__link">Works</a>
+                    </li>
+                    <li class="mobile-navigation__item" data-section="enneadtab">
+                        <a href="#enneadtab-content" class="mobile-navigation__link">EnneadTab</a>
+                    </li>
+                    <li class="mobile-navigation__item" data-section="experience">
+                        <a href="#experience-content" class="mobile-navigation__link">Experience</a>
+                    </li>
+                    <li class="mobile-navigation__item" data-section="education">
+                        <a href="#education-content" class="mobile-navigation__link">Education</a>
+                    </li>
+                    <li class="mobile-navigation__item" data-section="awards">
+                        <a href="#awards-content" class="mobile-navigation__link">Awards</a>
+                    </li>
+                    <li class="mobile-navigation__item" data-section="contact">
+                        <a href="#contact-content" class="mobile-navigation__link">Get In Touch</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
     <!-- Main Content -->
     <main class="main-content">
