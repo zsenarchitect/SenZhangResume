@@ -559,6 +559,17 @@ body.loading {
     opacity: 1;
 }
 
+/* EnneadTab Diagram */
+.enneadtab-diagram {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.enneadtab-diagram__image {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Awards List */
 .awards-list {
     display: flex;
