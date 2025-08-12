@@ -603,6 +603,181 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize color showcase functionality
     initializeColorShowcase();
     
+    // ==========================================================================
+    // SIDE NAVIGATION FUNCTIONALITY
+    // ==========================================================================
+    
+    // Initialize side navigation
+    function initializeSideNavigation() {
+        const sideNav = document.getElementById('sideNavigation');
+        if (!sideNav) return;
+        
+        const navItems = sideNav.querySelectorAll('.side-navigation__item');
+        const sections = document.querySelectorAll('.segment');
+        
+        // Update active navigation item based on current section
+        function updateActiveNavItem() {
+            const currentExpanded = document.querySelector('.segment.segment--expanded');
+            if (!currentExpanded) return;
+            
+            const currentSectionId = currentExpanded.id;
+            
+            // Remove active class from all nav items
+            navItems.forEach(item => {
+                item.classList.remove('side-navigation__item--active');
+            });
+            
+            // Add active class to corresponding nav item
+            navItems.forEach(item => {
+                const dataSection = item.getAttribute('data-section');
+                if (dataSection && currentSectionId.includes(dataSection)) {
+                    item.classList.add('side-navigation__item--active');
+                }
+            });
+        }
+        
+        // Handle navigation item clicks
+        navItems.forEach(item => {
+            const link = item.querySelector('.side-navigation__link');
+            if (!link) return;
+            
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    const parentSegment = targetSection.closest('.segment');
+                    if (parentSegment) {
+                        expandSegment(parentSegment);
+                        
+                        // Add haptic feedback for mobile
+                        if (isMobile && navigator.vibrate) {
+                            navigator.vibrate(50);
+                        }
+                    }
+                }
+            });
+        });
+        
+        // Update navigation on segment changes
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    updateActiveNavItem();
+                }
+            });
+        });
+        
+        // Observe all segments for class changes
+        sections.forEach(segment => {
+            observer.observe(segment, {
+                attributes: true,
+                attributeFilter: ['class']
+            });
+        });
+        
+        // Initial update
+        updateActiveNavItem();
+    }
+    
+    // Initialize side navigation
+    initializeSideNavigation();
+    
+    // ==========================================================================
+    // MOBILE NAVIGATION FUNCTIONALITY
+    // ==========================================================================
+    
+    // Initialize mobile navigation
+    function initializeMobileNavigation() {
+        const mobileNavToggle = document.getElementById('mobileNavToggle');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+        const mobileNavigation = document.getElementById('mobileNavigation');
+        const mobileNavLinks = document.querySelectorAll('.mobile-navigation__link');
+        
+        if (!mobileNavToggle || !mobileNavigation) return;
+        
+        // Toggle mobile navigation
+        function toggleMobileNav() {
+            const isActive = mobileNavigation.classList.contains('active');
+            
+            if (isActive) {
+                closeMobileNav();
+            } else {
+                openMobileNav();
+            }
+        }
+        
+        // Open mobile navigation
+        function openMobileNav() {
+            mobileNavigation.classList.add('active');
+            mobileNavToggle.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            // Add haptic feedback for mobile
+            if (isMobile && navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+        }
+        
+        // Close mobile navigation
+        function closeMobileNav() {
+            mobileNavigation.classList.remove('active');
+            mobileNavToggle.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+            
+            // Add haptic feedback for mobile
+            if (isMobile && navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+        }
+        
+        // Event listeners
+        mobileNavToggle.addEventListener('click', toggleMobileNav);
+        mobileNavClose.addEventListener('click', closeMobileNav);
+        
+        // Close on overlay click
+        mobileNavigation.addEventListener('click', function(e) {
+            if (e.target === mobileNavigation) {
+                closeMobileNav();
+            }
+        });
+        
+        // Handle mobile navigation link clicks
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    const parentSegment = targetSection.closest('.segment');
+                    if (parentSegment) {
+                        expandSegment(parentSegment);
+                        closeMobileNav(); // Close mobile nav after selection
+                        
+                        // Add haptic feedback for mobile
+                        if (isMobile && navigator.vibrate) {
+                            navigator.vibrate(50);
+                        }
+                    }
+                }
+            });
+        });
+        
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileNavigation.classList.contains('active')) {
+                closeMobileNav();
+            }
+        });
+    }
+    
+    // Initialize mobile navigation
+    initializeMobileNavigation();
+    
     // Performance monitoring (optional)
     if ('performance' in window) {
         window.addEventListener('load', function() {
