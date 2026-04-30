@@ -34,14 +34,21 @@ document.addEventListener('DOMContentLoaded', function() {
     document.documentElement.classList.remove('no-js');
     document.documentElement.classList.add('js');
     
-    // Initialize first segment as expanded
+    // Initialize segments — prefer [data-default-expanded], fall back to "Works", else first segment
     if (allSegments.length > 0) {
         allSegments.forEach(segment => {
             segment.classList.add('segment--collapsed');
+            segment.classList.remove('segment--expanded');
+            segment.setAttribute('aria-expanded', 'false');
         });
-        allSegments[0].classList.add('segment--expanded');
-        allSegments[0].classList.remove('segment--collapsed');
-        allSegments[0].setAttribute('aria-expanded', 'true');
+        const explicitDefault = document.querySelector('.segment[data-default-expanded]');
+        const worksSegment = document.querySelector('[aria-controls="works-content"]');
+        const target = (explicitDefault || worksSegment || allSegments[0])?.closest('.segment') || allSegments[0];
+        if (target && target.querySelector('.segment__content')) {
+            target.classList.add('segment--expanded');
+            target.classList.remove('segment--collapsed');
+            target.setAttribute('aria-expanded', 'true');
+        }
     }
     
     // Function to expand a specific segment
@@ -120,6 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Auto-expand segments based on scroll position
     function autoExpandOnScroll(scrollY) {
+        // Skip up-scroll auto-expand when already at the top — no "previous section" exists
+        if (scrollY < 80 && scrollDirection === 'up') return;
         const viewportHeight = window.innerHeight;
         const baseThreshold = isMobile ? viewportHeight * 0.25 : viewportHeight * 0.05; // 25% on mobile, 5% on desktop (less sensitive)
         
@@ -165,26 +174,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Manual toggle function for clicking
     function toggleSegment(clickedSegment) {
-        console.log('toggleSegment called with:', clickedSegment);
         const isCurrentlyExpanded = clickedSegment.classList.contains('segment--expanded');
-        console.log('Is currently expanded:', isCurrentlyExpanded);
-        
+
         // If clicking on an already expanded segment, collapse it
         if (isCurrentlyExpanded) {
-            console.log('Collapsing segment');
             clickedSegment.classList.remove('segment--expanded');
             clickedSegment.classList.add('segment--collapsed');
             clickedSegment.setAttribute('aria-expanded', 'false');
-            
+
             // Add haptic feedback for mobile
             if (isMobile && navigator.vibrate) {
                 navigator.vibrate(50);
             }
             return;
         }
-        
+
         // Otherwise, expand the clicked segment
-        console.log('Expanding segment');
         expandSegment(clickedSegment);
         
         // Add haptic feedback for mobile
@@ -201,15 +206,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Click handler for desktop - only on header
         segmentHeader.addEventListener('click', function(e) {
-            console.log('Segment header clicked:', segment);
             e.preventDefault();
             e.stopPropagation();
             toggleSegment(segment);
         });
-        
+
         // Touch handler for mobile - only on header
         segmentHeader.addEventListener('touchstart', function(e) {
-            console.log('Segment header touched:', segment);
             e.preventDefault();
             e.stopPropagation();
             
@@ -233,9 +236,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Keyboard navigation
+    // Keyboard navigation — only intercept arrow keys when focus is on/inside a segment
     document.addEventListener('keydown', function(e) {
         if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            const target = e.target;
+            if (!(target instanceof Element) || !target.closest('.segment')) return;
             e.preventDefault();
             const currentSegment = document.querySelector('.segment.segment--expanded');
             
@@ -324,12 +329,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, eventOptions);
     
-    // Handle orientation change for mobile
+    // Orientation change: keep the same threshold as the init value (avoid sensitivity regression)
     if (isMobile) {
         window.addEventListener('orientationchange', function() {
-            // Adjust scroll threshold for new orientation
             setTimeout(() => {
-                scrollThreshold = isMobile ? 30 : 50;
+                scrollThreshold = isMobile ? 80 : 120;
             }, 100);
         });
     }
@@ -434,88 +438,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Enhanced image loading function
+    // Enhanced image loading function — let native onerror catch genuine failures.
+    // No 10s "slow load = error" timeout: that fired placeholders during slow networks
+    // and the real image then loaded behind a permanently-shown placeholder.
     function loadImage(img) {
         const src = img.getAttribute('src');
         if (!src) return;
-        
-        // Create a new image object to test loading
+
         const testImg = new Image();
-        
         testImg.onload = function() {
-            img.classList.remove('image-loading');
+            img.classList.remove('image-loading', 'image-error');
             img.classList.add('image-loaded');
-            
-            // Trigger custom event for analytics
-            img.dispatchEvent(new CustomEvent('imageLoaded', {
-                detail: { src: src, naturalWidth: testImg.naturalWidth, naturalHeight: testImg.naturalHeight }
-            }));
-        };
-        
-        testImg.onerror = function() {
-            handleImageError(img);
-        };
-        
-        // Set timeout for slow connections
-        const timeout = setTimeout(() => {
-            if (!img.classList.contains('image-loaded')) {
-                handleImageError(img);
+            // Restore visibility in case a prior error path hid the img
+            img.style.display = '';
+            const placeholder = img.nextElementSibling;
+            if (placeholder && placeholder.classList.contains('work-image-placeholder')) {
+                placeholder.style.display = 'none';
             }
-        }, 10000); // 10 second timeout
-        
-        testImg.onload = function() {
-            clearTimeout(timeout);
-            img.classList.remove('image-loading');
-            img.classList.add('image-loaded');
-            
-            // Trigger custom event for analytics
             img.dispatchEvent(new CustomEvent('imageLoaded', {
                 detail: { src: src, naturalWidth: testImg.naturalWidth, naturalHeight: testImg.naturalHeight }
             }));
         };
-        
+        testImg.onerror = function() { handleImageError(img); };
         testImg.src = src;
     }
-    
+
     // Enhanced error handling
     function handleImageError(img) {
         img.classList.remove('image-loading');
         img.classList.add('image-error');
-        
-        // Hide the image and show placeholder
+
         img.style.display = 'none';
         const placeholder = img.nextElementSibling;
         if (placeholder && placeholder.classList.contains('work-image-placeholder')) {
             placeholder.style.display = 'flex';
         }
-        
 
-        
-        // Trigger custom event for analytics
         img.dispatchEvent(new CustomEvent('imageError', {
             detail: { src: img.src }
         }));
-    }
-    
-    // Retry mechanism for failed images
-    function retryImageLoad(img, maxRetries = 3) {
-        let retryCount = 0;
-        
-        function attemptRetry() {
-            if (retryCount >= maxRetries) {
-                handleImageError(img);
-                return;
-            }
-            
-            retryCount++;
-            
-            // Add a small delay before retry
-            setTimeout(() => {
-                loadImage(img);
-            }, 1000 * retryCount); // Exponential backoff
-        }
-        
-        return attemptRetry;
     }
     
     // Handle network status changes
@@ -538,9 +499,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add network event listeners
     window.addEventListener('online', handleNetworkChange);
-    window.addEventListener('offline', () => {
-        console.log('Network connection lost');
-    });
     
     // Initialize image loading
     initializeImageLoading();
@@ -778,25 +736,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize mobile navigation
     initializeMobileNavigation();
     
-    // Performance monitoring (optional)
-    if ('performance' in window) {
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                const perfData = performance.getEntriesByType('navigation')[0];
-                console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
-                
-                // Monitor image loading performance
-                const imageLoadTimes = performance.getEntriesByType('resource')
-                    .filter(entry => entry.initiatorType === 'img')
-                    .map(entry => ({
-                        name: entry.name,
-                        duration: entry.duration,
-                        transferSize: entry.transferSize
-                    }));
-                
-                console.log('Image loading performance:', imageLoadTimes);
-            }, 0);
-        });
+    // Dynamic copyright year
+    const copyYearEl = document.getElementById('copyYear');
+    if (copyYearEl) {
+        copyYearEl.textContent = String(new Date().getFullYear());
     }
 });
 

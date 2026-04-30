@@ -587,7 +587,7 @@ body.loading {
     border-radius: 8px;
     cursor: pointer;
     padding: 8px;
-    z-index: 1001; /* High z-index to stay above other elements */
+    z-index: 999; /* Below mobile-navigation overlay (1000) so the X-close button takes precedence when menu is open */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for better visibility */
     transition: all 0.2s ease;
 }
@@ -1786,3 +1786,41 @@ body.loading {
         text-decoration: underline;
     }
 } 
+/* Resume PDF download CTA in header */
+.site-header__actions {
+    margin-top: 12px;
+}
+.resume-download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid var(--color-accent);
+    border-radius: 4px;
+    color: var(--color-accent);
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.resume-download-link:hover {
+    background: var(--color-accent);
+    color: var(--color-black);
+}
+
+/* Mobile responsive header CTA — hide below 480px to free vertical space */
+@media (max-width: 480px) {
+    .site-header__actions { display: none; }
+}
+@media (max-width: 768px) and (min-width: 481px) {
+    .resume-download-link {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Get In Touch CTA row — wrap gracefully on narrow screens */
+.content-item__cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
