@@ -23,14 +23,29 @@ jobs:
     
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Setup Pages
       uses: actions/configure-pages@v4
-    
+
+    - name: Stage public files (exclude internal/ knowledge docs)
+      run: |
+        mkdir -p _site
+        rsync -a \
+          --exclude='_site' \
+          --exclude='.git' \
+          --exclude='.github' \
+          --exclude='internal/' \
+          --exclude='.gitignore' \
+          ./ _site/
+        echo "Staged contents:"
+        ls -la _site/
+        echo "Confirming internal/ excluded:"
+        test ! -d _site/internal && echo "OK: internal/ not in artifact"
+
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: .
+        path: _site
     
     - name: Deploy to GitHub Pages
       id: deployment

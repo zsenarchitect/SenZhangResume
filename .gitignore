@@ -74,3 +74,5 @@ Thumbs.db
 # Build outputs
 dist/
 build/ 
+# Internal knowledge docs — keep tracked but never publish
+# (deployment scripts in this repo do NOT push the internal/ folder)
