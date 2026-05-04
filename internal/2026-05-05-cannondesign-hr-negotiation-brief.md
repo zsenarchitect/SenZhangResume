@@ -1,7 +1,7 @@
 ---
 title: "CannonDesign HR Negotiation Brief — Title Change & Salary Raise"
 subject: Sen Zhang — Computational BIM Developer @ Ennead Architects LLP (acquired by CannonDesign 2026-04-21)
-meeting_date: 2026-05-05 (Monday)
+meeting_date: 2026-05-05 (Tuesday)
 prepared: 2026-05-03
 status: INTERNAL — NOT FOR PUBLICATION
 cross_ref:
@@ -126,22 +126,39 @@ This is the work product of a **Director of Design Technology**, not a Senior Ar
 
 **The workbook has no Computational Design / BIM / Design Technology track.** But CannonDesign **publicly posts** these roles on its careers page:
 
-- *Computational Designer* — posted band **$81,700 – $91,600** (cannondesign.com/careers/computational-designer, accessed 2026-05-03)
+- *Computational Designer* — posted band **$83,600 – $104,500** (cannondesign.com/careers/computational-designer; Built In mirror, verified 2026-05-04 — band slightly higher than 5/3 fetch)
 - *Design Technologist* — remote band $76.8K – $96K
+- *Sr. Design Technologist* — $92,200 – $115,200 (7+ yrs, remote)
 - *Associate Technical Director*
 - *Computational Design Architect* (confirmed: Andy VanMater, St. Louis office)
 
 → **The workbook you received is incomplete. That is your wedge.**
 
+### The deeper gap — Director rung is STRUCTURALLY VACANT (added 2026-05-04)
+
+Cross-platform sweep on 2026-05-04 (cannondesign.com/careers, Greenhouse, LinkedIn, BuiltIn, Glassdoor) found **NO public posting for "Director of Design Technology" or "AVP of Design Technology" anywhere in Cannon's open requisitions**. The Director-titled DT roles that DO exist live on the engineering / FOS / immersive sides:
+
+| Title | Location | Yrs | Band | Notes |
+|---|---|---|---|---|
+| Software Engineering Director | Seattle | 12+ | **$165,606 – $227,700** | Closest internal anchor — same scope description as Sen's actual work |
+| Director of Software Engineering – FOS | Buffalo | 12+ | $148,000 – $185,000 | Subsidiary product (smart-buildings) |
+| Immersive Technology Leader (CLOSED 4/22) | Remote | 10+ | $112,800 – $141,000 | "Leader" non-Director tier |
+
+→ **The rung you want is not in Cannon's current ladder.** That is *not* a problem; it is the structural opening the integration creates. The HR ask is not "slot me into an existing band" — it is "**this rung needs to be defined; here is who should be in it.**"
+
 ---
 
 ## Part 4 — Market Comp Numbers (memorize the top 3)
 
-**Top 3 numbers to have on the tip of your tongue Monday:**
+**Top 3 numbers to have on the tip of your tongue Tuesday:**
 
-1. **NYC Computational Designer average: $149,444** (Glassdoor, n=19, Dec 2025; 25th $119,134 / 75th $189,206 / 90th $232,790)
-2. **NYC Computational Design Architecture 75th percentile: $199,700** (ZipRecruiter; 25th $183,200 / 90th $204,584)
-3. **CannonDesign AVP total comp range: $144K–$211K** (Glassdoor)
+1. **CannonDesign Software Engineering Director: $165,606 – $227,700** (cannondesign.com/careers, Seattle, 12+ yrs, verified 2026-05-04) — *Cannon's own internal Director-rung anchor; they cannot reject their own JD. NYC adjustment +15-25% applies.*
+2. **NYC Computational Designer average: $149,444** (Glassdoor, n=19, Dec 2025; 25th $119,134 / 75th $189,206 / 90th $232,790)
+3. **NYC Computational Design Architecture 75th percentile: $199,700** (ZipRecruiter; 25th $183,200 / 90th $204,584)
+
+**Backup anchor**: CannonDesign Director of Software Engineering – FOS — $148,000 – $185,000 (Buffalo, 12+ yrs).
+
+**Glassdoor AVP caveat (added 2026-05-04)**: An earlier draft cited "CannonDesign AVP $144K–$211K (Glassdoor)" as a top number. Live re-verification 2026-05-04 shows the Glassdoor "Associate Vice President" page (n=14, Dec 2025) reports avg **$227,436** / 25-75 **$173,486–$304,457** / 90th $390,207 — much higher than $144–211. The earlier figure was likely a narrower base-only or different-filter view. **Do not lead with $144-211**; if HR pulls Glassdoor live they will see $173-304K. Keep the higher number as a fallback anchor only — the Cannon SWE Director band (#1 above) is the cleanest number to lead with because it's Cannon's own JD.
 
 Full table:
 
@@ -203,7 +220,8 @@ Full table:
 
 1. **Mapping timeline**: "What's the timeline and process for mapping Ennead staff into the Cannon ladder — when does the mapping become final, and what's the appeal/discussion window?"
 2. **The wedge** — *most important question*: "The workbook I received doesn't appear to have a Computational Design or Design-Technology track, but Cannon publicly posts Computational Designer, Design Technologist, and Associate Technical Director roles — can you walk me through how those roles fit into the workbook, and how I'd map into them?"
-3. **Band disclosure**: "What's the salary band for [target level — Senior Associate or AVP, Design Technology], and what does Cannon use as its market benchmark — AIA, ZweigWhite, internal?"
+2b. **The structural ask** (added 2026-05-04): "Cannon doesn't currently post a Director of Design Technology or AVP of Design Technology — that rung looks structurally vacant. With the Ennead integration, is that role being defined, or does design technology fold into Software Engineering Director, FOS Director, or **Hilda Espinal's CTO org**? I'd like to understand who I'd report to and where the band sits in that structure." *(Hilda Espinal name to be cross-checked before meeting — agent surfaced this from external sources, verify with someone inside Ennead first.)*
+3. **Band disclosure**: "What's the salary band for [target level — Senior Associate, AVP, or the Director-of-Design-Technology role we just discussed], and what does Cannon use as its market benchmark — AIA, ZweigWhite, internal?"
 4. **Retention list** — *single most important ask*: "Has Cannon identified key-talent retention agreements for the Ennead acquisition, and what's the process for that conversation? I'd like to be considered."
 5. **ESOP path**: "Cannon brought Ennead partners into the ownership model. For senior technical staff below partner, is there a path to ESOP participation or an accelerated track, and when would that become available?"
 
@@ -532,9 +550,9 @@ Stage directions in `[brackets]`. Numbers in spoken form. Pause beats marked `[�
 
 > "Let me give you a sense of scope, because that's really the mapping question.
 >
-> EnneadTab — four hundred fifty tools, used daily across Revit, Rhino, CAD, Adobe, Excel, on-prem LLM. Sixty active daily users today. About to expand to seventeen-sixty post-merger. Three U.S. copyright registrations. That's the firm IP Cannon just inherited, and I'm the maintainer.
+> EnneadTab — four hundred fifty tools `[450]`, used daily across Revit, Rhino, CAD, Adobe, Excel, on-prem LLM. Sixty `[60]` active daily users today. About to expand to seventeen-sixty `[1,760]` post-merger. Three `[3]` U.S. copyright registrations. That's the firm IP Cannon just inherited, and I'm the maintainer.
 >
-> BimRunner — production Revit project-health analytics dashboard. Ninety-one thousand lines of code, four-twenty-two files, Next.js on Vercel Postgres. I architected and shipped it.
+> BimRunner — production Revit project-health analytics dashboard. Ninety-one thousand `[91,000]` lines of code, four-twenty-two `[422]` files, Next.js on Vercel Postgres. I architected and shipped it.
 >
 > EnneadTabLLM — on-prem Ollama RAG stack. Solves the data-sovereign AI problem. Directly relevant to Cannon's healthcare book — HIPAA, PHI, the whole stack.
 >
@@ -544,7 +562,7 @@ Stage directions in `[brackets]`. Numbers in spoken form. Pause beats marked `[�
 >
 > On the BIM side I'm concurrently the BIM Manager on NYU Langone, Northwell, FTZ Shanghai, ByteDance HQ, Bilibili HQ. Plus Rhino Doctor — interop, complex geometry triage. Speaker at Autodesk University 2024 and Advancing Computational Design 2026 in Austin, representing Ennead.
 >
-> That's a single-person Design Technology department running production systems across a one-sixty-person firm — about to be seventeen-sixty."
+> That's a single-person Design Technology department running production systems across a one-sixty `[160]`-person firm — about to be seventeen-sixty `[1,760]`."
 
 `[Pause. Let it land.]`
 
@@ -554,13 +572,13 @@ Stage directions in `[brackets]`. Numbers in spoken form. Pause beats marked `[�
 >
 > EnneadTab isn't just a plugin platform anymore. Over the past year I've been building what I'd call a conversational ecosystem inside the firm — and that work is what makes the existing tools agent-ready, not just human-ready.
 >
-> EnneadTabLLM is the foundation: on-prem Ollama RAG, ingesting years of standards, templates, family libraries, prior-project troubleshooting. Staff query it in plain language and get back curated tool chains across the four-fifty EnneadTab commands. Solves the on-prem AI problem for HIPAA and data-sovereign clients without sending anything to a vendor.
+> EnneadTabLLM is the foundation: on-prem Ollama RAG, ingesting years of standards, templates, family libraries, prior-project troubleshooting. Staff query it in plain language and get back curated tool chains across the four-fifty `[450]` EnneadTab commands. Solves the on-prem AI problem for HIPAA and data-sovereign clients without sending anything to a vendor.
 >
 > Layered on top — Rosette translates design-team, client, and regulatory text into plain-English summaries with structural graphs. Architectural language as a queryable surface.
 >
 > And underneath it all, I've been building the agentic substrate — multi-agent pipelines that run independently and collaboratively, role-based agents reporting to a project-manager orchestrator. The Wiki ingests tool metadata live from the IronPython registry; that same metadata feeds the LLM so an agent can pick the right tool, not just retrieve documentation.
 >
-> The feedback inside the office has been positive — staff who used to escalate questions to me now resolve them through the LLM, and the tools that used to need a tutorial now get used because the agent surfaces them at the right moment. That's the unlock: a sixty-daily-user platform becomes a seventeen-sixty-daily-user platform when the surface is conversational instead of ribbon-button.
+> The feedback inside the office has been positive — staff who used to escalate questions to me now resolve them through the LLM, and the tools that used to need a tutorial now get used because the agent surfaces them at the right moment. That's the unlock: a sixty-daily-user `[60]` platform becomes a seventeen-sixty-daily-user `[1,760]` platform when the surface is conversational instead of ribbon-button.
 >
 > Here's where I want to land. The plugin platform is firm IP, that's clear — Cannon owns it. But the bigger value I bring isn't the tools themselves. It's the vision and the pipeline — establishing how solutions get built, where automation fills gaps, where agents close opportunities. That's the work every firm at Cannon's scale is staffing for right now.
 >
@@ -576,13 +594,13 @@ Stage directions in `[brackets]`. Numbers in spoken form. Pause beats marked `[�
 >
 > Concretely — and I have the sources here:" `[hand over handout]`
 >
-> "NYC Computational Designer averages a hundred-forty-nine thousand on Glassdoor, ranges to one-eighty-nine at the seventy-fifth.
+> "Cannon's own Software Engineering Director posting in Seattle pays one-sixty-five to two-twenty-seven `[$165,606 – $227,700]`. NYC adjustment, plus-fifteen to twenty-five percent, puts that at roughly one-ninety to two-fifty `[~$190K – $250K]`.
 >
-> NYC Computational Design Architecture pulls one-ninety-nine at the seventy-fifth on ZipRecruiter.
+> NYC Computational Designer averages a hundred-forty-nine thousand on Glassdoor `[$149,444 avg, n=19]`, ranges to one-eighty-nine at the seventy-fifth `[$189,206]`.
 >
-> Cannon's own posted Computational Designer band starts at eighty-one-seven, and the AVP total-comp band runs one-forty-four to two-eleven.
+> NYC Computational Design Architecture pulls one-ninety-nine at the seventy-fifth on ZipRecruiter `[$199,700]`.
 >
-> Even your most junior Computational Designer posting sits below NYC market — for someone with much less scope than what I just walked through.
+> And Cannon's own junior Computational Designer band starts at eighty-three-six `[$83,600]` — for someone with a fraction of the scope I just walked through.
 >
 > The acquisition is the natural moment to align the title and the comp with the work that's actually being done. Before mapping locks. I'd like to use today to start that conversation."
 
@@ -655,20 +673,37 @@ NYC MARKET — COMPUTATIONAL / DESIGN-TECH ROLES
     25th-75th: $192,000 – $227,000  (Salary.com)
     Average:   $209,000
 
-CANNONDESIGN POSTED BANDS (cannondesign.com/careers — 2026-05-03)
-  Computational Designer:        $81,700 – $91,600
-  Design Technologist (sr):      $83,600 – $104,500
-  Architect III (NYC):           $87,000 – $113,365
-  Associate Technical Director:  20+ yr exp, RA required
-  CannonDesign AVP total comp:   $144,000 – $211,000  (Glassdoor)
+CANNONDESIGN POSTED BANDS (cannondesign.com/careers — verified 2026-05-04)
+  ─── Director-rung internal anchors (lead with these) ───
+  Software Engineering Director (Seattle):    $165,606 – $227,700  (12+ yrs)
+  Director of Software Engineering – FOS (Buffalo): $148,000 – $185,000  (12+ yrs)
+  Immersive Technology Leader (CLOSED 4/22):   $112,800 – $141,000  (10+ yrs)
+
+  ─── DT individual-contributor floor (Sen is ABOVE these) ───
+  Sr. Design Technologist (remote):    $92,200 – $115,200  (7+ yrs)
+  Computational Designer (remote):     $83,600 – $104,500  (6 yrs, CS degree req)
+  Design Technologist (junior, remote): $76,800 –  $96,000
+
+  ─── Other reference points ───
+  Architect III (NYC):                  $87,000 – $113,365
+  Associate Technical Director:         20+ yr exp, RA required
+
+  STRUCTURAL OBSERVATION
+  Cannon does NOT currently post a "Director of Design Technology"
+  or "AVP of Design Technology" anywhere in open requisitions
+  (cannondesign.com, Greenhouse, LinkedIn, BuiltIn, Glassdoor —
+  swept 2026-05-04). That rung is structurally vacant. The
+  integration is the moment to define it.
 
 GAP CALCULATION
+  Current $100K vs Cannon Software Engineering Director midpoint $196.7K
+    → -49% below the band Cannon already publishes for an internal Director
   Current $100K vs NYC Computational Designer median $149K
     → -33% below median
   Current $100K vs NYC Comp Design Architecture 75th $199.7K
     → -50% below 75th
-  Current $100K vs CannonDesign AVP midpoint $177.5K
-    → -44% below the band Cannon already publishes for AVP
+  NYC adjustment: Seattle bands +15-25% in NYC. Sen's NYC Director
+  equivalent floor: ~$190K base; ceiling: ~$285K base.
 
 INDUSTRY PARITY (named, verified — same role, peer firms)
   Luc Wilson — Associate Principal / Global Director of
