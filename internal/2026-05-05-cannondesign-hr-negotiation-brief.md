@@ -296,7 +296,9 @@ This translates "I am talent" into **risk-management language** — HR almost ha
 
 ### Mandarin-language colleagues (Ennead Asia partners, private)
 
-In Mandarin private conversations with Ennead's China-side partners (e.g., 安栋林 Andrew Bartle's circle), you can be direct:
+Pre-wire the Ennead partner who is your closest internal ally on the Asia book — **verify the name with someone inside Ennead before sending anything**, do not freelance from this brief. Public-source-attributed Asia leadership: **Thomas Wong** (Design Partner — Shanghai Astronomy Museum, ByteDance Houhai HQ Shenzhen, Bilibili HQ Shanghai) and **Grace Chen** (Principal & Director of Asia Practice — Lingang masterplan). An earlier draft of this brief named "Andrew Bartle" as an Asia partner — that was **incorrect**; Bartle runs ABA Studio, an unrelated NYC firm and is not an Ennead partner. Do not use that name.
+
+Once you've confirmed who your actual ally is, the Mandarin opener can be direct:
 
 > "周一我会跟 HR 谈 mapping，希望被认作**关键技术人才**，进入收购整合的 retention 名单。EnneadTab 系列产品离开我维护不下去，这点想请你心里有数。"
 

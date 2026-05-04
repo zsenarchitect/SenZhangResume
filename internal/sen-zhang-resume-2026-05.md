@@ -85,7 +85,7 @@ Firm-wide employee-evaluation system. Excel ingest → interactive HTML report w
 
 _Independent — Founder / Engineer_
 
-### **Realm** / Founder & Engineer{meta:2025–Present}
+### **Realm** / Digital Strategy Architect{meta:2025–Present}
 Networking and event platform for architects, real-estate operators, and exhibition partners. Next.js 16 + NextAuth v5 + Drizzle ORM + Vercel Postgres. Multi-step RSVP, admin/client dashboard, password-reset flows via Resend, role-based partner gating.  
 https://realmnomadgroup.com
 
