@@ -13,7 +13,7 @@ Registered Architect in NY · 518.618.6150 · zsenarchitect@gmail.com
 
 ## Summary
 
-Registered NY architect (NCARB) and computational design technologist, 9 years post-Master's. Sole developer behind Ennead's Design Technology stack: EnneadTab — a 450+ tool plugin platform with three U.S. Copyright registrations and 60 daily users across a 150-person firm — plus BimRunner, EnneadTabLLM, FieldDay, AIA-Sustainable-Reporting, and 6 more production tools. Independent work spans a real-estate networking platform (Realm), agentic AI work running small-business operations, and AI-workflow case studies with live SMB operators. Speaker: Advancing Computational Design 2026, Autodesk University 2024, Digital Built Week Americas 2023.
+Registered NY architect (NCARB) and computational design technologist, 9 years post-Master's. Sole developer behind Ennead's Design Technology stack: EnneadTab — a 450+ tool plugin platform with three U.S. Copyright registrations and 60 daily users across a 160-person firm — plus BimRunner, EnneadTabLLM, FieldDay, AIA-Sustainable-Reporting, and 6 more production tools. Independent work spans a real-estate networking platform (Realm), agentic AI work running small-business operations, and AI-workflow case studies with live SMB operators. Speaker: Advancing Computational Design 2026, Autodesk University 2024, Digital Built Week Americas 2023.
 
 ## Experience
 
@@ -21,7 +21,7 @@ Registered NY architect (NCARB) and computational design technologist, 9 years p
 _BIM Manager (concurrent)_{meta:2022–Present}
 _Rhino Doctor (concurrent)_{meta:2022–Present}
 _Architectural Designer, BIM Specialist_{meta:2020–2022}
-- **Computational BIM Developer — sole developer running the Design Technology department for a 150-person firm**
+- **Computational BIM Developer — sole developer running the Design Technology department for a 160-person firm**
   - Architect and lead developer of EnneadTab — 450+ tools across Revit, Rhino, CAD, Adobe, Excel, Email, and LLM integration; three U.S. Copyright registrations (2024)
   - BimRunner — Revit project-health analytics dashboard (Next.js 14 + Vercel Postgres); RESTful ingestion + dynamic scoring surfaces model debt before coordination crisis
   - EnneadTabLLM — on-prem Ollama RAG monorepo for HIPAA / data-sovereign clients
