@@ -5,13 +5,22 @@ This folder holds confidential personal strategy documents that are **mirrored a
 - `senzhang-resume/internal/` (this folder)
 - `senzhang.me/internal/`
 
-When you edit a file here, **update the mirror in the other repo** in the same commit. Both folders are excluded from public deployments via `.gitignore`-style rules in each repo's build config.
+> ⚠️ **DUAL-SOURCE RULE — MUST UPDATE BOTH SIDES**
+>
+> When you edit any file here, **update the mirror in the other repo in the same commit**. Both folders are excluded from public deployments via build-stage rules:
+> - `senzhang-resume/.github/workflows/deploy.yml` rsync-excludes `internal/`
+> - `senzhang.me/internal/` lives outside `src/` and `public/`, so Next.js never imports it
+>
+> 🛠 **Single-source-of-truth migration in progress** — the resume itself (`sen-zhang-resume-*.md` and `Resume.pdf`) is now driven from a single canonical source: `senzhang.me/src/data/resume.ts` → `senzhang.me/scripts/build-resume.mjs` regenerates the MD into `senzhang-resume/internal/` and the PDF into `senzhang-resume/Resume.pdf`. Edit `resume.ts` only; run the script to propagate.
+>
+> Strategy docs (HR negotiation brief, etc.) remain manually mirrored until they earn a generator of their own.
 
 ## Index
 
 | File | Created | Subject | Status |
 |---|---|---|---|
-| `2026-05-05-cannondesign-hr-negotiation-brief.{md,pdf}` | 2026-05-03 | HR meeting prep — title change & raise discussion ahead of CannonDesign acquisition mapping | Live (pre-meeting) |
+| `2026-05-05-cannondesign-hr-negotiation-brief.{md,pdf}` | 2026-05-03 | HR meeting prep — title change & raise discussion ahead of CannonDesign acquisition mapping | Live (pre-meeting) — manual dual-mirror |
+| `sen-zhang-resume-2026-05.{md,pdf}` | 2026-05-03 | Gensler-targeted resume (Rocco Francica / Islay Burgess outreach) | Auto-regen from `senzhang.me/src/data/resume.ts` |
 
 ## Update protocol
 
