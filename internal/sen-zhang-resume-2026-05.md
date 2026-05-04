@@ -13,7 +13,7 @@ Registered Architect in NY · 518.618.6150 · zsenarchitect@gmail.com
 
 ## Summary
 
-Registered NY architect (NCARB) and computational design technologist, 9 years post-Master's. Architect and lead developer of EnneadTab — a 450+ tool firm-scale design-automation platform with three U.S. Copyright registrations, deployed daily across NYC, LA, and Shanghai studios. Speaker: Autodesk University 2024, Advancing Computational Design Conference 2026.
+Registered NY architect (NCARB) and computational design technologist, 9 years post-Master's. Single-person Design Technology department for a 150-person firm: architect and lead developer of EnneadTab — a 450+ tool plugin platform with three U.S. Copyright registrations — plus BimRunner, EnneadTabLLM, FieldDay, and AIA-Sustainable-Reporting. Independent product work spans real-estate networking platforms, social-media small-business apps, and a cross-machine agentic Claude ecosystem. Speaker: Autodesk University 2024, Advancing Computational Design 2026.
 
 ## Experience
 
@@ -21,13 +21,13 @@ Registered NY architect (NCARB) and computational design technologist, 9 years p
 _BIM Manager (concurrent)_{meta:2022–Present}
 _Rhino Doctor (concurrent)_{meta:2022–Present}
 _Architectural Designer, BIM Specialist_{meta:2020–2022}
-- **Computational BIM Developer — In-house plugin development for Revit and Rhino**
+- **Computational BIM Developer — single-person Design Technology department for a 150-person firm**
   - Architect and lead developer of EnneadTab — 450+ tools across Revit, Rhino, CAD, Adobe, Excel, Email, and LLM integration; three U.S. Copyright registrations (2024)
   - BimRunner — Revit project-health analytics dashboard (Next.js 14 + Vercel Postgres, ~91k LOC, 422 files); RESTful ingestion + dynamic scoring
-  - EnneadTabLLM — on-prem Ollama RAG monorepo (Windows server + Vercel proxy + shared TS types) for HIPAA / data-sovereign clients
+  - EnneadTabLLM — on-prem Ollama RAG monorepo for HIPAA / data-sovereign clients
   - AIA-Sustainable-Reporting — CRON Excel pipeline + dashboard for AIA 2030 metrics; FieldDay — offline-first PWA for site inspection with PDF spatial pinning
+  - EnneaDuck — pixel-mascot community-engagement system that gamifies internal adoption of design-tech across 150 staff
   - Fluent in CPython, IronPython, Revit API, RhinoCommon API, TypeScript / Next.js; LLM integration via Ollama, OpenAI, Anthropic, MCP
-  - Repository auto-publishing, auto-distribution, auto-documentation; Azure VM + cloud-computing environment with IT
 - **BIM Manager (concurrent)**
   - Healthcare (NE US): NYU Langone, Northwell, Lenox Hill
   - Commercial (Asia): FTZ Shanghai, ByteDance Houhai HQ, Bilibili HQ
@@ -45,7 +45,9 @@ _Architectural Designer, BIM Specialist_{meta:2020–2022}
 
 ### **Terreform ONE** / Research, Design{meta:New York, NY · 2016–2017}
 
-## Selected Projects — Design Technology
+## Selected Projects
+
+_Firm Tools — Ennead Architects_
 
 ### **EnneadTab** / Architect & Lead Developer{meta:2021–Present}
 Cross-application plugin ecosystem spanning Revit, Rhino, CAD, Autodesk Desktop Connector, Enscape, InDesign, Photoshop, Excel, Email, AI/LLM, computer-resource monitoring, text-to-speech, and sound effects. 450+ tools, three U.S. Copyright registrations (2024). CPython compile pipeline → distribution repo → user-side scheduled updater with delayed-deletion silent background updates.
@@ -62,25 +64,57 @@ CRON Excel pipeline + frontend dashboard for AIA 2030 sustainable-design metrics
 ### **FieldDay** / Architect & Lead Developer{meta:2026–Present}
 Offline-first PWA for site inspection on phones, tablets, and desktops. PDF-based spatial pinning, photos, voice notes, and comments with zero-connectivity capture and Vercel Pro cloud sync. Preserves spatial accuracy across drawing revisions.
 
+### **RenderPolisher** / Architect & Developer{meta:2025–2026}
+AI-driven render post-processing pipeline. Cleans and uplifts architectural visualizations through a configurable model chain; integrates into the Ennead delivery workflow via the EnneadTab toolbar.
+
 ### **EnneadTabHome** / Architect & Developer{meta:2025–2026}
 Landing page and central hub for the EnneadTab application family at enneadtab.com. Next.js 14, Tailwind, mobile-friendly UI.
 
 ### **EnneadTabWiki** / Architect & Lead Author{meta:Ongoing}
-Public documentation site for the EnneadTab plugin ecosystem.  
+Public documentation site for the EnneadTab plugin ecosystem. Auto-generated from source repos; serves as both internal training material and external industry signal.  
 https://ennead-architects-llp.github.io/EnneadTabWiki/
+
+### **EnneaDuck** / Designer & Developer{meta:2022–Present}
+Pixel-mascot community-engagement system embedded throughout EnneadTab — randomized achievements, status notifications, and gamified adoption hooks that turned a top-down tooling rollout into a 150-person voluntary user base.
 
 ### **Rosette** / Architect & Developer{meta:2026–Present}
 Architectural-language translator: turns design-team, client, and regulatory text into one-line plain-English (or Mandarin) summaries with an interactive structural graph. Part of the EnneadTab product line.
 
-### **RenderPolisher** / Architect & Developer{meta:2025–2026}
-Internal AI-driven render post-processing pipeline for architectural visualization workflows.
-
 ### **2025 Performance Review** / Architect & Lead Developer{meta:2025–2026}
 Firm-wide employee-evaluation system. Excel ingest → interactive HTML report with software-proficiency tracking and visual analytics. Deployed to GitHub Pages.
+
+_Independent — Founder / Engineer_
+
+### **Realm** / Founder & Engineer{meta:2025–Present}
+Networking and event platform for architects, real-estate operators, and exhibition partners. Next.js 16 + NextAuth v5 + Drizzle ORM + Vercel Postgres. Multi-step RSVP, admin/client dashboard, password-reset flows via Resend, role-based partner gating.  
+https://realmnomadgroup.com
+
+### **Hair-Salon SMB Platform** / Founder & Engineer{meta:TODO}
+TODO — booking / inventory / loyalty platform for a NYC hair salon. Confirm name, stack, scope.
+
+### **Social-Media Ads Service** / Founder & Engineer{meta:TODO}
+TODO — small-startup ad-management service for social-media campaigns. Confirm name, scope, status.
+
+### **Social-Media Channel — Android App** / Founder & Engineer{meta:TODO}
+TODO — Android application for a social-media channel / community. Confirm name, channel, app-store status.
 
 ### **LakeHouse-Design.com** / Architect & Developer{meta:Ongoing}
 Rhino package of professional design tools — dynamic area takeoff, layer/material merging, object transformation, block management.  
 https://lakehouse-design.com/
+
+_AI Ecosystem — Cross-machine Agentic Infrastructure_
+
+### **Cross-Machine Agentic Claude Ecosystem** / Architect & Developer{meta:2025–Present}
+End-to-end portable Claude Code configuration — settings, skills, MCP servers, custom commands, plugins, project memories, and plans — that synchronizes across Mac, Windows, and mobile so the same agent team is available everywhere. 1,700+ commits to the personal-use config repo over the last 90 days.
+
+### **ideaFactory** / Architect & Developer{meta:2025–2026}
+Virtual-company multi-agent pipeline as a Claude Code plugin: each role agent runs independently and collaboratively, daily, reporting to a Project-Manager orchestrator. Modernized to Gemini Imagen 4.0 + TTS.
+
+### **youtube-plus** / Architect & Developer{meta:2026}
+MCP server exposing YouTube as a programmable tool surface for Claude — search, transcript extraction, comment analysis, channel exploration, analytics, and upload — used inside the agent ecosystem.
+
+### **senzhang-wechat-harness** / Architect & Developer{meta:2026}
+macOS desktop-automation harness that lets Claude read and reply to WeChat messages via AppleScript + screencapture — no API key, works for any WeChat account on a connected Mac.
 
 ## Speaking & Recognition
 
