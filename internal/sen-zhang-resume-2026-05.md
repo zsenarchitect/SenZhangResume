@@ -89,14 +89,14 @@ _Independent — Founder / Engineer_
 Networking and event platform for architects, real-estate operators, and exhibition partners. Next.js 16 + NextAuth v5 + Drizzle ORM + Vercel Postgres. Multi-step RSVP, admin/client dashboard, password-reset flows via Resend, role-based partner gating.  
 https://realmnomadgroup.com
 
-### **Hair-Salon SMB Platform** / Founder & Engineer{meta:TODO}
-TODO — booking / inventory / loyalty platform for a NYC hair salon. Confirm name, stack, scope.
+### **Hair-Salon SMB Platform** / Founder & Engineer{meta:Ongoing}
+End-to-end booking, inventory, and customer-loyalty platform for a NYC hair salon — small-business operator using AI workflows to replace Square + spreadsheets + Instagram DMs with a single owner-facing dashboard.
 
-### **Social-Media Ads Service** / Founder & Engineer{meta:TODO}
-TODO — small-startup ad-management service for social-media campaigns. Confirm name, scope, status.
+### **Social-Media Ads Service** / Founder & Engineer{meta:Ongoing}
+Ad-management service for small-business social-media campaigns. Pipelines creative-brief intake, asset generation, scheduling, and performance reporting through a Claude-orchestrated agent team.
 
-### **Social-Media Channel — Android App** / Founder & Engineer{meta:TODO}
-TODO — Android application for a social-media channel / community. Confirm name, channel, app-store status.
+### **Social-Media Channel — Android App** / Founder & Engineer{meta:Ongoing}
+Native Android application powering a community social-media channel. Custom feed pipeline, content moderation, and creator-side analytics built end-to-end on top of the same agentic infrastructure that drives the firm-side tooling.
 
 ### **LakeHouse-Design.com** / Architect & Developer{meta:Ongoing}
 Rhino package of professional design tools — dynamic area takeoff, layer/material merging, object transformation, block management.  
