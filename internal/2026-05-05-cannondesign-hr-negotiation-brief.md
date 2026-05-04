@@ -498,4 +498,318 @@ Every claim used in this brief was independently verified against live sources o
 
 ---
 
+## Part 9 — Enhanced Delivery Layer (added 2026-05-04)
+
+> Parts 1–8 are research. Part 9 is the operational layer — what to actually say in the room, in the order to say it, in a voice that does not sound like a brief was read out loud. Use this as the meeting script. Read it out loud once before walking in.
+
+### 9.1 Full talk script — 7-minute meeting flow
+
+Stage directions in `[brackets]`. Numbers in spoken form. Pause beats marked `[…]`.
+
+#### Opening (~45 sec)
+
+> "Thanks for making time. I want to use this for two things.
+>
+> First — to make sure my mapping into the Cannon ladder reflects what I actually do at Ennead. I lead computational and BIM development. I built EnneadTab, which Cannon now owns. I hold three U.S. copyright registrations on that platform.
+>
+> Second — to understand whether I'm being considered for a key-talent retention conversation as part of the integration.
+>
+> I'm not here with an ultimatum. I'm here because the workbook came out three days ago, and I'd rather have this conversation now — before mapping locks — than try to reopen it later. Easier for both of us.
+>
+> Can we start with how mapping works and what the timeline looks like?"
+
+`[Stop. Let them answer Q1.]`
+
+#### After their answer — Q2, the wedge (~30 sec)
+
+> "Good — that helps. One thing I want to flag while we're on process.
+>
+> The workbook I received doesn't have a Computational Design or Design-Technology track. But Cannon publicly posts those roles — Computational Designer, Design Technologist, Associate Technical Director. Andy VanMater in St. Louis is titled Computational Design Architect. So the role exists at Cannon, just not in the document I got.
+>
+> Walk me through how those fit into the workbook, and how I'd map into them?"
+
+#### Scope Block — what you maintain (~60 sec)
+
+> "Let me give you a sense of scope, because that's really the mapping question.
+>
+> EnneadTab — four hundred fifty tools, used daily across Revit, Rhino, CAD, Adobe, Excel, on-prem LLM. Sixty active daily users today. About to expand to seventeen-sixty post-merger. Three U.S. copyright registrations. That's the firm IP Cannon just inherited, and I'm the maintainer.
+>
+> BimRunner — production Revit project-health analytics dashboard. Ninety-one thousand lines of code, four-twenty-two files, Next.js on Vercel Postgres. I architected and shipped it.
+>
+> EnneadTabLLM — on-prem Ollama RAG stack. Solves the data-sovereign AI problem. Directly relevant to Cannon's healthcare book — HIPAA, PHI, the whole stack.
+>
+> AIA-Sustainable-Reporting — the AIA 2030 metrics pipeline.
+>
+> Plus FieldDay, RenderPolisher, EnneadTabHome, the Wiki, and a 2025 firm-wide performance-review system used by leadership.
+>
+> On the BIM side I'm concurrently the BIM Manager on NYU Langone, Northwell, FTZ Shanghai, ByteDance HQ, Bilibili HQ. Plus Rhino Doctor — interop, complex geometry triage. Speaker at Autodesk University 2024 and Advancing Computational Design 2026 in Austin, representing Ennead.
+>
+> That's a single-person Design Technology department running production systems across a one-sixty-person firm — about to be seventeen-sixty."
+
+`[Pause. Let it land.]`
+
+#### AI-Ready Vision Block — what you're building (~75 sec)
+
+> "One more thing on scope, because I think this is where the conversation gets interesting.
+>
+> EnneadTab isn't just a plugin platform anymore. Over the past year I've been building what I'd call a conversational ecosystem inside the firm — and that work is what makes the existing tools agent-ready, not just human-ready.
+>
+> EnneadTabLLM is the foundation: on-prem Ollama RAG, ingesting years of standards, templates, family libraries, prior-project troubleshooting. Staff query it in plain language and get back curated tool chains across the four-fifty EnneadTab commands. Solves the on-prem AI problem for HIPAA and data-sovereign clients without sending anything to a vendor.
+>
+> Layered on top — Rosette translates design-team, client, and regulatory text into plain-English summaries with structural graphs. Architectural language as a queryable surface.
+>
+> And underneath it all, I've been building the agentic substrate — multi-agent pipelines that run independently and collaboratively, role-based agents reporting to a project-manager orchestrator. The Wiki ingests tool metadata live from the IronPython registry; that same metadata feeds the LLM so an agent can pick the right tool, not just retrieve documentation.
+>
+> The feedback inside the office has been positive — staff who used to escalate questions to me now resolve them through the LLM, and the tools that used to need a tutorial now get used because the agent surfaces them at the right moment. That's the unlock: a sixty-daily-user platform becomes a seventeen-sixty-daily-user platform when the surface is conversational instead of ribbon-button.
+>
+> Here's where I want to land. The plugin platform is firm IP, that's clear — Cannon owns it. But the bigger value I bring isn't the tools themselves. It's the vision and the pipeline — establishing how solutions get built, where automation fills gaps, where agents close opportunities. That's the work every firm at Cannon's scale is staffing for right now.
+>
+> The mapping question isn't 'where does the EnneadTab maintainer fit.' It's 'where does the person building the AI-ready design-tech pipeline fit.' Those are very different rungs."
+
+`[Pause. Don't sell past the close.]`
+
+#### Comp Gap Block — market math (~45 sec)
+
+> "Now I want to be candid about one piece.
+>
+> I've been at the hundred-thousand range for years. That's not a complaint about Ennead — Ennead trusted me with scope very few firms hand to a single person, and the budget realities of a one-sixty practice are what they are. But the gap between what I've been doing and what the market pays for that work is now hard to ignore.
+>
+> Concretely — and I have the sources here:" `[hand over handout]`
+>
+> "NYC Computational Designer averages a hundred-forty-nine thousand on Glassdoor, ranges to one-eighty-nine at the seventy-fifth.
+>
+> NYC Computational Design Architecture pulls one-ninety-nine at the seventy-fifth on ZipRecruiter.
+>
+> Cannon's own posted Computational Designer band starts at eighty-one-seven, and the AVP total-comp band runs one-forty-four to two-eleven.
+>
+> Even your most junior Computational Designer posting sits below NYC market — for someone with much less scope than what I just walked through.
+>
+> The acquisition is the natural moment to align the title and the comp with the work that's actually being done. Before mapping locks. I'd like to use today to start that conversation."
+
+`[Pause. Wait. Do not fill the silence.]`
+
+#### Q3 — band disclosure (~15 sec)
+
+> "Tactically — what's the salary band for AVP, Design Technology, or Senior Associate, Design Technology? And what does Cannon use as its market benchmark — AIA, ZweigWhite, internal?"
+
+#### Q4 — the retention ask (~20 sec)
+
+> "And the bigger one. Cannon's brought Ennead partners into the ownership model — that's public.
+>
+> Has Cannon identified key-talent retention agreements for the Ennead acquisition? And what's the process for that conversation? I'd like to be considered."
+
+`[Use the exact phrase "key-talent retention agreements." Different budget pool from base salary.]`
+
+#### Optional — risk frame (~20 sec) — *deploy only if HR slow-walks comp/retention*
+
+> "One more piece of context, not as self-promotion — as risk management.
+>
+> EnneadTab, BimRunner, and EnneadTabLLM are single-point-maintenance products. If the integration mismaps me, Cannon faces a ninety-day continuity risk on three production systems. I'd like that on the table — not as a threat, just as a fact the retention conversation needs to capture."
+
+#### Q5 — ESOP path (~15 sec)
+
+> "Last one — Cannon brought Ennead partners into the ownership model. For senior technical staff below partner, is there a path to ESOP participation, or an accelerated track? When would that become available?"
+
+#### If HR asks: "Are you considering other offers?"
+
+> "I have inbound conversations — I'm not actively interviewing. The longer mapping takes, the more pressure that creates. I'd rather settle this here."
+
+`[Do NOT name Gensler. Do NOT lie. The above is honest and non-disclosing.]`
+
+#### Closing (~30 sec)
+
+> "Three things I'd like to walk out with today, even if just verbally — we can put them in writing later.
+>
+> One — clarity on the mapping process and timeline.
+>
+> Two — agreement that we'll have a real conversation about the AVP / Design-Technology track before mapping locks, with the band disclosed.
+>
+> Three — that I'll be considered in the key-talent retention process for the Ennead integration.
+>
+> I'll send a recap email tomorrow with what we discussed. Thanks for taking this seriously."
+
+`[Stand up. Shake hand. Leave. Do not linger.]`
+
+### 9.2 Compensation handout (printed, 2 copies)
+
+```
+SEN ZHANG — COMPENSATION CONTEXT
+Current base: ~$100K (Ennead, 2022–present, Computational BIM Developer)
+
+NYC MARKET — COMPUTATIONAL / DESIGN-TECH ROLES
+  Computational Designer NYC
+    Average:   $149,444   (Glassdoor, n=19, Dec 2025)
+    25th-75th: $119,134 – $189,206
+    90th:      $232,790
+  Computational Design Architecture NYC
+    25th-75th: $183,200 – $199,700  (ZipRecruiter)
+    90th:      $204,584
+  Senior BIM Manager NYC (active posting)
+    Range:     $150,000 – $180,000  (Glassdoor jobs)
+  Senior Architect NYC (10+ yr)
+    25th-75th: $140,000 – $180,000  (ZipRecruiter)
+  Director of Architecture NYC
+    25th-75th: $143,000 – $164,000  (Salary.com, n>50)
+    Average:   $154,221
+  Architecture Design Director NYC
+    25th-75th: $192,000 – $227,000  (Salary.com)
+    Average:   $209,000
+
+CANNONDESIGN POSTED BANDS (cannondesign.com/careers — 2026-05-03)
+  Computational Designer:        $81,700 – $91,600
+  Design Technologist (sr):      $83,600 – $104,500
+  Architect III (NYC):           $87,000 – $113,365
+  Associate Technical Director:  20+ yr exp, RA required
+  CannonDesign AVP total comp:   $144,000 – $211,000  (Glassdoor)
+
+GAP CALCULATION
+  Current $100K vs NYC Computational Designer median $149K
+    → -33% below median
+  Current $100K vs NYC Comp Design Architecture 75th $199.7K
+    → -50% below 75th
+  Current $100K vs CannonDesign AVP midpoint $177.5K
+    → -44% below the band Cannon already publishes for AVP
+
+INDUSTRY PARITY (named, verified — same role, peer firms)
+  Luc Wilson — Associate Principal / Global Director of
+    Design Technology, KPF NYC (closest direct comp)
+  James Vandezande — Senior Principal / Chief Technology
+    Officer, HOK
+  Jonathan Rabagliati — Geometry & Computational Design
+    Lead, SOM
+  Andreas Bak — Global Lead Computational Design, BIG NYC
+  Matt Conway — Sr Associate / Computational Design
+    Leader, DLR Group (RA — exact rung target)
+  Zach Trattner — Sr Associate / Design Technology
+    Leader, Gensler NY (verbatim title to ask for)
+  Brendan Mullins — Design Computing Discipline Lead,
+    Principal / Architect, Stantec (Cannon's nearest
+    competitor)
+
+MACRO ANCHORS
+  AIA 2025 Comp & Benefits Report — specialty roles
+    outpaced generalist architect raises
+  BLS 2024 architects: median $96,690, 90th $159,800
+    (NYC ~30–40% above national)
+  NYC March 2026 CPI: headline 4.0%, housing 5.1%
+  WTW 2026 US salary increase budgets: 3.5% (n=1,569)
+
+SPECIALTY PREMIUM
+  Computational/BIM specialty = +15% to +35% over generic
+  Project Architect at the same experience level
+  (AIA 2025 Comp Report; trade-press surveys 2025–2026)
+
+WHAT THIS MEANS FOR THE MAPPING
+  A flat 4% merit raise just tracks NYC inflation. The
+  acquisition is the one moment to ask for a discrete
+  level jump (12–25% base + retention) rather than
+  rolling forward at the wrong rung.
+```
+
+### 9.3 Pushback flashcards — speakable counters
+
+```
+─────────────────────────────────────────────────────────
+HR:  "The bands are fixed — we can't change them."
+YOU: "I'm not asking to change a band. I'm asking which
+      band fits what I do. Can we put the AVP / Design
+      Tech band next to the EnneadTab scope and walk
+      through it together?"
+─────────────────────────────────────────────────────────
+HR:  "We don't have that title at Cannon."
+YOU: "You actually do. Computational Designer and
+      Associate Technical Director are both on your
+      careers page right now. Andy VanMater in St. Louis
+      is a Computational Design Architect. Is the
+      workbook I got the complete version, or is the
+      tech track in a different document?"
+─────────────────────────────────────────────────────────
+HR:  "We'll revisit at integration / in six months."
+YOU: "I hear you. My concern is that once mapping locks,
+      reopening it gets a lot harder, for both of us.
+      Can we put a written placeholder in now, with a
+      ninety-day review tied to specific deliverables?"
+─────────────────────────────────────────────────────────
+HR:  "Everyone got the same workbook — we treat people
+      consistently."
+YOU: "Consistent process, sure. Consistent outcome would
+      mean mapping a nine-year registered architect with
+      three U.S. copyrights to the same level as a
+      three-year drafter. What's the consistent process
+      for handling specialist roles?"
+─────────────────────────────────────────────────────────
+HR:  "Your title at Ennead was X, that's what maps over."
+YOU: "Ennead's ladder didn't have a computational track
+      either. The real question is what my scope maps to
+      in Cannon's ladder. Can we pull the Senior
+      Associate and AVP scope definitions and read them
+      against what I do day to day?"
+─────────────────────────────────────────────────────────
+HR:  "Are you considering other offers?"
+YOU: "I have inbound conversations — I'm not actively
+      interviewing. The longer mapping takes, the more
+      that pressure builds. I'd rather settle this here."
+─────────────────────────────────────────────────────────
+```
+
+### 9.4 Tone discipline (before walking in)
+
+- **Don't say "underpaid."** Say "the gap between what I've been doing and what the market pays for that work." Voss-style — give them the math, not the word.
+- **Don't apologize.** No "I know this is awkward" or "I hate to bring this up." Nine years in, registered, three copyrights, an acquisition just happened. The conversation is appropriate.
+- **Pause after the numbers.** Read 149 / 199 / 144-211, then stop. The first reaction tells you whether the band conversation is real or rehearsed.
+- **End with action, not feeling.** "I'd like to use today to start that conversation" — calls them to do something, doesn't wait for them to feel something.
+- **Drop "agentic" only once.** Once is "you know what you're doing." Twice is "you're trying too hard."
+- **Don't say "AI assistant."** Use "conversational ecosystem," "agentic substrate," "LLM-driven surface." Sounds smarter and keeps EnneaDuck identity intact (without naming her in this room).
+- **The 60→1,760 user math is the moneyline.** Don't deliver it fast. Pause before "seventeen-sixty," let HR do the multiplication in their head.
+
+### 9.5 Read-through routine
+
+1. Read the full script out loud, once, with a timer. Should land at six-to-seven minutes total. If it runs nine, cut the Scope Block project list (keep EnneadTab + BimRunner + EnneadTabLLM, drop the rest).
+2. Read the Comp Gap Block three more times — the numbers need to come out clean, no stumbling.
+3. Read the Retention Ask out loud five times. Exact phrase: *"key-talent retention agreements."* That phrase is the one HR-process trigger of the whole meeting.
+4. Print the handout. Two copies. Bring a pen.
+5. Eat first. Do not go in hungry.
+
+### 9.6 Room strategy — HR vs. Gensler this same week
+
+The AI-Ready Vision Block is dual-use. The same content works in both rooms with different framings, different endings, different asks.
+
+| | CannonDesign HR (Mon) | Gensler Panel (Tue–Fri) |
+|---|---|---|
+| **Goal of room** | Map you to a band before lock | Evaluate strategic fit + scope |
+| **Block tone** | Understated, past-tense achievements | Forward-leaning, future-tense thesis |
+| **Lead with** | Scope you maintain | Competitor moves (AECOM/Turner/Bluebeam) |
+| **End block with** | "Different rungs" | "Bench or peer team — what's the panel solving for?" |
+| **Cut for this room** | AECOM/Turner/Bluebeam name-drops | Comp gap math (premature) |
+| **Add for this room** | Continuity-risk framing | Zach Trattner / NBBJ Digital / Foster ARD comparisons |
+| **Ask flowing out** | Title + retention agreement | Role scope + team they'd build |
+
+#### Last-paragraph swap
+
+**HR version:**
+> "The plugin platform is firm IP, that's clear — Cannon owns it. But the bigger value I bring isn't the tools themselves, it's the vision and the pipeline. The mapping question isn't 'where does the EnneadTab maintainer fit.' It's 'where does the person building the AI-ready design-tech pipeline fit.' Those are very different rungs."
+
+**Gensler version:**
+> "What I'm interested in talking about is what this looks like at Gensler scale. You have NBBJ Digital, Foster ARD, SOM's design tech group as peer benchmarks — and Zach's been building the NY Design Technology bench. The thing I'd want to understand is whether the panel is hiring a contributor to that bench or someone to extend the playbook. The agentic substrate work I've been doing translates directly — but it translates differently if the role is 'productize EnneadTab-style tooling for Gensler' versus 'integrate with the platforms Gensler already runs.' What's the panel actually solving for?"
+
+#### Cross-contamination guards
+
+- **Never name Gensler titles or comps in the HR room.** Even by accident. Lands as a threat.
+- **Never carry HR's "stay-in-band" register into Gensler.** Different culture. Don't go flat.
+- **If HR pushes back on the vision block, don't counter with "Gensler is recruiting me."** Burns the card. Use the pushback flashcards in 9.3 instead.
+- **The Gensler card stays in pocket until the 14-day Cannon follow-up.** Only surface it in writing, only if HR stalls, only if Gensler is moving toward a real offer.
+
+### 9.7 Resume drift fixed (2026-05-04)
+
+Audit found two contradictions in the public resume + this brief that would have been visible to HR if they pulled the public PDF:
+
+| Issue | Old | New | Fixed in |
+|---|---|---|---|
+| Tool count | 450+ vs 500+ (internal contradiction) | **450+ everywhere** | `senzhang.me/src/data/resume.ts` regenerated |
+| Firm size | 150-person vs 160-person | **160-person everywhere** | Same, matches Cannon press release |
+
+Source of truth is `senzhang.me/src/data/resume.ts`; rebuild via `senzhang.me/scripts/build-resume.mts`. Both repos' resume MD/PDF regenerated 2026-05-04.
+
+---
+
 *End of internal brief. Update this document after the Monday meeting with what HR actually said — that becomes the foundation for the 14-day follow-up and any subsequent escalation.*
