@@ -15,6 +15,12 @@ Registered Architect in NY · 518.618.6150 · zsenarchitect@gmail.com
 
 Registered NY architect (NCARB) and computational design technologist, 9 years post-Master's. Founding architect of EnneadTab — a 450+ tool plugin platform with three U.S. Copyright registrations and 60 daily users across a 150-person firm — plus BimRunner, EnneadTabLLM, FieldDay, and AIA-Sustainable-Reporting. Independent work spans a real-estate networking platform (Realm), AI-workflow case studies with live SMB operators, and a cross-machine agentic Claude ecosystem. Speaker: Autodesk University 2024, Advancing Computational Design 2026.
 
+## Selected IP & Recognition
+
+- **EnneadTab Platform** — Founding architect — 500+ tool design-automation platform across Revit / Rhino / CAD / Adobe / Excel / on-prem LLM. 60 daily users, 17×/person/workday, 63,627 logged events Q4 2025.{meta:2021–Present}
+- **U.S. Copyright Office** — Three registrations on EnneadTab, authorship credited to Sen Zhang.{meta:2024}
+- **Industry Speaker** — Autodesk University 2024 (San Diego) · Advancing Computational Design Conference 2026 (Austin) · Digital Built Week Americas 2023 (Dallas).{meta:2023–2026}
+
 ## Experience
 
 ### **Ennead Architects LLP** / Computational BIM Developer{meta:New York, NY · 2022–Present}
@@ -133,6 +139,13 @@ _Promoting Computational Design to Non-Programmers_
 ### **AEC Hackathon** / Team — Honorable Mention{meta:New York, NY · 2023}
 _Educational Tool Connecting Junior and Senior Students_
 
+## Credentials & Technical Stack
+
+- Registered Architect, New York (NCARB)
+- Languages: Python (CPython, IronPython), TypeScript, React, Next.js
+- Tooling: Revit API, RhinoCommon API, Grasshopper, Dynamo, MCP, LLM integration (Ollama, OpenAI, Anthropic)
+- Spoken: English, Mandarin Chinese (native)
+
 ## Education
 
 ### **Columbia University GSAPP** / M.S. Advanced Architecture Design{meta:New York, NY · 2016–2017}
@@ -140,13 +153,6 @@ _Educational Tool Connecting Junior and Senior Students_
 ### **Rensselaer Polytechnic Institute** / Bachelor of Architecture{meta:Troy, NY · 2012–2016}
 
 ### **Tongji University** / Major in Urban Planning{meta:Shanghai · 2010–2012}
-
-## Credentials & Technical Stack
-
-- Registered Architect, New York (NCARB)
-- Languages: Python (CPython, IronPython), TypeScript, React, Next.js
-- Tooling: Revit API, RhinoCommon API, Grasshopper, Dynamo, MCP, LLM integration (Ollama, OpenAI, Anthropic)
-- Spoken: English, Mandarin Chinese (native)
 
 ## Awards & Recognition
 
