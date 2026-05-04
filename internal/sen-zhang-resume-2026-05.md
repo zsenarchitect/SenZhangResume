@@ -13,7 +13,7 @@ Registered Architect in NY · 518.618.6150 · zsenarchitect@gmail.com
 
 ## Summary
 
-Registered NY architect (NCARB) and computational design technologist, 9 years post-Master's. Single-person Design Technology department for a 150-person firm: architect and lead developer of EnneadTab — a 450+ tool plugin platform with three U.S. Copyright registrations — plus BimRunner, EnneadTabLLM, FieldDay, and AIA-Sustainable-Reporting. Independent product work spans real-estate networking platforms, social-media small-business apps, and a cross-machine agentic Claude ecosystem. Speaker: Autodesk University 2024, Advancing Computational Design 2026.
+Registered NY architect (NCARB) and computational design technologist, 9 years post-Master's. Founding architect of EnneadTab — a 450+ tool plugin platform with three U.S. Copyright registrations and 60 daily users across a 150-person firm — plus BimRunner, EnneadTabLLM, FieldDay, and AIA-Sustainable-Reporting. Independent work spans a real-estate networking platform (Realm), AI-workflow case studies with live SMB operators, and a cross-machine agentic Claude ecosystem. Speaker: Autodesk University 2024, Advancing Computational Design 2026.
 
 ## Experience
 
@@ -89,23 +89,23 @@ _Independent — Founder / Engineer_
 Networking and event platform for architects, real-estate operators, and exhibition partners. Next.js 16 + NextAuth v5 + Drizzle ORM + Vercel Postgres. Multi-step RSVP, admin/client dashboard, password-reset flows via Resend, role-based partner gating.  
 https://realmnomadgroup.com
 
-### **Hair-Salon SMB Platform** / Founder & Engineer{meta:Ongoing}
-End-to-end booking, inventory, and customer-loyalty platform for a NYC hair salon — small-business operator using AI workflows to replace Square + spreadsheets + Instagram DMs with a single owner-facing dashboard.
+### **Hair-Salon SMB Platform** / Lead Engineer{meta:Ongoing}
+AI-workflow case study on a live NYC hair-salon operator — end-to-end booking, inventory, and customer-loyalty platform replacing Square + spreadsheets + Instagram DMs with a single owner-facing dashboard.
 
-### **Social-Media Ads Service** / Founder & Engineer{meta:Ongoing}
-Ad-management service for small-business social-media campaigns. Pipelines creative-brief intake, asset generation, scheduling, and performance reporting through a Claude-orchestrated agent team.
+### **Social-Media Ads Service** / Lead Engineer{meta:Ongoing}
+AI-workflow case study on live SMB ad operations — Claude-orchestrated agent team handles creative-brief intake, asset generation, scheduling, and performance reporting.
 
-### **Social-Media Channel — Android App** / Founder & Engineer{meta:Ongoing}
+### **Social-Media Channel — Android App** / Lead Engineer{meta:Ongoing}
 Native Android application powering a community social-media channel. Custom feed pipeline, content moderation, and creator-side analytics built end-to-end on top of the same agentic infrastructure that drives the firm-side tooling.
 
 ### **LakeHouse-Design.com** / Architect & Developer{meta:Ongoing}
 Rhino package of professional design tools — dynamic area takeoff, layer/material merging, object transformation, block management.  
 https://lakehouse-design.com/
 
-_AI Ecosystem — Cross-machine Agentic Infrastructure_
+_AI Ecosystem — Personal Research Driving Firm Tools_
 
 ### **Cross-Machine Agentic Claude Ecosystem** / Architect & Developer{meta:2025–Present}
-End-to-end portable Claude Code configuration — settings, skills, MCP servers, custom commands, plugins, project memories, and plans — that synchronizes across Mac, Windows, and mobile so the same agent team is available everywhere. 1,700+ commits in 90 days. Personal application of the "agentize humans" thesis from the Austin 2026 talk: AI is part of every operator's mind extension, not a chat window.
+End-to-end portable Claude Code configuration — settings, skills, MCP servers, custom commands, plugins, project memories, and plans — synchronized across Mac, Windows, and mobile so the same agent team is available everywhere. Personal application of the "agentize humans" thesis from the Austin 2026 talk: AI is part of every operator's mind extension, not a chat window.
 
 ### **ideaFactory** / Architect & Developer{meta:2025–2026}
 Virtual-company multi-agent pipeline as a Claude Code plugin: each role agent runs independently and collaboratively, daily, reporting to a Project-Manager orchestrator. Modernized to Gemini Imagen 4.0 + TTS.
@@ -115,6 +115,8 @@ MCP server exposing YouTube as a programmable tool surface for Claude — search
 
 ### **senzhang-wechat-harness** / Architect & Developer{meta:2026}
 macOS desktop-automation harness that lets Claude read and reply to WeChat messages via AppleScript + screencapture — no API key, works for any WeChat account on a connected Mac.
+
+> Note on visuals — the EnneadTab product family and the internal firm tools above are Ennead IP and cannot be shown in a public résumé. A desensitized live walkthrough is available on request.
 
 ## Speaking & Recognition
 
