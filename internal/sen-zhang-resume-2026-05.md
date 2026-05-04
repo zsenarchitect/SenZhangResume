@@ -1,6 +1,5 @@
 ---
 title: Sen Zhang — Resume
-subtitle: Registered Architect & Design Technology Lead
 contact: zsenarchitect@gmail.com · 518.618.6150 · New York, NY
 links: senzhang.me · github.com/zsenarchitect · 2026-ai-talk.vercel.app
 generated_from: senzhang.me/src/data/resume.ts
@@ -8,93 +7,119 @@ generated_on: 2026-05-04
 classification: INTERNAL — auto-generated, do not hand-edit
 ---
 
-# SEN ZHANG
+# Sen Zhang
 
-**Registered Architect & Design Technology Lead**
-New York, NY · zsenarchitect@gmail.com · 518.618.6150 · senzhang.me · github.com/zsenarchitect
+Registered Architect in NY · 518.618.6150 · zsenarchitect@gmail.com
 
-## SUMMARY
+## Summary
 
-Registered NY architect and computational design technologist. Build and maintain firm-scale design-automation platforms — Revit/Rhino plugins, project-analytics dashboards, on-prem RAG infrastructure, and AIA 2030 reporting pipelines. Bridge architectural intent and shippable code.
+Registered NY architect (NCARB) and computational design technologist, 9 years post-Master's. Architect and lead developer of EnneadTab — a 450+ tool firm-scale design-automation platform with three U.S. Copyright registrations, deployed daily across NYC, LA, and Shanghai studios. Speaker: Autodesk University 2024, Advancing Computational Design Conference 2026.
 
-## EXPERIENCE
+## Experience
 
-### Ennead Architects LLP (now Ennead, a CannonDesign company)
-**Computational BIM Developer** · 2022–Present  
-**BIM Manager (concurrent)** · 2022–Present  
-**Rhino Doctor (concurrent)** · 2022–Present  
-**Architectural Designer, BIM Specialist** · 2020–2022
-New York, NY
-- Architect and lead developer of EnneadTab — 450+ tool platform spanning Revit, Rhino, CAD, Adobe, Excel, Email, and LLM integration; 3 U.S. Copyright registrations
-- BimRunner — Revit project-health analytics dashboard (Next.js + Vercel Postgres, ~91k LOC, 422 files)
-- EnneadTabLLM — local-deployment Ollama RAG monorepo (Windows server + Vercel proxy + shared TypeScript types) for on-prem AI workflows
-- AIA-Sustainable-Reporting — CRON Excel pipeline + frontend dashboard for AIA 2030 metrics
-- FieldDay — offline-first PWA for site inspection on phone/tablet/desktop with PDF spatial pinning
-- BIM Manager: NYU Langone, Northwell, FTZ Shanghai, ByteDance Houhai HQ, Bilibili HQ, Lenox Hill
-- Rhino Doctor: Rhino-to-Revit interop with zero-learning-curve internal tooling; complex parametric and industrial-scale geometry triage
-- Speaker representing Ennead Architects, Design Technology at Autodesk University 2024 (San Diego) and Advancing Computational Design Conference 2026 (Austin)
+### **Ennead Architects LLP** / Computational BIM Developer{meta:New York, NY · 2022–Present}
+_BIM Manager (concurrent)_{meta:2022–Present}
+_Rhino Doctor (concurrent)_{meta:2022–Present}
+_Architectural Designer, BIM Specialist_{meta:2020–2022}
+- **Computational BIM Developer — In-house plugin development for Revit and Rhino**
+  - Architect and lead developer of EnneadTab — 450+ tools across Revit, Rhino, CAD, Adobe, Excel, Email, and LLM integration; three U.S. Copyright registrations (2024)
+  - BimRunner — Revit project-health analytics dashboard (Next.js 14 + Vercel Postgres, ~91k LOC, 422 files); RESTful ingestion + dynamic scoring
+  - EnneadTabLLM — on-prem Ollama RAG monorepo (Windows server + Vercel proxy + shared TS types) for HIPAA / data-sovereign clients
+  - AIA-Sustainable-Reporting — CRON Excel pipeline + dashboard for AIA 2030 metrics; FieldDay — offline-first PWA for site inspection with PDF spatial pinning
+  - Fluent in CPython, IronPython, Revit API, RhinoCommon API, TypeScript / Next.js; LLM integration via Ollama, OpenAI, Anthropic, MCP
+  - Repository auto-publishing, auto-distribution, auto-documentation; Azure VM + cloud-computing environment with IT
+- **BIM Manager (concurrent)**
+  - Healthcare (NE US): NYU Langone, Northwell, Lenox Hill
+  - Commercial (Asia): FTZ Shanghai, ByteDance Houhai HQ, Bilibili HQ
+  - Solution architect for large-model BIM data, complex families, in-house training and mentoring
+- **Rhino Doctor (concurrent)**
+  - Rhino-to-Revit interoperability via zero-learning-curve internal tooling
+  - Triage of complex parametric and industrial-scale geometry
+  - Speaker: Autodesk University 2024 (San Diego), Advancing Computational Design Conference 2026 (Austin)
 
-### Arquitectonica
-**Designer, BIM Specialist, CG Visualization** · 2017–2020
-New York, NY
-- 40 Hudson Yards (NYC office tower), Amazon HQ2 master planning (Chicago), Toronto SmartCity 31 Parliament
-- Curtis Block (Calgary), Warsaw Hotel (Poland), Newport Waterfront, Equinox Hotel (San Jose), Queens Sherbourne mixed-use (Toronto)
-- Residential, office, hotel, and master-planning projects with end-to-end BIM coordination and CG visualization delivery
+### **Arquitectonica** / Designer, BIM Specialist, CG Visualization{meta:New York, NY · 2017–2020}
+- 40 Hudson Yards (NYC office tower); Amazon HQ2 master planning (Chicago); 31 Parliament mid-rise residential tower (Toronto SmartCity)
+- Curtis Block (Calgary); Warsaw Hotel (Poland); Newport Waterfront; Equinox Hotel (San Jose); Queens Sherbourne mixed-use with historical preservation (Toronto)
 
-### RPI Publication Dept.
-**Book-design, Asset Management** · 2016–2017
-Troy, NY
+### **RPI Publication Dept.** / Book-design, Asset Management{meta:Troy, NY · 2016–2017}
 
-### Terreform ONE
-**Research, Design** · 2016–2017
-New York, NY
+### **Terreform ONE** / Research, Design{meta:New York, NY · 2016–2017}
 
-## SELECTED PROJECTS — DESIGN TECHNOLOGY
+## Selected Projects — Design Technology
 
-| Project | Role | Period | Description |
-|---|---|---|---|
-| **EnneadTab** | Architect & Lead Developer | 2021–Present | Cross-application architectural plugin ecosystem (Revit, Rhino, CAD, Autodesk Desktop Connector, Enscape, InDesign, Photoshop, Excel, Email, AI/LLM, TextToSpeech). 450+ tools, deployed firm-wide, three U.S. Copyright registrations. CPython compile pipeline → distribution repo → user-side scheduled updater with delayed-deletion silent background updates. Cross-application architectural plugin Eco-system that span Rhino, Revit, CAD, Autodesk Desktop Connector, Enscape, InDesign, Photoshop, Excel, Email, Notification, AI, Computer Resource Monitoring, TextToSpeech, Sound Effect. |
-| **BimRunner** | Architect & Full-Stack Developer | 2026 | Revit project-health analytics dashboard. Next.js 14 + Vercel Postgres + Chart.js. ~91k LOC across 422 files. RESTful API for data ingestion, dynamic scoring from stored facts, file-attachment extensibility. |
-| **EnneadTabLLM** | Architect & Developer | 2025–2026 | Ollama-based local Retrieval Augmented Generation monorepo. Windows server (Ollama + RAG pipeline) + Vercel Next.js proxy + shared TypeScript types. Solves the on-prem AI problem for HIPAA / data-sovereign clients. |
-| **AIA-Sustainable-Reporting** | Architect & Lead Developer | 2026 | CRON service for Excel processing + frontend dashboard for AIA 2030 sustainable-design metrics. Single-source `.env.local` config across Next.js app, cron scripts, and CLI; Vercel CLI + Codespaces friendly. |
-| **FieldDay** | Architect & Lead Developer | 2026 | EnneadTab-FieldDay — offline-first PWA for site inspection on phones, tablets, and desktops. PDF-based spatial pinning, photos, voice notes, and comments with zero-connectivity capture and Vercel Pro cloud sync. Preserves spatial accuracy across drawing revisions. |
-| **EnneadTabHome** | Architect & Developer | 2025–2026 | Landing page and central hub for EnneadTab applications at enneadtab.com. Next.js 14, Tailwind, mobile-friendly UI. |
-| **EnneadTabWiki** | Architect & Lead Author | Ongoing | Public documentation site for the EnneadTab plugin ecosystem. |
-| **Rosette** | Architect & Developer | 2026 | Architectural-language translator: turns design-team / client / regulatory text into one-line plain-English (or Mandarin) summaries plus an interactive structural graph. Part of the EnneadTab product line. |
-| **RenderPolisher** | Architect & Developer | 2025–2026 | Internal AI-driven render post-processing pipeline for architectural visualization workflows. |
-| **2025 Performance Review** | Architect & Lead Developer | 2025–2026 | Firm-wide employee evaluation system. Excel ingest → interactive HTML report with software-proficiency tracking and visual analytics. Deployed to GitHub Pages. |
-| **LakeHouse-Design.com** | Architect & Developer | Ongoing | Rhino package of professional design tools — dynamic area takeoff, layer/material merging, object transformation, block management. |
+### **EnneadTab** / Architect & Lead Developer{meta:2021–Present}
+Cross-application plugin ecosystem spanning Revit, Rhino, CAD, Autodesk Desktop Connector, Enscape, InDesign, Photoshop, Excel, Email, AI/LLM, computer-resource monitoring, text-to-speech, and sound effects. 450+ tools, three U.S. Copyright registrations (2024). CPython compile pipeline → distribution repo → user-side scheduled updater with delayed-deletion silent background updates.
 
-## SPEAKING & RECOGNITION
+### **BimRunner** / Architect & Full-Stack Developer{meta:2026–Present}
+Production Revit project-health analytics dashboard. Next.js 14 + Vercel Postgres + Chart.js, ~91k LOC across 422 files. RESTful ingestion API, dynamic scoring from stored facts, file-attachment extensibility. Surfaces model debt before it becomes coordination crisis.
 
-| Year | Venue | Title | Role |
-|---|---|---|---|
-| 2026 | Advancing Computational Design Conference, Austin, TX | *The Design of Design — Enabling Agile Introduction of New Tools to Scale Design Efficiency* | Speaker |
-| 2024 | Autodesk University, San Diego, CA | *Revit As A Game Engine* | Session Speaker |
-| 2023 | Digital Built Week Americas, Dallas, TX | *Promoting Computational Design to Non-Programmers* | Panel Speaker |
-| 2023 | AEC Hackathon, New York, NY | *Educational Tool Connecting Junior and Senior Students* | Team — Honorable Mention |
+### **EnneadTabLLM** / Architect & Developer{meta:2025–2026}
+Local-deployment Ollama RAG monorepo. Windows server (Ollama + RAG pipeline) + Vercel Next.js proxy + shared TypeScript types. Solves the on-prem AI problem for HIPAA / data-sovereign clients without sending model data to a vendor.
 
-## EDUCATION
+### **AIA-Sustainable-Reporting** / Architect & Lead Developer{meta:2026–Present}
+CRON Excel pipeline + frontend dashboard for AIA 2030 sustainable-design metrics. Single-source `.env.local` config across Next.js app, cron scripts, and CLI; Vercel CLI + Codespaces friendly. Closes the firm-wide reporting loop for the AIA 2030 commitment.
 
-- **Columbia University GSAPP** — M.S. Advanced Architecture Design — New York, NY · 2016–2017
-- **Rensselaer Polytechnic Institute** — Bachelor of Architecture — Troy, NY · 2012–2016
-- **Tongji University** — Major in Urban Planning — Shanghai · 2010–2012
+### **FieldDay** / Architect & Lead Developer{meta:2026–Present}
+Offline-first PWA for site inspection on phones, tablets, and desktops. PDF-based spatial pinning, photos, voice notes, and comments with zero-connectivity capture and Vercel Pro cloud sync. Preserves spatial accuracy across drawing revisions.
 
-## CREDENTIALS & TECHNICAL STACK
+### **EnneadTabHome** / Architect & Developer{meta:2025–2026}
+Landing page and central hub for the EnneadTab application family at enneadtab.com. Next.js 14, Tailwind, mobile-friendly UI.
+
+### **EnneadTabWiki** / Architect & Lead Author{meta:Ongoing}
+Public documentation site for the EnneadTab plugin ecosystem.  
+https://ennead-architects-llp.github.io/EnneadTabWiki/
+
+### **Rosette** / Architect & Developer{meta:2026–Present}
+Architectural-language translator: turns design-team, client, and regulatory text into one-line plain-English (or Mandarin) summaries with an interactive structural graph. Part of the EnneadTab product line.
+
+### **RenderPolisher** / Architect & Developer{meta:2025–2026}
+Internal AI-driven render post-processing pipeline for architectural visualization workflows.
+
+### **2025 Performance Review** / Architect & Lead Developer{meta:2025–2026}
+Firm-wide employee-evaluation system. Excel ingest → interactive HTML report with software-proficiency tracking and visual analytics. Deployed to GitHub Pages.
+
+### **LakeHouse-Design.com** / Architect & Developer{meta:Ongoing}
+Rhino package of professional design tools — dynamic area takeoff, layer/material merging, object transformation, block management.  
+https://lakehouse-design.com/
+
+## Speaking & Recognition
+
+### **Advancing Computational Design Conference** / Speaker{meta:Austin, TX · 2026}
+_The Design of Design — Enabling Agile Introduction of New Tools to Scale Design Efficiency_  
+https://2026-ai-talk.vercel.app/
+
+### **Autodesk University** / Session Speaker{meta:San Diego, CA · 2024}
+_Revit As A Game Engine_
+
+### **Digital Built Week Americas** / Panel Speaker{meta:Dallas, TX · 2023}
+_Promoting Computational Design to Non-Programmers_
+
+### **AEC Hackathon** / Team — Honorable Mention{meta:New York, NY · 2023}
+_Educational Tool Connecting Junior and Senior Students_
+
+## Education
+
+### **Columbia University GSAPP** / M.S. Advanced Architecture Design{meta:New York, NY · 2016–2017}
+
+### **Rensselaer Polytechnic Institute** / Bachelor of Architecture{meta:Troy, NY · 2012–2016}
+
+### **Tongji University** / Major in Urban Planning{meta:Shanghai · 2010–2012}
+
+## Credentials & Technical Stack
 
 - Registered Architect, New York (NCARB)
-- Fluent: CPython, IronPython, TypeScript, JavaScript, React, Next.js
+- Languages: Python (CPython, IronPython), TypeScript, React, Next.js
 - Tooling: Revit API, RhinoCommon API, Grasshopper, Dynamo, MCP, LLM integration (Ollama, OpenAI, Anthropic)
-- Languages: English, Mandarin Chinese (native)
+- Spoken: English, Mandarin Chinese (native)
 
-## SELECTED COMPETITION AWARDS
+## Awards & Recognition
 
-- EnneadTab — U.S. Copyright Office — 3 registrations, authorship credited to Sen Zhang (2024)
-- Hyperloop Campus, Las Vegas — Honorable Mention (2020)
-- Greenway to Ideal City, Chengdu — 2nd Place (2019)
-- Tokyo Anti-Library — Honorable Mention (2018)
-- Non Architecture: Dance — Finalist (2018)
-- AIA Henry Adams Award (2016)
-- Magna Cum Laude Honors — Dean's List 2012–2016 (2016)
-- George T. Droste Scholarship — Structural engineering study (2015)
-- Faculty Selection Award — Academic proficiency in Architecture (2015)
+- **EnneadTab — U.S. Copyright Office** — 3 registrations, authorship credited to Sen Zhang{meta:2024}
+- **Hyperloop Campus, Las Vegas** — Honorable Mention{meta:2020}
+- **Greenway to Ideal City, Chengdu** — 2nd Place{meta:2019}
+- **Tokyo Anti-Library** — Honorable Mention{meta:2018}
+- **Non Architecture: Dance** — Finalist{meta:2018}
+- **AIA Henry Adams Award**{meta:2016}
+- **Magna Cum Laude Honors** — Dean's List 2012–2016{meta:2016}
+- **George T. Droste Scholarship** — Structural engineering study{meta:2015}
+- **Faculty Selection Award** — Academic proficiency in Architecture{meta:2015}
