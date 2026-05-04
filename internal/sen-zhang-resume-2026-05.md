@@ -33,7 +33,7 @@ _Architectural Designer, BIM Specialist_{meta:2020–2022}
   - EnneadTabLLM — on-prem Ollama RAG monorepo for HIPAA / data-sovereign clients
   - AIA-Sustainable-Reporting — CRON Excel pipeline + dashboard for AIA 2030 metrics; FieldDay — offline-first PWA for site inspection with PDF spatial pinning
   - EnneaDuck — pixel-mascot community-engagement system that gamifies internal adoption of design-tech across 150 staff
-  - Fluent in CPython, IronPython, Revit API, RhinoCommon API, TypeScript / Next.js; LLM integration via Ollama, OpenAI, Anthropic, MCP
+  - Fluent in CPython, IronPython, Revit API, RhinoCommon API. Working proficiency in TypeScript / React / Next.js — shipped to production across 8+ personal and firm projects (LLM-assisted). LLM integration via Ollama, OpenAI, Anthropic, MCP
 - **BIM Manager (concurrent)**
   - Healthcare (NE US): NYU Langone, Northwell, Lenox Hill
   - Commercial (Asia): FTZ Shanghai, ByteDance Houhai HQ, Bilibili HQ
@@ -65,26 +65,26 @@ Production Revit project-health analytics dashboard. Next.js 14 + Vercel Postgre
 Local-deployment Ollama RAG monorepo paired with the EnneadTab Wiki — what the Austin 2026 talk frames as "Cloning the Expert." Snowballing knowledge base ingests years of standards, templates, family libraries, and chat-history troubleshooting; surfaces curated tool chains across 500+ EnneadTab commands. Windows server + Vercel Next.js proxy + shared TS types; solves the on-prem AI problem for HIPAA / data-sovereign clients without sending model data to a vendor.
 
 ### **AIA-Sustainable-Reporting** / Architect & Lead Developer{meta:2026–Present}
-CRON Excel pipeline + frontend dashboard for AIA 2030 sustainable-design metrics. Single-source `.env.local` config across Next.js app, cron scripts, and CLI; Vercel CLI + Codespaces friendly. Closes the firm-wide reporting loop for the AIA 2030 commitment.
+CRON Excel pipeline + frontend dashboard for AIA 2030 sustainable-design metrics. Single-source `.env.local` config across Next.js app, cron scripts, and CLI; Vercel CLI + Codespaces friendly. Closes the firm-wide reporting loop for the AIA 2030 commitment. Stack: Next.js + NextAuth + Drizzle ORM + Chart.js.
 
 ### **FieldDay** / Architect & Lead Developer{meta:2026–Present}
-Offline-first PWA for site inspection on phones, tablets, and desktops. PDF-based spatial pinning, photos, voice notes, and comments with zero-connectivity capture and Vercel Pro cloud sync. Preserves spatial accuracy across drawing revisions.
+Offline-first PWA for site inspection on phones, tablets, and desktops. PDF-based spatial pinning, photos, voice notes, and comments with zero-connectivity capture and Vercel Pro cloud sync. Preserves spatial accuracy across drawing revisions. Stack: Next.js + NextAuth + Drizzle ORM + Vercel Blob, offline-first via service workers.
 
 ### **RenderPolisher** / Architect & Developer{meta:2025–2026}
-AI-driven render post-processing pipeline. Cleans and uplifts architectural visualizations through a configurable model chain; integrates into the Ennead delivery workflow via the EnneadTab toolbar.
+AI-driven render post-processing pipeline. Cleans and uplifts architectural visualizations through a configurable model chain; integrates into the Ennead delivery workflow via the EnneadTab toolbar. Stack: Next.js + Vercel Blob/KV + react-pdf book-flip viewer.
 
 ### **EnneadTabHome** / Architect & Developer{meta:2025–2026}
 Landing page and central hub for the EnneadTab application family at enneadtab.com. Next.js 14, Tailwind, mobile-friendly UI.
 
 ### **EnneadTabWiki** / Architect & Lead Author{meta:Ongoing}
-Public documentation site for the EnneadTab plugin ecosystem. Auto-generated from source repos; serves as both internal training material and external industry signal.  
-https://ennead-architects-llp.github.io/EnneadTabWiki/
+Public documentation site for the EnneadTab plugin ecosystem. Tool metadata + icons ingested live from the EnneadTab-OS IronPython registry via Python REST client; replaces the legacy static-HTML + GitHub Pages flow. Stack: Next.js 16 + React 19 + Drizzle ORM + Vercel Postgres + Vercel Blob (SHA-256 dedup); hybrid fuzzy + Gemini semantic search via Vercel AI SDK.  
+https://enneadtab.com/wiki
 
 ### **EnneaDuck** / Designer & Developer{meta:2022–Present}
-Pixel-mascot community-engagement system embedded throughout EnneadTab — randomized achievements, status notifications, and gamified adoption hooks that turned a top-down tooling rollout into a 150-person voluntary user base.
+Community-mascot system across the EnneadTab ecosystem — pixel-art duck embedded throughout the IronPython toolset (randomized achievements, status notifications, gamified adoption hooks) plus a Next.js Duckland community page in EnneadTabHome. Turned a top-down tooling rollout into a 150-person voluntary user base.
 
 ### **Rosette** / Architect & Developer{meta:2026–Present}
-Architectural-language translator: turns design-team, client, and regulatory text into one-line plain-English (or Mandarin) summaries with an interactive structural graph. Part of the EnneadTab product line.
+Architectural-language translator: turns design-team, client, and regulatory text into one-line plain-English (or Mandarin) summaries with an interactive structural graph. Part of the EnneadTab product line. Stack: Next.js + NextAuth + Drizzle ORM.
 
 ### **2025 Performance Review** / Architect & Lead Developer{meta:2025–2026}
 Firm-wide employee-evaluation system. Excel ingest → interactive HTML report with software-proficiency tracking and visual analytics. Deployed to GitHub Pages.
@@ -95,14 +95,14 @@ _Independent — Founder / Engineer_
 Networking and event platform for architects, real-estate operators, and exhibition partners. Next.js 16 + NextAuth v5 + Drizzle ORM + Vercel Postgres. Multi-step RSVP, admin/client dashboard, password-reset flows via Resend, role-based partner gating.  
 https://realmnomadgroup.com
 
-### **Hair-Salon SMB Platform** / Lead Engineer{meta:Ongoing}
-AI-workflow case study on a live NYC hair-salon operator — end-to-end booking, inventory, and customer-loyalty platform replacing Square + spreadsheets + Instagram DMs with a single owner-facing dashboard.
+### **Atelier-T (Toni LLP)** / Founder & Lead Engineer{meta:2025–Present}
+AI virtual hairstyle try-on for salons and barbershops, paired with an agent-run business operating system. Two deployed apps: **Toni** (consumer — webcam capture → hairstyle gallery → Gemini-generated try-on with Stripe subscription) and **Toni-Business** (founder admin — NYC salon discovery + contact pipeline + AI-drafted email outreach + interview scheduling). Operating model: founder handles usage testing, on-site demos, and essential funding; a 16-MBTI agent team (`/agent-product` through `/agent-onboarding`) executes everything else via Google Workspace MCP, escalating via ntfy push. Stack: Next.js 16 + React 19 + Supabase + Google GenAI (Gemini) + Stripe + Resend; Vite 7 pitch decks; Bash orchestration across the multi-repo workspace.
 
 ### **Social-Media Ads Service** / Lead Engineer{meta:Ongoing}
-AI-workflow case study on live SMB ad operations — Claude-orchestrated agent team handles creative-brief intake, asset generation, scheduling, and performance reporting.
+AI-workflow case study on live SMB ad operations — Claude-orchestrated agent team handles creative-brief intake, asset generation, scheduling, and performance reporting. Stack: Python monorepo (52 `mp-*` packages) — ComfyUI / RunningHub for image+video generation; mp-auto-generate orchestrator; mp-auto-post + mp-auto-engage + mp-engage-dashboard for posting and engagement loop.
 
 ### **Social-Media Channel — Android App** / Lead Engineer{meta:Ongoing}
-Native Android application powering a community social-media channel. Custom feed pipeline, content moderation, and creator-side analytics built end-to-end on top of the same agentic infrastructure that drives the firm-side tooling.
+Native Android self-guidance app for social-media consumption — strips Reels/Shorts/algorithmic feeds from Instagram, YouTube, Facebook, and X via WebView CSS/JS injection, returning user agency over feed time. Stack: Kotlin 2.3 + Jetpack Compose + Room + Firebase Crashlytics. Pre-launch.
 
 ### **LakeHouse-Design.com** / Architect & Developer{meta:Ongoing}
 Rhino package of professional design tools — dynamic area takeoff, layer/material merging, object transformation, block management.  
@@ -111,16 +111,16 @@ https://lakehouse-design.com/
 _AI Ecosystem — Personal Research Driving Firm Tools_
 
 ### **Cross-Machine Agentic Claude Ecosystem** / Architect & Developer{meta:2025–Present}
-End-to-end portable Claude Code configuration — settings, skills, MCP servers, custom commands, plugins, project memories, and plans — synchronized across Mac, Windows, and mobile so the same agent team is available everywhere. Personal application of the "agentize humans" thesis from the Austin 2026 talk: AI is part of every operator's mind extension, not a chat window.
+End-to-end portable Claude Code configuration — settings, skills, MCP servers, custom commands, plugins, project memories, and plans — synchronized across Mac, Windows, and mobile so the same agent team is available everywhere. Personal application of the "agentize humans" thesis from the Austin 2026 talk: AI is part of every operator's mind extension, not a chat window. Stack: Bash + Python sync layer over git-tracked Claude Code config; per-machine snapshots → golden merge → fan-out.
 
 ### **ideaFactory** / Architect & Developer{meta:2025–2026}
-Virtual-company multi-agent pipeline as a Claude Code plugin: each role agent runs independently and collaboratively, daily, reporting to a Project-Manager orchestrator. Modernized to Gemini Imagen 4.0 + TTS.
+Virtual-company multi-agent pipeline as a Claude Code plugin: each role agent runs independently and collaboratively, daily, reporting to a Project-Manager orchestrator. Stack: Python pipeline (google-genai for Imagen 4.0 + TTS, Pillow, ffmpeg), packaged as Claude Code plugin.
 
 ### **youtube-plus** / Architect & Developer{meta:2026}
-MCP server exposing YouTube as a programmable tool surface for Claude — search, transcript extraction, comment analysis, channel exploration, analytics, and upload — used inside the agent ecosystem.
+MCP server exposing YouTube as a programmable tool surface for Claude — search, transcript extraction, comment analysis, channel exploration, analytics, and upload — used inside the agent ecosystem. Stack: Python + FastMCP over YouTube Data API v3.
 
-### **senzhang-wechat-harness** / Architect & Developer{meta:2026}
-macOS desktop-automation harness that lets Claude read and reply to WeChat messages via AppleScript + screencapture — no API key, works for any WeChat account on a connected Mac.
+### **senzhang-hooker-* Communication Suite** / Architect & Developer{meta:2025–Present}
+Family of personal-AI agents that hook into communication platforms — RAG over past conversations, intent classification, hybrid auto-reply (send-when-confident, draft-when-uncertain). Currently spans MS Teams (team-hooker) and Outlook (outlook-hooker), with additional channels in development. Stack: Python + FastAPI + Playwright + SQLAlchemy + ChromaDB; multi-LLM (Claude / OpenAI / Gemini / Ollama); each surface ships CLI + REST + MCP-server interfaces so the same brain plugs into Claude Code.
 
 > Note on visuals — the EnneadTab product family and the internal firm tools above are Ennead IP and cannot be shown in a public résumé. A desensitized live walkthrough is available on request.
 
@@ -142,7 +142,7 @@ _Educational Tool Connecting Junior and Senior Students_
 ## Credentials & Technical Stack
 
 - Registered Architect, New York (NCARB)
-- Languages: Python (CPython, IronPython), TypeScript, React, Next.js
+- Languages: Python (CPython, IronPython) — primary; TypeScript / React / Next.js — applied (LLM-assisted)
 - Tooling: Revit API, RhinoCommon API, Grasshopper, Dynamo, MCP, LLM integration (Ollama, OpenAI, Anthropic)
 - Spoken: English, Mandarin Chinese (native)
 
