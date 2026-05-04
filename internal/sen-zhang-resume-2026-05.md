@@ -50,13 +50,13 @@ _Architectural Designer, BIM Specialist_{meta:2020–2022}
 _Firm Tools — Ennead Architects_
 
 ### **EnneadTab** / Architect & Lead Developer{meta:2021–Present}
-Cross-application plugin ecosystem spanning Revit, Rhino, CAD, Autodesk Desktop Connector, Enscape, InDesign, Photoshop, Excel, Email, AI/LLM, computer-resource monitoring, text-to-speech, and sound effects. 450+ tools, three U.S. Copyright registrations (2024). CPython compile pipeline → distribution repo → user-side scheduled updater with delayed-deletion silent background updates.
+Flywheel-ecosystem plugin platform spanning Revit, Rhino, CAD, Autodesk Desktop Connector, Enscape, InDesign, Photoshop, Excel, Email, AI/LLM, computer-resource monitoring, text-to-speech, and sound effects. 500+ tools across the family of products, three U.S. Copyright registrations (2024). 63,627 logged usage events in Q4 2025 alone across 60 active daily users — averaging 17×/person/workday. CPython compile pipeline → distribution repo → silent user-side scheduled updater with delayed-deletion background swaps. "Best design of innovation is invisible."
 
 ### **BimRunner** / Architect & Full-Stack Developer{meta:2026–Present}
 Production Revit project-health analytics dashboard. Next.js 14 + Vercel Postgres + Chart.js, ~91k LOC across 422 files. RESTful ingestion API, dynamic scoring from stored facts, file-attachment extensibility. Surfaces model debt before it becomes coordination crisis.
 
 ### **EnneadTabLLM** / Architect & Developer{meta:2025–2026}
-Local-deployment Ollama RAG monorepo. Windows server (Ollama + RAG pipeline) + Vercel Next.js proxy + shared TypeScript types. Solves the on-prem AI problem for HIPAA / data-sovereign clients without sending model data to a vendor.
+Local-deployment Ollama RAG monorepo paired with the EnneadTab Wiki — what the Austin 2026 talk frames as "Cloning the Expert." Snowballing knowledge base ingests years of standards, templates, family libraries, and chat-history troubleshooting; surfaces curated tool chains across 500+ EnneadTab commands. Windows server + Vercel Next.js proxy + shared TS types; solves the on-prem AI problem for HIPAA / data-sovereign clients without sending model data to a vendor.
 
 ### **AIA-Sustainable-Reporting** / Architect & Lead Developer{meta:2026–Present}
 CRON Excel pipeline + frontend dashboard for AIA 2030 sustainable-design metrics. Single-source `.env.local` config across Next.js app, cron scripts, and CLI; Vercel CLI + Codespaces friendly. Closes the firm-wide reporting loop for the AIA 2030 commitment.
@@ -105,7 +105,7 @@ https://lakehouse-design.com/
 _AI Ecosystem — Cross-machine Agentic Infrastructure_
 
 ### **Cross-Machine Agentic Claude Ecosystem** / Architect & Developer{meta:2025–Present}
-End-to-end portable Claude Code configuration — settings, skills, MCP servers, custom commands, plugins, project memories, and plans — that synchronizes across Mac, Windows, and mobile so the same agent team is available everywhere. 1,700+ commits to the personal-use config repo over the last 90 days.
+End-to-end portable Claude Code configuration — settings, skills, MCP servers, custom commands, plugins, project memories, and plans — that synchronizes across Mac, Windows, and mobile so the same agent team is available everywhere. 1,700+ commits in 90 days. Personal application of the "agentize humans" thesis from the Austin 2026 talk: AI is part of every operator's mind extension, not a chat window.
 
 ### **ideaFactory** / Architect & Developer{meta:2025–2026}
 Virtual-company multi-agent pipeline as a Claude Code plugin: each role agent runs independently and collaboratively, daily, reporting to a Project-Manager orchestrator. Modernized to Gemini Imagen 4.0 + TTS.
