@@ -78,3 +78,7 @@ build/
 # (deployment scripts in this repo do NOT push the internal/ folder)
 
 .vercel
+
+# Hand-named / re-exported delivery copies of the resume (kept local only)
+Sen Zhang Resume.pdf
+Sen_Zhang_Resume.pdf

@@ -1,23 +1,24 @@
-# Drafted 2026-05-03 by Claude per Sen's request. NOT SENT.
-# Sen will review and send manually.
+# Drafted v3 2026-05-05 by Claude per Sen's request. NOT SENT.
+# Sen will review and send manually from zsenarchitect@gmail.com.
 # Resume PDF lives at senzhang-resume/Resume.pdf — attach when sending.
-# Recipient: Rocco Francica <rocco_francica@gensler.com>
+# Recipient: Rocco Francica <Rocco_Francica@gensler.com>
+# Reply to thread: "Gensler Design Technology" (Rocco's email, Fri May 1 2026)
+# Note: Rocco said he'd cc Gabby but she's not visible in the thread headers.
+# Sen replies to Rocco only; Rocco/Gabby will loop her in.
 
 Subject: Re: Gensler Design Technology
 
 Hi Rocco,
 
-Thanks again for the call last Thursday — good to talk. Resume attached; please share with Gabby and the team.
+Apologies for the delay. Resume attached; please share with Gabby and Islay's team whenever convenient.
 
-One clarifying question before scheduling: your initial outreach mentioned an "Associate BIM Developer" role, while Gensler's public postings include a Design Technology Lead — Computation req in the NE region. Could you confirm which req / level the panel is interviewing for? It will help me prep the right examples.
+One clarifying question before we schedule: can you confirm whether the role is Associate BIM Developer, or another title in the design-technology family? Different reqs call for different examples on my end, and I'd like to come in prepped for the right conversation.
 
-A couple of practical notes for Gabby on scheduling:
-- I'm based in NYC; Teams or in-person at NY or Morristown both work.
-- Tuesday afternoon and most of Wednesday–Friday this week have flex windows; mornings are easier than afternoons.
-- For pre-read: talk slides at 2026-ai-talk.vercel.app, portfolio at senzhang.me.
+On scheduling: I'm based in NYC, and Teams or in-person at the NY office both work. Thursday May 7 or Friday May 8 would be ideal this week; Monday May 11 or Tuesday May 12 as a backup the week after. Afternoon slots after 2pm work best.
 
 Looking forward to meeting Islay and the team.
 
 Best,
 Sen Zhang
-Registered Architect (NY) · zsenarchitect@gmail.com · 518.618.6150
+Registered Architect (NY) · zsenarchitect@gmail.com
+senzhang.me · github.com/zsenarchitect
