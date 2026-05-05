@@ -13,14 +13,14 @@ Registered Architect in NY · zsenarchitect@gmail.com
 
 ## Summary
 
-Registered NY architect (NCARB), 9 years post-Master's, currently Computational BIM Developer at Ennead Architects. Solo developer behind Ennead's Design Technology stack: EnneadTab (450+ tools, three U.S. Copyright registrations, 60 daily users — roughly half the design staff), plus BimRunner, RenderPolisher, FieldDay, AIA-Sustainable-Reporting, and 6 other production services. Outside Ennead: Realm (real-estate networking platform) and several small-business ventures with AI agents handling daily operations. Speaker: Advancing Computational Design 2026, Autodesk University 2024, Digital Built Week Americas 2023.
+Registered NY architect (NCARB), 9 years post-Master's, currently Computational BIM Developer at Ennead Architects. Solo developer behind Ennead's Design Technology stack: EnneadTab (450+ tools, three U.S. Copyright registrations, 60 daily users, roughly half the design staff), plus BimRunner, RenderPolisher, FieldDay, AIA-Sustainable-Reporting, and 6 other production services. Outside Ennead: Realm (real-estate networking platform) and several small-business ventures with AI agents handling daily operations. Speaker: Advancing Computational Design 2026, Autodesk University 2024, Digital Built Week Americas 2023.
 
 ## Experience
 
 ### **Ennead Architects LLP** / Computational BIM Developer{meta:New York, NY · 2022–Present}
 _Architectural Designer, BIM Specialist_{meta:2020–2022}
 - **Sole developer of every plugin and SaaS tool in Ennead's Design Technology stack (160-person firm), while also performing BIM manager duties on active projects. Platform development, BIM management, complex-geometry triage.**
-  - Developer of EnneadTab and 8+ other firm-internal tools — see Selected Works below
+  - Developer of EnneadTab and 8+ other firm-internal tools (see Selected Works below)
   - BIM management on active projects:
     - Healthcare (NE US): NYU Langone, Northwell, Lenox Hill
     - Commercial (Asia): FTZ Shanghai, ByteDance Houhai HQ, Bilibili HQ
@@ -33,7 +33,7 @@ _Architectural Designer, BIM Specialist_{meta:2020–2022}
 
 ### **RPI Publication Dept.** / Book-design, Asset Management{meta:Troy, NY · 2013–2016}
 
-## Speaking & Recognition
+## Publicity
 
 ### **Advancing Computational Design Conference** / Speaker{meta:Austin, TX · 2026}
 _The Design of Design — Enabling Agile Introduction of New Tools to Scale Design Efficiency_
@@ -47,8 +47,8 @@ _Promoting Computational Design to Non-Programmers_
 ## Credentials & Technical Stack
 
 - Registered Architect, New York (NCARB)
-- Languages: Python (CPython, IronPython) — primary; TypeScript / React / Next.js — applied (LLM-assisted); Kotlin / Jetpack Compose
-- BIM / 3D APIs: Revit API, RhinoCommon API, Grasshopper, Dynamo
+- Languages: Python (CPython, IronPython), primary; TypeScript / React / Next.js, applied (LLM-assisted)
+- Architect API: Revit API, RhinoCommon API, Grasshopper, Dynamo
 - Web stack used in production: Next.js 14–16, NextAuth v5, Drizzle ORM, Vercel Postgres / Blob / KV, Resend, Chart.js, react-pdf, GitHub Actions, FastAPI
 - AI integration: on-prem Ollama (private deployment, data stays inside firm network); cloud Claude / OpenAI / Gemini; Claude Code agents in production; model-agnostic via MCP
 - Spoken: English, Mandarin Chinese (native)
@@ -63,22 +63,22 @@ _Promoting Computational Design to Non-Programmers_
 
 ## Awards & Recognition
 
-- **EnneadTab — U.S. Copyright Office** — 3 registrations, authorship credited to Sen Zhang{meta:2024}
-- **AEC Hackathon — Educational Tool Connecting Junior and Senior Students** — Team — Honorable Mention (NYC){meta:2023}
-- **Hyperloop Campus, Las Vegas** — Honorable Mention{meta:2020}
-- **Greenway to Ideal City, Chengdu** — 2nd Place{meta:2019}
-- **Tokyo Anti-Library** — Honorable Mention{meta:2018}
-- **Non Architecture: Dance** — Finalist{meta:2018}
+- **EnneadTab**, 3 U.S. Copyright registrations, Sen Zhang as author{meta:2024}
+- **AEC Hackathon (NYC)**, Educational Tool Connecting Junior and Senior Students, Team Honorable Mention{meta:2023}
+- **Hyperloop Campus, Las Vegas**, Honorable Mention{meta:2020}
+- **Greenway to Ideal City, Chengdu**, 2nd Place{meta:2019}
+- **Tokyo Anti-Library**, Honorable Mention{meta:2018}
+- **Non Architecture: Dance**, Finalist{meta:2018}
 - **AIA Henry Adams Award**{meta:2016}
-- **Magna Cum Laude Honors** — Dean's List 2012–2016{meta:2016}
-- **George T. Droste Scholarship** — Structural engineering study{meta:2015}
-- **Faculty Selection Award** — Academic proficiency in Architecture{meta:2015}
+- **Magna Cum Laude Honors**, Dean's List 2012–2016{meta:2016}
+- **George T. Droste Scholarship**, Structural engineering study{meta:2015}
+- **Faculty Selection Award**, Academic proficiency in Architecture{meta:2015}
 
 <!-- pagebreak -->
 
 # Selected Works
 
-_Note on visuals — the EnneadTab product family and the internal Ennead-owned tools below are Ennead IP and cannot be included here with images. A live walkthrough with client and firm-internal details redacted is available during interview._
+_Note: the EnneadTab product family and the internal Ennead-owned tools below are Ennead IP and cannot be included here with images. A live walkthrough with sensitive information redacted is available during interview._
 
 ## Office Tools at Ennead Architects
 
@@ -97,8 +97,8 @@ AI-driven render post-processing pipeline with deeply customized features tailor
 ### **AIA-Sustainable-Reporting** / Developer{meta:2026–Present}
 CRON Excel pipeline + web dashboard for AIA 2030 sustainable-design metrics, with location-based filtering and project-to-project comparison. Replaces the spreadsheet that used to circulate quarterly for AIA 2030 reporting.
 
-### **EnneadTabWiki** / Developer{meta:Ongoing}
-Public documentation portal for the EnneadTab tool family. Tool catalog, usage data, and reference content auto-update from the EnneadTab-OS source repository on every release — docs stay in lockstep with shipped tools, without manual rewrite. Includes an AI-assisted RAG system for semantic search across all tool docs and usage patterns.
+### **EnneadTabWiki** / Developer{meta:2024–Present}
+Public documentation portal for the EnneadTab tool family. Tool catalog, usage data, and reference content auto-update from the EnneadTab-OS source repository on every release. Docs stay in lockstep with shipped tools, without manual rewrite. Includes an AI-assisted RAG system for semantic search across all tool docs and usage patterns.
 
 ### **EmployeeData** / Developer{meta:2025–2026}
 Decision-support system for Ennead partners on capital-equipment prioritization. Consolidated HR records (177 employees), weekly directory scrapes, and per-machine hardware reports into a single employee-by-machine view; surfaced that 70% of the 176-machine fleet was Retired and 81% of GPUs were 5+ years old, sequenced into a quarterly replacement plan through 2027 Q3. Replaced an ad-hoc Excel email workflow; gated to the partners and DT lead who approve capex. Delivered and retired April 2026 once the decision cycle completed.
@@ -110,13 +110,13 @@ On-prem AI assistant for plain-English queries across firm standards, templates,
 Offline-capable web app for site inspection on phones, tablets, and desktops. PDF-based spatial pinning, photos, voice notes, and comments with zero-connectivity capture and cloud sync once back online. Preserves spatial accuracy across drawing revisions.
 
 ### **EnneadTabHome** / Developer{meta:2025–2026}
-Landing page and secure auth gateway for the EnneadTab application family at enneadtab.com — single sign-on via Microsoft 365 / Entra ID, fronting all in-house web services.
+Landing page and secure auth gateway for the EnneadTab application family at enneadtab.com. Single sign-on via Microsoft 365 / Entra ID, fronting all in-house web services.
 
 ### **EnneaDuck** / Designer{meta:2022–Present}
-Community-mascot system across the EnneadTab ecosystem — pixel-art duck embedded throughout the toolset (achievements, status pings, gamified adoption hooks) plus a Next.js Duckland community page. Per user feedback, made the toolset feel more memorable and approachable — the warmth layer that helped a top-down rollout become a self-sustaining voluntary community.
+Community-mascot system across the EnneadTab ecosystem: a pixel-art duck embedded throughout the toolset (achievements, status pings, gamified adoption hooks) plus a Next.js Duckland community page. Per user feedback, made the toolset feel more memorable and approachable, adding the warmth layer that helped firm-wide adoption stick as a voluntary community rather than a top-down rollout.
 
 ### **2025 Performance Review** / Developer{meta:2025–2026}
-Firm-wide employee-evaluation system used by HR to streamline the annual review process. Excel ingest → interactive HTML report with software-proficiency tracking and visual analytics. Deployed to GitHub Pages.
+Firm-wide employee-evaluation system used by HR to streamline the annual review process. Reads Excel data and generates an interactive HTML report with software-proficiency tracking and visual analytics. Deployed to GitHub Pages.
 
 ## Independent
 
@@ -129,7 +129,7 @@ Early-stage venture for high-end salons. Operating model pairs a customer-facing
 ### **Social-Media Ads Service** / Lead Engineer{meta:Ongoing}
 AI-heavy content creation paired with social-media engagement automation, packaged as an ad-service offering for live small-business clients.
 
-### **Social-Media Channel — Android App** / Lead Engineer{meta:Ongoing}
+### **Social-Media Channel: Android App** / Lead Engineer{meta:Ongoing}
 Native Android consumer app focused on intentional social-media consumption. Early-stage / pre-launch.
 
 ### **LakeHouse-Design** / Developer{meta:Ongoing}
