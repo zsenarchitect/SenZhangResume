@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Résumé Review — Comment Mode</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root{--bg:#0f1115;--panel:#171a21;--panel2:#1f232c;--border:#2a2f3a;--text:#e6e8ee;--mute:#8b94a7;--accent:#f0b86e;--accent2:#7fb3ff;--ok:#7fc97f;--warn:#ffb347;}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  header{position:sticky;top:0;z-index:10;background:rgba(15,17,21,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  header h1{font-size:14px;margin:0;font-weight:600;letter-spacing:.02em}
+  header .stat{color:var(--mute);font-size:12px;font-variant-numeric:tabular-nums}
+  header button{background:var(--accent);color:#1a1208;border:0;padding:8px 14px;border-radius:6px;font-weight:600;cursor:pointer;font-size:13px}
+  header button.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--border);font-weight:500}
+  header button:hover{filter:brightness(1.1)}
+  main{max-width:920px;margin:0 auto;padding:24px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:8px;margin-bottom:18px;overflow:hidden;transition:border-color .15s}
+  .card.has-comment{border-color:var(--accent)}
+  .card-head{padding:14px 18px;background:var(--panel2);border-bottom:1px solid var(--border);display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+  .card-head .label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+  .card-head .title{font-size:14px;font-weight:600;margin:2px 0 0}
+  .card-head .meta{font-size:12px;color:var(--mute);text-align:right;white-space:nowrap}
+  .card-body{padding:14px 18px;color:#cfd3dd;font-size:13.5px;line-height:1.65}
+  .card-body p{margin:0 0 8px}
+  .card-body ul{margin:6px 0 0;padding-left:18px}
+  .card-body li{margin:3px 0}
+  .card-body em{color:var(--mute);font-style:normal}
+  .card-body .role{display:block;color:var(--accent2);font-size:12.5px;margin:0 0 6px}
+  textarea{width:100%;min-height:60px;background:#0c0e12;color:var(--text);border:1px solid var(--border);border-radius:0;border-top:1px solid var(--border);padding:12px 18px;font:13px/1.5 ui-monospace,"SF Mono",Menlo,monospace;resize:vertical;outline:none;display:block}
+  textarea:focus{border-color:var(--accent);background:#10131a}
+  textarea::placeholder{color:#4a5160}
+  .quick{padding:8px 18px;background:#0c0e12;border-top:1px solid var(--border);display:flex;gap:6px;flex-wrap:wrap}
+  .quick button{background:transparent;border:1px solid var(--border);color:var(--mute);padding:3px 8px;border-radius:4px;font-size:11px;cursor:pointer}
+  .quick button:hover{border-color:var(--accent);color:var(--text)}
+  details{background:var(--panel2);border:1px solid var(--border);border-radius:8px;margin-top:24px}
+  details summary{padding:14px 18px;cursor:pointer;font-weight:600}
+  details pre{margin:0;padding:0 18px 18px;white-space:pre-wrap;font:12px/1.5 ui-monospace,"SF Mono",Menlo,monospace;color:#cfd3dd;max-height:480px;overflow:auto}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ok);color:#0a1a0a;padding:10px 18px;border-radius:6px;font-weight:600;opacity:0;transition:opacity .25s;pointer-events:none;z-index:20}
+  .toast.show{opacity:1}
+  .section-divider{margin:32px 0 14px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);border-bottom:1px solid var(--border);padding-bottom:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Résumé Review · Comment Mode</h1>
+  <span class="stat" id="stat">0 / 0 commented</span>
+  <div style="flex:1"></div>
+  <button onclick="copyAll()">Copy All Comments</button>
+  <button class="secondary" onclick="exportFile()">Download .md</button>
+  <button class="secondary" onclick="clearAll()">Clear</button>
+</header>
+
+<main id="root"></main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── Section data ─────────────────────────────────────────────────────────
+// Mirror of /Users/senzhang/github/Personal/senzhang-resume/internal/sen-zhang-resume-2026-05.md
+// Edit the canonical data in senzhang.me/src/data/resume.ts, then re-run
+// `node --experimental-strip-types scripts/build-resume.mts --pdf` to refresh.
+
+const SECTIONS = [
+  {id:"global", group:"OVERALL", title:"Whole-document comment", meta:"", body:"<em>Use this for cross-cutting notes — tone, length, ordering, things missing entirely.</em>"},
+
+  // ─── Summary ───
+  {id:"summary", group:"SUMMARY", title:"Summary paragraph", meta:"",
+   body:`<p>Registered NY architect (NCARB) and Computational BIM Developer at Ennead Architects, 9 years post-Master's. Sole developer behind Ennead's Design Technology stack: EnneadTab — a 450+ tool plugin platform with three U.S. Copyright registrations and 60 daily users across a 160-person firm — plus BimRunner, EnneadTabLLM, FieldDay, AIA-Sustainable-Reporting, and 6 more production tools. Independent work spans a real-estate networking platform (Realm) and agent-orchestrated AI operations across multiple live small-business ventures. Speaker: Advancing Computational Design 2026, Autodesk University 2024, Digital Built Week Americas 2023.</p>`},
+
+  // ─── Experience ───
+  {id:"exp-ennead", group:"EXPERIENCE", title:"Ennead Architects LLP", meta:"New York, NY · 2022–Present",
+   body:`<span class="role">Computational BIM Developer (2022–Present); Architectural Designer, BIM Specialist (2020–2022)</span>
+<p><strong>Sole developer running the Design Technology department for a 160-person firm; full-spectrum role spanning platform development, BIM management, and complex-geometry triage</strong></p>
+<ul>
+  <li>Architect and lead developer of EnneadTab — 450+ tools across Revit, Rhino, CAD, Adobe, Excel, Email, and LLM integration; three U.S. Copyright registrations (2024)</li>
+  <li>BimRunner — Revit project-health analytics dashboard (Next.js 14 + Vercel Postgres)</li>
+  <li>EnneadTabLLM — on-prem Ollama RAG monorepo for HIPAA / data-sovereign clients</li>
+  <li>AIA-Sustainable-Reporting — CRON Excel pipeline + dashboard for AIA 2030 metrics; FieldDay — offline-first PWA for site inspection</li>
+  <li>EnneaDuck — pixel-mascot community-engagement system across 160 staff</li>
+  <li>BIM management — Healthcare (NE US): NYU Langone, Northwell, Lenox Hill. Commercial (Asia): FTZ Shanghai, ByteDance Houhai HQ, Bilibili HQ</li>
+  <li>Solution architect for large-model BIM data, complex families; in-house training and mentoring</li>
+  <li>Rhino-to-Revit interoperability via zero-learning-curve internal tooling</li>
+  <li>Speaker: Autodesk University 2024 (San Diego), Advancing Computational Design 2026 (Austin)</li>
+  <li>Fluent in CPython, IronPython, Revit API, RhinoCommon API. Working proficiency in TS / React / Next.js — shipped to production across 8+ projects (LLM-assisted)</li>
+</ul>`},
+  {id:"exp-arquitectonica", group:"EXPERIENCE", title:"Arquitectonica", meta:"New York, NY · 2017–2020",
+   body:`<span class="role">Designer, BIM Specialist, CG Visualization</span>
+<ul>
+  <li>40 Hudson Yards (NYC office tower); Amazon HQ2 master planning (Chicago); 31 Parliament mid-rise residential tower (Toronto SmartCity)</li>
+  <li>Curtis Block (Calgary); Warsaw Hotel (Poland); Newport Waterfront; Equinox Hotel (San Jose); Queens Sherbourne mixed-use with historical preservation (Toronto)</li>
+</ul>`},
+  {id:"exp-rpi-pub", group:"EXPERIENCE", title:"RPI Publication Dept.", meta:"Troy, NY · 2016–2017", body:`<span class="role">Book-design, Asset Management</span>`},
+  {id:"exp-plasma", group:"EXPERIENCE", title:"Plasma Studio", meta:"Beijing, China · Summer 2015", body:`<span class="role">Summer Intern</span>`},
+  {id:"exp-terreform", group:"EXPERIENCE", title:"Terreform ONE", meta:"New York, NY · Summer 2014", body:`<span class="role">Research, Design</span>`},
+  {id:"exp-bam", group:"EXPERIENCE", title:"Ballistic Architecture Machine", meta:"Beijing, China · Summer 2013", body:`<span class="role">Summer Intern</span>`},
+
+  // ─── Projects (Office) ───
+  {id:"proj-enneadtab", group:"PROJECTS · ENNEAD", title:"EnneadTab", meta:"2021–Present",
+   body:`<p>Firm-wide plugin ecosystem spanning Revit, Rhino, CAD, Adobe, Excel, Email, and on-prem LLM. Built and maintained solo. Designed end-user-first and adopting an invisible-design principle — silent updates, no install screen, no docs to read — which let it spread organically by word of mouth across the firm before any mandate, training rollout, or policy push. 500+ tools, three U.S. Copyright registrations (2024), 60 active daily users, 17×/person/workday, 63,627 logged events Q4 2025. Stack: Python (CPython + IronPython) + Revit/Rhino APIs.</p>`},
+  {id:"proj-self-healing", group:"PROJECTS · ENNEAD", title:"EnneadTab Self-Healing Agent Ecosystem", meta:"2025–Present",
+   body:`<p>Autonomous agent layer wrapped around the EnneadTab-OS codebase that catches production errors, drafts fixes, and ships enhancements with minimal human intervention. Components: ErrorDump → scheduled fix agent (auto-PR per fingerprint) → enhance agent. Featured in the Austin 2026 conference talk. Stack: Claude Code agents + GitHub Actions + Python + REST.</p>`},
+  {id:"proj-bimrunner", group:"PROJECTS · ENNEAD", title:"BimRunner", meta:"2026–Present",
+   body:`<p>Production analytics dashboard that scores Revit project health and surfaces model debt before it becomes coordination crisis. Used by project leads across the firm to triage live work. Stack: Next.js + Vercel Postgres + Chart.js.</p>`},
+  {id:"proj-renderpolisher", group:"PROJECTS · ENNEAD", title:"RenderPolisher", meta:"2025–2026",
+   body:`<p>AI-driven render post-processing pipeline. Cleans and uplifts architectural visualizations through a configurable model chain; integrates into the Ennead delivery workflow via the EnneadTab toolbar. Stack: Next.js + Vercel Blob/KV + react-pdf book-flip viewer.</p>`},
+  {id:"proj-aia-sustainable", group:"PROJECTS · ENNEAD", title:"AIA-Sustainable-Reporting", meta:"2026–Present",
+   body:`<p>CRON Excel pipeline + frontend dashboard for AIA 2030 sustainable-design metrics. Closes the firm-wide reporting loop for the AIA 2030 commitment. Stack: Next.js + NextAuth + Drizzle ORM + Chart.js.</p>`},
+  {id:"proj-enneadtabwiki", group:"PROJECTS · ENNEAD", title:"EnneadTabWiki", meta:"Ongoing",
+   body:`<p>Public documentation portal for the EnneadTab tool family — auto-syncs tool catalog and usage data from the underlying registry, replacing a legacy hand-maintained static site. Stack: Next.js 16 + Drizzle + Vercel Postgres + Vercel Blob; semantic search via Gemini.</p>`},
+  {id:"proj-employeedata", group:"PROJECTS · ENNEAD", title:"EmployeeData", meta:"2025–2026",
+   body:`<p>Decision-support system for Ennead partners on capital-equipment prioritization. Surfaced that 70% of the 176-machine fleet was Retired and 81% of GPUs were 5+ years old; sequenced into a quarterly replacement plan through 2027 Q3. Delivered and retired April 2026. Stack: Python (Playwright scraper, psutil/WMI collector, FastAPI POST server, vector-store assistant) + GitHub Pages + Actions weekly cron.</p>`},
+  {id:"proj-enneadtabllm", group:"PROJECTS · ENNEAD", title:"EnneadTabLLM", meta:"2025–2026",
+   body:`<p>On-premise AI assistant that lets architects ask plain-English questions across years of firm standards, templates, and project history — without sending any model data to an outside vendor. Solves the HIPAA / data-sovereign client problem and is the production basis of the Austin 2026 talk "Cloning the Expert." Stack: Ollama (on-prem) + Next.js proxy on Vercel.</p>`},
+  {id:"proj-fieldday", group:"PROJECTS · ENNEAD", title:"FieldDay", meta:"2026–Present",
+   body:`<p>Offline-first PWA for site inspection on phones, tablets, and desktops. PDF-based spatial pinning, photos, voice notes, and comments with zero-connectivity capture and Vercel Pro cloud sync. Preserves spatial accuracy across drawing revisions. Stack: Next.js + NextAuth + Drizzle ORM + Vercel Blob, offline-first via service workers.</p>`},
+  {id:"proj-enneadtabhome", group:"PROJECTS · ENNEAD", title:"EnneadTabHome", meta:"2025–2026",
+   body:`<p>Landing page and central hub for the EnneadTab application family at enneadtab.com. Next.js 14, Tailwind, mobile-friendly UI.</p>`},
+  {id:"proj-enneaduck", group:"PROJECTS · ENNEAD", title:"EnneaDuck", meta:"2022–Present",
+   body:`<p>Community-mascot system across the EnneadTab ecosystem — pixel-art duck embedded throughout the toolset (achievements, status pings, gamified adoption hooks) plus a Next.js Duckland community page. Per user feedback, made the toolset feel more memorable and approachable — the warmth layer that helped a top-down rollout become a self-sustaining voluntary community.</p>`},
+  {id:"proj-2025-perf-review", group:"PROJECTS · ENNEAD", title:"2025 Performance Review", meta:"2025–2026",
+   body:`<p>Firm-wide employee-evaluation system. Excel ingest → interactive HTML report with software-proficiency tracking and visual analytics. Deployed to GitHub Pages.</p>`},
+
+  // ─── Projects (Independent) ───
+  {id:"proj-realm", group:"PROJECTS · INDEPENDENT", title:"Realm", meta:"2025–Present",
+   body:`<span class="role">Digital Strategy Architect</span>
+<p>Networking and event platform for architects, real-estate operators, and exhibition partners. Multi-step RSVP, admin/client dashboards, role-based partner gating, branded email flows. Stack: Next.js 16 + NextAuth + Drizzle + Vercel Postgres + Resend.</p>`},
+  {id:"proj-atelier-t", group:"PROJECTS · INDEPENDENT", title:"Atelier-T (Toni LLP)", meta:"2025–Present",
+   body:`<span class="role">Founder & Lead Engineer</span>
+<p>In-development small venture exploring AI virtual hairstyle try-on for salons. Two prototypes: Toni (consumer webcam-to-hairstyle try-on) and Toni-Business (salon discovery + outreach drafting). Operating model uses a small agent team for routine ops while founder handles sales, demos, and decisions. Stack: Next.js 16 + Supabase + Gemini + Stripe + Resend.</p>`},
+  {id:"proj-sma-ads", group:"PROJECTS · INDEPENDENT", title:"Social-Media Ads Service", meta:"Ongoing",
+   body:`<span class="role">Lead Engineer</span>
+<p>AI-workflow case study on live SMB ad operations — Claude-orchestrated agent team handles creative-brief intake, asset generation, scheduling, and performance reporting. Stack: Python monorepo (52 <code>mp-*</code> packages) — ComfyUI / RunningHub for image+video generation; mp-auto-generate orchestrator; mp-auto-post + mp-auto-engage + mp-engage-dashboard for posting and engagement loop.</p>`},
+  {id:"proj-sma-android", group:"PROJECTS · INDEPENDENT", title:"Social-Media Channel — Android App", meta:"Ongoing",
+   body:`<span class="role">Lead Engineer</span>
+<p>Native Android self-guidance app for social-media consumption — strips Reels/Shorts/algorithmic feeds from Instagram, YouTube, Facebook, and X via WebView CSS/JS injection. Stack: Kotlin 2.3 + Jetpack Compose + Room + Firebase Crashlytics. Pre-launch.</p>`},
+  {id:"proj-lakehouse", group:"PROJECTS · INDEPENDENT", title:"LakeHouse-Design.com", meta:"Ongoing",
+   body:`<span class="role">Architect & Developer</span>
+<p>Rhino package of professional design tools — dynamic area takeoff, layer/material merging, object transformation, block management.</p>`},
+  {id:"proj-timebank", group:"PROJECTS · INDEPENDENT", title:"TimeBank LLP", meta:"2025–Present",
+   body:`<span class="role">Founder & Lead Engineer</span>
+<p>Two-app side venture: TimeSheetHelper (gamified timesheet SaaS that turns time tracking into points and streaks for design teams) and TimeBank-Business (AI-first business ops hub that runs daily admin via 16 agent personas). Operating model: founder approves direction; agent team handles execution and reports daily. Stack: Next.js + Supabase + Claude Code agent commands; Bash-orchestrated multi-repo workspace.</p>`},
+  {id:"proj-confidentiality-note", group:"PROJECTS · INDEPENDENT", title:"Confidentiality footnote", meta:"",
+   body:`<p><em>Note on visuals — the EnneadTab product family and the internal firm tools above are Ennead IP and cannot be shown in a public résumé. A desensitized live walkthrough is available on request.</em></p>`},
+
+  // ─── Speaking ───
+  {id:"speaking-acdc", group:"SPEAKING", title:"Advancing Computational Design Conference", meta:"Austin, TX · 2026",
+   body:`<span class="role">Speaker</span><p><em>The Design of Design — Enabling Agile Introduction of New Tools to Scale Design Efficiency</em></p>`},
+  {id:"speaking-au", group:"SPEAKING", title:"Autodesk University", meta:"San Diego, CA · 2024",
+   body:`<span class="role">Session Speaker</span><p><em>Revit As A Game Engine</em></p>`},
+  {id:"speaking-dbwa", group:"SPEAKING", title:"Digital Built Week Americas", meta:"Dallas, TX · 2023",
+   body:`<span class="role">Panel Speaker</span><p><em>Promoting Computational Design to Non-Programmers</em></p>`},
+  {id:"speaking-aec-hackathon", group:"SPEAKING", title:"AEC Hackathon — Honorable Mention", meta:"New York, NY · 2023",
+   body:`<span class="role">Team</span><p><em>Educational Tool Connecting Junior and Senior Students</em></p>`},
+
+  // ─── Credentials & Stack ───
+  {id:"credentials", group:"CREDENTIALS", title:"Credentials & Technical Stack", meta:"",
+   body:`<ul>
+     <li>Registered Architect, New York (NCARB)</li>
+     <li>Languages: Python (CPython, IronPython) — primary; TypeScript / React / Next.js — applied (LLM-assisted)</li>
+     <li>Tooling: Revit API, RhinoCommon API, Grasshopper, Dynamo, MCP, LLM integration (Ollama, OpenAI, Anthropic)</li>
+     <li>Spoken: English, Mandarin Chinese (native)</li>
+   </ul>`},
+
+  // ─── Education ───
+  {id:"edu-columbia", group:"EDUCATION", title:"Columbia University GSAPP", meta:"New York, NY · 2016–2017", body:`<span class="role">M.S. Advanced Architecture Design</span>`},
+  {id:"edu-rpi", group:"EDUCATION", title:"Rensselaer Polytechnic Institute", meta:"Troy, NY · 2012–2016", body:`<span class="role">Bachelor of Architecture</span>`},
+  {id:"edu-tongji", group:"EDUCATION", title:"Tongji University", meta:"Shanghai · 2010–2012", body:`<span class="role">Major in Urban Planning</span>`},
+
+  // ─── Awards ───
+  {id:"awards", group:"AWARDS", title:"Awards & Recognition", meta:"",
+   body:`<ul>
+     <li><strong>EnneadTab — U.S. Copyright Office</strong> — 3 registrations (2024)</li>
+     <li><strong>Hyperloop Campus, Las Vegas</strong> — Honorable Mention (2020)</li>
+     <li><strong>Greenway to Ideal City, Chengdu</strong> — 2nd Place (2019)</li>
+     <li><strong>Tokyo Anti-Library</strong> — Honorable Mention (2018)</li>
+     <li><strong>Non Architecture: Dance</strong> — Finalist (2018)</li>
+     <li><strong>AIA Henry Adams Award</strong> (2016)</li>
+     <li><strong>Magna Cum Laude Honors</strong> — Dean's List 2012–2016</li>
+     <li><strong>George T. Droste Scholarship</strong> — Structural engineering study (2015)</li>
+     <li><strong>Faculty Selection Award</strong> — Academic proficiency in Architecture (2015)</li>
+   </ul>`},
+];
+
+const QUICK = ["cut this","tighten this","reword","reorder","add metric","too jargony","too vague","mix up Chinese/English","NDA — vague this","fine ✓"];
+const STORE = "resume_review_v1";
+
+// ─── Render ───────────────────────────────────────────────────────────────
+function load(){try{return JSON.parse(localStorage.getItem(STORE)||"{}")}catch{return{}}}
+function save(d){localStorage.setItem(STORE,JSON.stringify(d))}
+const state = load();
+
+const root = document.getElementById("root");
+let lastGroup = null;
+SECTIONS.forEach(sec => {
+  if (sec.group !== lastGroup){
+    const div = document.createElement("div");
+    div.className = "section-divider";
+    div.textContent = sec.group;
+    root.appendChild(div);
+    lastGroup = sec.group;
+  }
+  const card = document.createElement("section");
+  card.className = "card";
+  card.id = "card-" + sec.id;
+  card.innerHTML = `
+    <div class="card-head">
+      <div>
+        <div class="label">${sec.group}</div>
+        <div class="title">${sec.title}</div>
+      </div>
+      ${sec.meta ? `<div class="meta">${sec.meta}</div>` : ""}
+    </div>
+    <div class="card-body">${sec.body}</div>
+    <textarea data-id="${sec.id}" placeholder="Comments / fixes / cuts for this section…">${(state[sec.id]||"").replace(/</g,"&lt;")}</textarea>
+    <div class="quick" data-quick-for="${sec.id}">
+      ${QUICK.map(q=>`<button type="button" data-q="${q}">${q}</button>`).join("")}
+    </div>`;
+  root.appendChild(card);
+  if (state[sec.id]) card.classList.add("has-comment");
+});
+
+// ─── Persistence + interactions ───────────────────────────────────────────
+root.addEventListener("input", e => {
+  if (e.target.tagName !== "TEXTAREA") return;
+  const id = e.target.dataset.id;
+  state[id] = e.target.value;
+  save(state);
+  document.getElementById("card-"+id).classList.toggle("has-comment", !!e.target.value.trim());
+  updateStat();
+});
+
+root.addEventListener("click", e => {
+  const btn = e.target.closest("[data-q]");
+  if (!btn) return;
+  const id = btn.parentElement.dataset.quickFor;
+  const ta = document.querySelector(`textarea[data-id="${id}"]`);
+  const phrase = btn.dataset.q;
+  ta.value = ta.value ? `${ta.value} · ${phrase}` : phrase;
+  ta.dispatchEvent(new Event("input", {bubbles:true}));
+});
+
+function updateStat(){
+  const n = SECTIONS.filter(s => (state[s.id]||"").trim()).length;
+  document.getElementById("stat").textContent = `${n} / ${SECTIONS.length} commented`;
+}
+updateStat();
+
+// ─── Export ───────────────────────────────────────────────────────────────
+function buildExport(){
+  const lines = ["# Résumé review comments", "_generated " + new Date().toISOString().slice(0,16).replace("T"," ") + "_", ""];
+  let group = null;
+  SECTIONS.forEach(sec => {
+    const c = (state[sec.id]||"").trim();
+    if (!c) return;
+    if (sec.group !== group){ lines.push("", "## " + sec.group, ""); group = sec.group; }
+    lines.push(`### ${sec.title}${sec.meta?` — ${sec.meta}`:""}  \`[${sec.id}]\``);
+    lines.push(c);
+    lines.push("");
+  });
+  if (lines.length <= 3) lines.push("_(no comments yet)_");
+  return lines.join("\n");
+}
+
+function toast(msg, ok=true){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.style.background = ok ? "var(--ok)" : "var(--warn)";
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"), 1800);
+}
+
+async function copyAll(){
+  const txt = buildExport();
+  try { await navigator.clipboard.writeText(txt); toast("Copied — paste into chat"); }
+  catch { toast("Clipboard blocked — use Download .md", false); }
+}
+
+function exportFile(){
+  const txt = buildExport();
+  const blob = new Blob([txt], {type:"text/markdown"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "resume-review-" + new Date().toISOString().slice(0,10) + ".md";
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
+  toast("Downloaded");
+}
+
+function clearAll(){
+  if (!confirm("Clear all comments?")) return;
+  Object.keys(state).forEach(k => delete state[k]);
+  save(state);
+  document.querySelectorAll("textarea").forEach(t => t.value = "");
+  document.querySelectorAll(".card").forEach(c => c.classList.remove("has-comment"));
+  updateStat();
+  toast("Cleared");
+}
+
+// Add a preview pane at bottom
+const preview = document.createElement("details");
+preview.innerHTML = `<summary>Preview export (live)</summary><pre id="preview"></pre>`;
+document.querySelector("main").appendChild(preview);
+function refreshPreview(){ document.getElementById("preview").textContent = buildExport(); }
+preview.addEventListener("toggle", refreshPreview);
+root.addEventListener("input", refreshPreview);
+</script>
+</body>
+</html>
