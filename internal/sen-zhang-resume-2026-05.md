@@ -3,7 +3,7 @@ title: Sen Zhang — Resume
 contact: zsenarchitect@gmail.com · 518.618.6150 · New York, NY
 links: senzhang.me · github.com/zsenarchitect
 generated_from: senzhang.me/src/data/resume.ts
-generated_on: 2026-05-04
+generated_on: 2026-05-05
 classification: INTERNAL — auto-generated, do not hand-edit
 ---
 
@@ -13,28 +13,23 @@ Registered Architect in NY · 518.618.6150 · zsenarchitect@gmail.com
 
 ## Summary
 
-Registered NY architect (NCARB) and computational design technologist, 9 years post-Master's. Sole developer behind Ennead's Design Technology stack: EnneadTab — a 450+ tool plugin platform with three U.S. Copyright registrations and 60 daily users across a 160-person firm — plus BimRunner, EnneadTabLLM, FieldDay, AIA-Sustainable-Reporting, and 6 more production tools. Independent work spans a real-estate networking platform (Realm), agentic AI work running small-business operations, and AI-workflow case studies with live SMB operators. Speaker: Advancing Computational Design 2026, Autodesk University 2024, Digital Built Week Americas 2023.
+Registered NY architect (NCARB) and computational design technologist, 9 years post-Master's. Sole developer behind Ennead's Design Technology stack: EnneadTab — a 450+ tool plugin platform with three U.S. Copyright registrations and 60 daily users across a 160-person firm — plus BimRunner, EnneadTabLLM, FieldDay, AIA-Sustainable-Reporting, and 6 more production tools. Independent work spans a real-estate networking platform (Realm) and agent-orchestrated AI operations across multiple live small-business ventures. Speaker: Advancing Computational Design 2026, Autodesk University 2024, Digital Built Week Americas 2023.
 
 ## Experience
 
 ### **Ennead Architects LLP** / Computational BIM Developer{meta:New York, NY · 2022–Present}
-_BIM Manager (concurrent)_{meta:2022–Present}
-_Rhino Doctor (concurrent)_{meta:2022–Present}
 _Architectural Designer, BIM Specialist_{meta:2020–2022}
-- **Computational BIM Developer — sole developer running the Design Technology department for a 160-person firm**
+- **Computational BIM Developer — sole developer running the Design Technology department for a 160-person firm; full-spectrum role spanning platform development, BIM management, and complex-geometry triage**
   - Architect and lead developer of EnneadTab — 450+ tools across Revit, Rhino, CAD, Adobe, Excel, Email, and LLM integration; three U.S. Copyright registrations (2024)
   - BimRunner — Revit project-health analytics dashboard (Next.js 14 + Vercel Postgres); RESTful ingestion + dynamic scoring surfaces model debt before coordination crisis
   - EnneadTabLLM — on-prem Ollama RAG monorepo for HIPAA / data-sovereign clients
   - AIA-Sustainable-Reporting — CRON Excel pipeline + dashboard for AIA 2030 metrics; FieldDay — offline-first PWA for site inspection with PDF spatial pinning
-  - EnneaDuck — pixel-mascot community-engagement system that gamifies internal adoption of design-tech across 150 staff
+  - EnneaDuck — pixel-mascot community-engagement system that gamifies internal adoption of design-tech across 160 staff
+  - BIM management — Healthcare (NE US): NYU Langone, Northwell, Lenox Hill. Commercial (Asia): FTZ Shanghai, ByteDance Houhai HQ, Bilibili HQ
+  - Solution architect for large-model BIM data, complex families; in-house training and mentoring
+  - Rhino-to-Revit interoperability via zero-learning-curve internal tooling; triage of complex parametric and industrial-scale geometry
+  - Speaker: Autodesk University 2024 (San Diego), Advancing Computational Design Conference 2026 (Austin)
   - Fluent in CPython, IronPython, Revit API, RhinoCommon API. Working proficiency in TypeScript / React / Next.js — shipped to production across 8+ personal and firm projects (LLM-assisted). LLM integration via Ollama, OpenAI, Anthropic, MCP
-- **BIM Manager (concurrent)**
-  - Healthcare (NE US): NYU Langone, Northwell, Lenox Hill
-  - Commercial (Asia): FTZ Shanghai, ByteDance Houhai HQ, Bilibili HQ
-  - Solution architect for large-model BIM data, complex families, in-house training and mentoring
-- **Rhino Doctor (concurrent)**
-  - Rhino-to-Revit interoperability via zero-learning-curve internal tooling
-  - Triage of complex parametric and industrial-scale geometry
 
 ### **Arquitectonica** / Designer, BIM Specialist, CG Visualization{meta:New York, NY · 2017–2020}
 - 40 Hudson Yards (NYC office tower); Amazon HQ2 master planning (Chicago); 31 Parliament mid-rise residential tower (Toronto SmartCity)
@@ -42,7 +37,11 @@ _Architectural Designer, BIM Specialist_{meta:2020–2022}
 
 ### **RPI Publication Dept.** / Book-design, Asset Management{meta:Troy, NY · 2016–2017}
 
-### **Terreform ONE** / Research, Design{meta:New York, NY · 2016–2017}
+### **Plasma Studio** / Summer Intern{meta:Beijing, China · Summer 2015}
+
+### **Terreform ONE** / Research, Design{meta:New York, NY · Summer 2014}
+
+### **Ballistic Architecture Machine** / Summer Intern{meta:Beijing, China · Summer 2013}
 
 ## Selected Projects
 
