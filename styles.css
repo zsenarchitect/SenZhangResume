@@ -1807,16 +1807,6 @@ body.loading {
     color: var(--color-black);
 }
 
-/* Mobile responsive header CTA — hide below 480px to free vertical space */
-@media (max-width: 480px) {
-    .site-header__actions { display: none; }
-}
-@media (max-width: 768px) and (min-width: 481px) {
-    .resume-download-link {
-        padding: 6px 12px;
-        font-size: 0.85rem;
-    }
-}
 
 /* Get In Touch CTA row — wrap gracefully on narrow screens */
 .content-item__cta-row {

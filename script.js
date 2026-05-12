@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             segment.setAttribute('aria-expanded', 'false');
         });
         const explicitDefault = document.querySelector('.segment[data-default-expanded]');
-        const worksSegment = document.querySelector('[aria-controls="works-content"]');
+        const worksSegment = document.querySelector('[aria-controls="experience-content"]');
         const target = (explicitDefault || worksSegment || allSegments[0])?.closest('.segment') || allSegments[0];
         if (target && target.querySelector('.segment__content')) {
             target.classList.add('segment--expanded');
@@ -336,18 +336,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 scrollThreshold = isMobile ? 80 : 120;
             }, 100);
         });
-    }
-    
-    // Prevent zoom on double tap (iOS)
-    if (isIOS) {
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function(event) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
     }
     
     // Handle viewport height changes (mobile browsers)
