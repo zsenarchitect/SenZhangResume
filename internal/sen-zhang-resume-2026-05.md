@@ -3,7 +3,7 @@ title: Sen Zhang — Resume
 contact: zsenarchitect@gmail.com · New York, NY
 links: senzhang.me · github.com/zsenarchitect
 generated_from: senzhang.me/src/data/resume.ts
-generated_on: 2026-05-05
+generated_on: 2026-05-17
 classification: INTERNAL — auto-generated, do not hand-edit
 ---
 
@@ -134,3 +134,6 @@ AI-heavy content creation and social-media engagement automation, sold as an ad 
 
 ### **Social-Media Channel: Android App** / Lead Engineer{meta:Ongoing}
 Native Android consumer app focused on intentional social-media consumption. Early-stage / pre-launch.
+
+### **PullRequest-For-Revit** / Developer{meta:2025}
+Built at the AECtech NYC 2025 hackathon. Brings a Git-style pull-request review workflow into Revit, letting a project architect gate changes to key model elements before the rest of the team can sync them to the central model. Records element geometry and metadata to Parquet, diffs the snapshot against the live model, and holds flagged changes for peer approval. C# Revit add-in plus a React/WebView2 frontend with an in-Revit DirectContext3D diff overlay.

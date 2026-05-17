@@ -11,7 +11,7 @@ This folder holds confidential personal strategy documents that are **mirrored a
 > - `senzhang-resume/.github/workflows/deploy.yml` rsync-excludes `internal/`
 > - `senzhang.me/internal/` lives outside `src/` and `public/`, so Next.js never imports it
 >
-> 🛠 **Single-source-of-truth migration in progress** — the resume itself (`sen-zhang-resume-*.md` and `Resume.pdf`) is now driven from a single canonical source: `senzhang.me/src/data/resume.ts` → `senzhang.me/scripts/build-resume.mjs` regenerates the MD into `senzhang-resume/internal/` and the PDF into `senzhang-resume/Resume.pdf`. Edit `resume.ts` only; run the script to propagate.
+> 🛠 **Single-source-of-truth migration in progress** — the resume itself (`sen-zhang-resume-*.md` and `Sen Zhang Resume.pdf`) is now driven from a single canonical source: `senzhang.me/src/data/resume.ts` → `senzhang.me/scripts/build-resume.mjs` regenerates the MD into `senzhang-resume/internal/` and the PDF into `senzhang-resume/Sen Zhang Resume.pdf`. Edit `resume.ts` only; run the script to propagate.
 >
 > Strategy docs (HR negotiation brief, etc.) remain manually mirrored until they earn a generator of their own.
 
